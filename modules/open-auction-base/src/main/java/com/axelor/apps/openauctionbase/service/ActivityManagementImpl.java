@@ -60,6 +60,7 @@ public class ActivityManagementImpl implements ActivityManagement {
     MissionHeader lMission = pIsAuction ? pAuctionHeader.getMissionNo() : pMissionHeader;
 
     // TODO pActivityHeader.TestUsage(lDate);
+    //test commit Alyssa
 
     for (ActivityLine line : pActivityHeader.getActivityLineList()) {
       lLineToTreat = false;
