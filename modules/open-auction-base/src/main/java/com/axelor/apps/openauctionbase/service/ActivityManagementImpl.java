@@ -62,6 +62,8 @@ public class ActivityManagementImpl implements ActivityManagement {
     // TODO pActivityHeader.TestUsage(lDate);
     //test commit Alyssa
 
+    //efzfzezf
+
     for (ActivityLine line : pActivityHeader.getActivityLineList()) {
       lLineToTreat = false;
       if (line.getTodoCondition() == null || !line.getTodoCondition().equals("")) {
