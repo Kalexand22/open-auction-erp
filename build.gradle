@@ -108,4 +108,11 @@ task checkCsvEOL(type: CheckEOLCharsInCsv) {
   }
 }
 
+run {
+    debugOptions {
+        port = Integer.valueOf(findProperty('debugPort') ?: 5005)
+        suspend = true 
+    }
+}
+
 build.finalizedBy archiveReports

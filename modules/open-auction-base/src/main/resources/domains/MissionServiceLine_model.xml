@@ -45,7 +45,7 @@
     <many-to-one name="unitofMeasureCode" title="Code unité de mesure"
       ref="com.axelor.apps.base.db.Unit"/>
     <string name="invoicingType" title="Type facturation"
-      selection="openauction.invoicingType.select.missionserviceline"/>
+      selection="openauction.invoicingType.select.product"/>
     <string name="commissionType" title="Type honoraire"
       selection="openauction.commissionType.select"/>
     <string name="contactImputationType" title="Type imputation contact"
@@ -53,7 +53,7 @@
     <string name="lotImputationType" title="Type imputation lot"
       selection="openauction.lotImputationType.select"/>
     <string name="serviceType" title="Type prestation"
-      selection="openauction.serviceType.select.missionserviceline"/>
+      selection="openauction.serviceType.select.product"/>
     <string name="imputationBase" title="Base Imputation"
       selection="openauction.imputationBase.select"/>
     <boolean name="chargeable" title="Facturable"/>

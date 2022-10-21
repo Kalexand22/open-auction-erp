@@ -267,12 +267,14 @@ public class ActivityManagementImpl implements ActivityManagement {
       lMissionServiceLine =
           missionServiceLineValidate.validateTransactionLineNo(
               lMissionServiceLine, pTransactionLineNo);
+
       lMissionServiceLine =
           missionServiceLineValidate.validateType(
               lMissionServiceLine, lMissionServiceTemplateLine.getType());
       lMissionServiceLine =
-          missionServiceLineValidate.validateNo(
+          missionServiceLineValidate.validateProductNo(
               lMissionServiceLine, lMissionServiceTemplateLine.getProduct());
+
       lMissionServiceLine =
           missionServiceLineValidate.validateChargeableContactNo(lMissionServiceLine, pContact);
       lMissionServiceLine =
@@ -285,6 +287,7 @@ public class ActivityManagementImpl implements ActivityManagement {
       if (lMissionServiceTemplateLine.getUnitOfMeasure() != null) {
         lMissionServiceLine.setUnitofMeasureCode(lMissionServiceTemplateLine.getUnitOfMeasure());
       }
+
       lMissionServiceLine.setMisServiceTemplateCode(
           lMissionServiceTemplateLine.getServiceTemplateCode());
       lMissionServiceLine =

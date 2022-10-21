@@ -141,7 +141,7 @@
   <selection name="openauction.contactType.select">
     <option value="Empty0">
     </option>
-    <option value="Companies1">Sociétés</option> 
+    <option value="Companies1">Sociétés</option>
     <option value="People2">Personnes</option>
   </selection>
 
@@ -981,11 +981,7 @@
     <option value="Mission1">Mission</option>
     <option value="Segment2">Segment</option>
   </selection>
-  <selection name="openauction.serviceType.select.missionserviceline">
-    <option value="Commission">Honoraire</option>
-    <option value="Expense">Débours</option>
-    <option value="AuctionBid">Adjudication</option>
-  </selection>
+
   <selection name="openauction.notificationType.select">
     <option value="Signed0">Signé</option>
     <option value="Attributedto1">Attribué à</option>
@@ -1024,11 +1020,6 @@
     <option value="AdjFeesOutlay0">Tout en achat</option>
     <option value="AdjFees1">Adj. Hono. en achat et Deb. en vente</option>
     <option value="Adj2">Adj. en achat et Hono. Deb. en vente</option>
-  </selection>
-  <selection name="openauction.invoicingType.select.missionserviceline">
-    <option value="Billable">Facturable</option>
-    <option value="BillableOnBid">Facturable si adjudication</option>
-    <option value="Unbillable">Non facturable</option>
   </selection>
   <selection name="openauction.inventoryServiceCalc.select">
     <option value="OnOperating0">Sur exploitation</option>
@@ -2078,10 +2069,6 @@
     <option value="BillableonBid1">Facturable si adjudication</option>
     <option value="Unbillable2">Non facturable</option>
   </selection>
-  <selection name="openauction.commissionType.select.product">
-    <option value="General0">Général</option>
-    <option value="LotSpecific1">Spécifique lot</option>
-  </selection>
   <selection name="openauction.contactImputationType.select.product">
     <option value="Seller0">Vendeur</option>
     <option value="Buyer1">Acheteur</option>
@@ -2101,10 +2088,6 @@
     <option value="Auction0">Vente</option>
     <option value="Mission1">Mission</option>
     <option value="Segment2">Segment</option>
-  </selection>
-  <selection name="openauction.imputationBase.select.product">
-    <option value="Quantity0">Quantité</option>
-    <option value="BidPrice1">Valeur adjudication</option>
   </selection>
   <selection name="openauction.baseCalcBeforeAuction.select.product">
     <option value="ReservePrice0">Prix de réserve</option>

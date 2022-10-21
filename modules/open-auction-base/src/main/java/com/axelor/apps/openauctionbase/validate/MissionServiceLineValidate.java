@@ -125,9 +125,11 @@ public class MissionServiceLineValidate {
   //// >> AP19 isat.SF//*/
   public MissionServiceLine validateAuctionNo(
       MissionServiceLine missionServiceLine, AuctionHeader auctionNo) throws AxelorException {
-        
+
     missionServiceLine.setAuctionNo(auctionNo);
-    if(auctionNo == null)  {return missionServiceLine;}
+    if (auctionNo == null) {
+      return missionServiceLine;
+    }
     missionServiceLine.setAuctionTemplateCode(auctionNo.getAuctionTemplate());
     missionServiceLine.setAuctionInclVAT(auctionNo.getPricesIncludingVAT());
     if (missionServiceLine
@@ -175,6 +177,9 @@ public class MissionServiceLineValidate {
   public MissionServiceLine validateLotNo(MissionServiceLine missionServiceLine, Lot lot)
       throws AxelorException {
     missionServiceLine.setLotNo(lot);
+    if (lot == null) {
+      return missionServiceLine;
+    }
     missionServiceLine.setLotTemplateCode(lot.getLotTemplateCode());
     missionServiceLine.setResponsibilityCenter(lot.getResponsibilityCenter());
     missionServiceLine = this.GetMissVATBus(missionServiceLine);
@@ -189,7 +194,8 @@ public class MissionServiceLineValidate {
       missionServiceLine.setAuctionLotPriceGroup(lot.getLotAuctionPriceGroup());
     }
     if (missionServiceLine.getProductNo() != null) {
-      missionServiceLine = this.validateNo(missionServiceLine, missionServiceLine.getProductNo());
+      missionServiceLine =
+          this.validateProductNo(missionServiceLine, missionServiceLine.getProductNo());
     }
     return missionServiceLine;
   }
@@ -215,11 +221,13 @@ public class MissionServiceLineValidate {
   //  END;
   // END;
   // VALIDATE("VAT Prod. Posting Group");//*/
-  public MissionServiceLine validateNo(MissionServiceLine missionServiceLine, Product productNo)
-      throws AxelorException {
-    
+  public MissionServiceLine validateProductNo(
+      MissionServiceLine missionServiceLine, Product productNo) throws AxelorException {
+
     missionServiceLine.setProductNo(productNo);
-    if (productNo == null)  {return missionServiceLine;}
+    if (productNo == null) {
+      return missionServiceLine;
+    }
     missionServiceLine.setDescription(productNo.getDescription());
     if (missionServiceLine.getAuctionBid()) {
       missionServiceLine.setInvoicingType(MissionServiceLineRepository.INVOICINGTYPE_BILLABLEONBID);
@@ -229,17 +237,21 @@ public class MissionServiceLineValidate {
       missionServiceLine.setInvoicingType(productNo.getInvoicingType());
     }
 
-    if (productNo.getUseProductFamilyLot()) {
+    if (productNo.getUseProductFamilyLot() && missionServiceLine.getLotNo() != null) {
       missionServiceLine.setProductFamily(missionServiceLine.getLotNo().getAuctionProductFamily());
     } else {
       missionServiceLine.setProductFamily(productNo.getProductFamily());
     }
+
     missionServiceLine.setCommissionType(productNo.getCommissionType());
+
     missionServiceLine =
         this.validateContactImputationType(
             missionServiceLine, productNo.getContactImputationType());
+
     missionServiceLine.setServiceType(productNo.getServiceType());
     missionServiceLine.setImputationBase(productNo.getImputationBase());
+
     missionServiceLine.setAppreciation(productNo.getValueAddedItem());
     missionServiceLine =
         this.validateUnitOfMeasureCode(missionServiceLine, productNo.getSalesUnit());
@@ -564,9 +576,14 @@ public class MissionServiceLineValidate {
         // TODO : MissServLineTools.AllowChargeableContactChange(Rec,TRUE);
       }
     }*/
-    missionServiceLine.setChargeableContactNo(chargeableContactNo);
+    /*
     if (chargeableContactNo == null)
+    {
+      missionServiceLine.setChargeableContactNo(null);
       return missionServiceLine;
+    }
+
+    missionServiceLine.setChargeableContactNo(chargeableContactNo);
     if (missionServiceLine
         .getTransactionType()
         .equals(MissionServiceLineRepository.TRANSACTIONTYPE_MISSION)) {
@@ -576,10 +593,16 @@ public class MissionServiceLineValidate {
       missionServiceLine.setAuctionContactPriceGroup(
           missionServiceLine.getChargeableContactNo().getContactAuctionPriceGroup());
     }
+
+
     if (missionServiceLine
         .getContactImputationType()
         .equals(MissionServiceLineRepository.CONTACTIMPUTATIONTYPE_BUYER)) {
-      if (!missionServiceLine
+
+      if (missionServiceLine.getChargeableContactNo() == null
+          || missionServiceLine.getChargeableContactNo().getFiscalPosition() == null) {
+        missionServiceLine.setBuyerFiscalPosition(null);
+      } else if (!missionServiceLine
           .getBuyerFiscalPosition()
           .equals(missionServiceLine.getChargeableContactNo().getFiscalPosition())) {
         missionServiceLine.setBuyerFiscalPosition(
@@ -598,6 +621,7 @@ public class MissionServiceLineValidate {
             this.validateMissionNo(missionServiceLine, missionServiceLine.getMissionNo());
       }
     }
+    */
     return missionServiceLine;
   }
 
@@ -760,6 +784,10 @@ public class MissionServiceLineValidate {
   public MissionServiceLine validateContactImputationType(
       MissionServiceLine missionServiceLine, String contactImputationType) throws AxelorException {
     missionServiceLine.setContactImputationType(contactImputationType);
+    if (contactImputationType == null) {
+      return missionServiceLine;
+    }
+
     Partner newContactNo = new Partner();
     switch (missionServiceLine.getContactImputationType()) {
       case MissionServiceLineRepository.CONTACTIMPUTATIONTYPE_SELLER:
@@ -784,6 +812,7 @@ public class MissionServiceLineValidate {
     if (!newContactNo.equals(missionServiceLine.getChargeableContactNo())) {
       missionServiceLine = this.validateChargeableContactNo(missionServiceLine, newContactNo);
     }
+
     return missionServiceLine;
   }
 
