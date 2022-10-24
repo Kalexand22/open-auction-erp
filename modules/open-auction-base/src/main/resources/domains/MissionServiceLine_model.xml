@@ -12,10 +12,11 @@
     <many-to-one name="lotNo" title="N° lot" ref="com.axelor.apps.openauction.db.Lot"/>
     <many-to-one name="productNo" title="N° lot" ref="com.axelor.apps.base.db.Product"/>
     <string name="transactionType" title="Type de transaction"
-      selection="openauction.transactionType.select"/>
+      selection="openauction.transactionType.select" default="Mission0"/>
     <long name="documentNo" title="N° de document"/>
     <integer name="transactionLineNo" title="N° ligne transaction"/>
-    <string name="type" title="Type" selection="openauction.type.select.servicetemplateline"/>
+    <string name="type" title="Type" selection="openauction.type.select.servicetemplateline"
+      default="Service0"/>
     <string name="description" title="Désignation"/>
     <decimal name="quantity" title="Quantité"/>
     <decimal name="qtytoInvoice" title="Qté à facturer"/>

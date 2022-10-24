@@ -171,7 +171,7 @@ public class MissionLineValidate {
         lotValueEntryRepository
             .all()
             .filter(
-                "self.lot = ?1 AND ( self.entryType = ?2 OR  self.entryType = ?3 ) AND self.replaced = false",
+                "self.lotNo = ?1 AND ( self.entryType = ?2 OR  self.entryType = ?3 ) AND self.replaced = false",
                 missionLine.getNoLot(),
                 LotValueJournalRepository.ENTRYTYPE_ESTIMATE0,
                 LotValueJournalRepository.ENTRYTYPE_APPRAISAL2)
@@ -188,7 +188,7 @@ public class MissionLineValidate {
         lotValueEntryRepository
             .all()
             .filter(
-                "self.lot = ?1 AND ( self.entryType = ?2 ) AND self.replaced = false",
+                "self.lotNo = ?1 AND ( self.entryType = ?2 ) AND self.replaced = false",
                 missionLine.getNoLot(),
                 LotValueJournalRepository.ENTRYTYPE_RESERVEPRICE5)
             .fetchOne();
@@ -201,7 +201,7 @@ public class MissionLineValidate {
         lotValueEntryRepository
             .all()
             .filter(
-                "self.lot = ?1 AND ( self.entryType = ?2 ) AND self.replaced = false",
+                "self.lotNo = ?1 AND ( self.entryType = ?2 ) AND self.replaced = false",
                 missionLine.getNoLot(),
                 LotValueJournalRepository.ENTRYTYPE_RESERVEPRICE5)
             .fetchOne();

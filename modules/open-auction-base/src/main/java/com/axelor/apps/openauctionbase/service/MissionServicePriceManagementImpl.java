@@ -28,6 +28,7 @@ import com.axelor.exception.db.repo.TraceBackRepository;
 import com.axelor.inject.Beans;
 import com.google.inject.Inject;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -105,6 +106,15 @@ public class MissionServicePriceManagementImpl implements MissionServicePriceMan
     missionServiceLineValidate = Beans.get(MissionServiceLineValidate.class);
     this.missionLineRepository = missionLineRepository;
     this.missionServiceLineRepository = missionServiceLineRepository;
+    tempAccesBufferList = new ArrayList<AccesBuffer>();
+    lUseJudicialTariff = false;
+    lPriceFactor = BigDecimal.ZERO;
+    lBaseFactor = BigDecimal.ZERO;
+    baseAmount = BigDecimal.ZERO;
+    isApplyOnBidPrice = false;
+    hideDialog = false;
+    lJudInvCalculated = false;
+    lTariffFound = false;
   }
 
   /*
@@ -358,7 +368,7 @@ public class MissionServicePriceManagementImpl implements MissionServicePriceMan
   public MissionServiceLine findMissionServicePrice(
       MissionServiceLine pMissionServiceLine, Boolean pEstimated) throws AxelorException {
 
-    if (pMissionServiceLine.getType() == MissionServiceLineRepository.TYPE_SERVICE) {
+    if (pMissionServiceLine.getType().equals(MissionServiceLineRepository.TYPE_SERVICE)) {
       if (pMissionServiceLine.getFixedAmount()) {
         return pMissionServiceLine;
       }
@@ -376,84 +386,86 @@ public class MissionServicePriceManagementImpl implements MissionServicePriceMan
         pMissionServiceLine = applyTariff(pMissionServiceLine, pEstimated);
       } else {
         pMissionServiceLine = calcWhenNoTariff(pMissionServiceLine);
-      }
-      baseAmount = baseAmount.abs();
-      pMissionServiceLine.setReferenceAmount(baseAmount.multiply(lBaseFactor));
-      if (!lJudInvCalculated) {
-        // TODO pMissionServiceLine.setPriceIncludesVat(product.getPriceIncludesVat());
-      }
 
-      if (product.getSalePrice() != BigDecimal.ZERO) {
-        pMissionServiceLine.setCalculationType(
-            MissionServicePriceRepository.CALCULATIONTYPE_UNITPRICE);
-        pMissionServiceLine =
-            missionServiceLineValidate.validateUnitPrice(
-                pMissionServiceLine, product.getSalePrice().multiply(lPriceFactor));
+        baseAmount = baseAmount.abs();
+        pMissionServiceLine.setReferenceAmount(baseAmount.multiply(lBaseFactor));
+        if (lJudInvCalculated == null || !lJudInvCalculated) {
+          // TODO pMissionServiceLine.setPriceIncludesVat(product.getPriceIncludesVat());
+        }
 
-        tempAccesBuffer = new AccesBuffer();
-        tempAccesBuffer.setCode("Prix unitaire");
-        tempAccesBuffer.setDecimal1(BigDecimal.ZERO);
-        tempAccesBuffer.setDecimal2(BigDecimal.ZERO);
-        tempAccesBuffer.setDecimal3(pMissionServiceLine.getReferenceAmount());
-        tempAccesBuffer.setDecimal4(BigDecimal.ZERO);
-        tempAccesBuffer.setDecimal5(pMissionServiceLine.getUnitPrice());
-        tempAccesBuffer.setDecimal6(pMissionServiceLine.getUnitPrice());
-        tempAccesBufferList.add(tempAccesBuffer);
-        pMissionServiceLine.setServicePercent(BigDecimal.ZERO);
-      } else if (product.getServicePercent() != BigDecimal.ZERO) {
-        pMissionServiceLine.setCalculationType(
-            MissionServicePriceRepository.CALCULATIONTYPE_SERVICE);
-        pMissionServiceLine =
-            missionServiceLineValidate.validateUnitPrice(
-                pMissionServiceLine,
-                pMissionServiceLine
-                    .getReferenceAmount()
-                    .multiply(product.getServicePercent().divide(new BigDecimal(100)))
-                    .multiply(lPriceFactor));
-        pMissionServiceLine.setServicePercent(product.getServicePercent().multiply(lPriceFactor));
-        tempAccesBuffer = new AccesBuffer();
-        tempAccesBuffer.setCode("Commission");
-        tempAccesBuffer.setDecimal1(BigDecimal.ZERO);
-        tempAccesBuffer.setDecimal2(BigDecimal.ZERO);
-        tempAccesBuffer.setDecimal3(pMissionServiceLine.getReferenceAmount());
-        tempAccesBuffer.setDecimal4(product.getServicePercent().multiply(lPriceFactor));
-        tempAccesBuffer.setDecimal5(
-            pMissionServiceLine
-                .getReferenceAmount()
-                .multiply(product.getServicePercent().divide(new BigDecimal(100)))
-                .multiply(lPriceFactor));
-        tempAccesBuffer.setDecimal6(
-            pMissionServiceLine
-                .getReferenceAmount()
-                .multiply(product.getServicePercent().divide(new BigDecimal(100)))
-                .multiply(lPriceFactor));
-        tempAccesBufferList.add(tempAccesBuffer);
-      } else if (product.getTariffScale() != null) {
-        if (!lJudInvCalculated) {
+        if (product.getSalePrice().compareTo(BigDecimal.ZERO) != 0) {
           pMissionServiceLine.setCalculationType(
-              MissionServicePriceRepository.CALCULATIONTYPE_COMMISSIONSCALE);
-          tariffScale = product.getTariffScale();
-          List<AccesBuffer> accesBuffersList =
-              getTariffScaleAmount(pMissionServiceLine.getReferenceAmount(), tariffScale);
-          BigDecimal lTempAmount = BigDecimal.ZERO;
-          for (AccesBuffer lAccesBuffer : accesBuffersList) {
-            if (accesBuffersList != null) {
-              lTempAmount = lTempAmount.add(lAccesBuffer.getDecimal5());
-            }
-          }
+              MissionServicePriceRepository.CALCULATIONTYPE_UNITPRICE);
           pMissionServiceLine =
               missionServiceLineValidate.validateUnitPrice(
-                  pMissionServiceLine, lTempAmount.multiply(lPriceFactor));
+                  pMissionServiceLine, product.getSalePrice().multiply(lPriceFactor));
+
+          tempAccesBuffer = new AccesBuffer();
+          tempAccesBuffer.setCode("Prix unitaire");
+          tempAccesBuffer.setDecimal1(BigDecimal.ZERO);
+          tempAccesBuffer.setDecimal2(BigDecimal.ZERO);
+          tempAccesBuffer.setDecimal3(pMissionServiceLine.getReferenceAmount());
+          tempAccesBuffer.setDecimal4(BigDecimal.ZERO);
+          tempAccesBuffer.setDecimal5(pMissionServiceLine.getUnitPrice());
+          tempAccesBuffer.setDecimal6(pMissionServiceLine.getUnitPrice());
+          tempAccesBufferList.add(tempAccesBuffer);
+          pMissionServiceLine.setServicePercent(BigDecimal.ZERO);
+        } else if (product.getServicePercent().compareTo(BigDecimal.ZERO) != 0) {
+          pMissionServiceLine.setCalculationType(
+              MissionServicePriceRepository.CALCULATIONTYPE_SERVICE);
+          pMissionServiceLine =
+              missionServiceLineValidate.validateUnitPrice(
+                  pMissionServiceLine,
+                  pMissionServiceLine
+                      .getReferenceAmount()
+                      .multiply(product.getServicePercent().divide(new BigDecimal(100)))
+                      .multiply(lPriceFactor));
+          pMissionServiceLine.setServicePercent(product.getServicePercent().multiply(lPriceFactor));
+          tempAccesBuffer = new AccesBuffer();
+          tempAccesBuffer.setCode("Commission");
+          tempAccesBuffer.setDecimal1(BigDecimal.ZERO);
+          tempAccesBuffer.setDecimal2(BigDecimal.ZERO);
+          tempAccesBuffer.setDecimal3(pMissionServiceLine.getReferenceAmount());
+          tempAccesBuffer.setDecimal4(product.getServicePercent().multiply(lPriceFactor));
+          tempAccesBuffer.setDecimal5(
+              pMissionServiceLine
+                  .getReferenceAmount()
+                  .multiply(product.getServicePercent().divide(new BigDecimal(100)))
+                  .multiply(lPriceFactor));
+          tempAccesBuffer.setDecimal6(
+              pMissionServiceLine
+                  .getReferenceAmount()
+                  .multiply(product.getServicePercent().divide(new BigDecimal(100)))
+                  .multiply(lPriceFactor));
+          tempAccesBufferList.add(tempAccesBuffer);
+        } else if (product.getTariffScale() != null) {
+          if (!lJudInvCalculated) {
+            pMissionServiceLine.setCalculationType(
+                MissionServicePriceRepository.CALCULATIONTYPE_COMMISSIONSCALE);
+            tariffScale = product.getTariffScale();
+            List<AccesBuffer> accesBuffersList =
+                getTariffScaleAmount(pMissionServiceLine.getReferenceAmount(), tariffScale);
+            BigDecimal lTempAmount = BigDecimal.ZERO;
+            for (AccesBuffer lAccesBuffer : accesBuffersList) {
+              if (accesBuffersList != null) {
+                lTempAmount = lTempAmount.add(lAccesBuffer.getDecimal5());
+              }
+            }
+            pMissionServiceLine =
+                missionServiceLineValidate.validateUnitPrice(
+                    pMissionServiceLine, lTempAmount.multiply(lPriceFactor));
+            pMissionServiceLine.setServicePercent(BigDecimal.ZERO);
+          }
+        } else {
+          pMissionServiceLine =
+              missionServiceLineValidate.validateUnitPrice(pMissionServiceLine, BigDecimal.ZERO);
           pMissionServiceLine.setServicePercent(BigDecimal.ZERO);
         }
-      } else {
-        pMissionServiceLine =
-            missionServiceLineValidate.validateUnitPrice(pMissionServiceLine, BigDecimal.ZERO);
-        pMissionServiceLine.setServicePercent(BigDecimal.ZERO);
+
+        pMissionServiceLine.setEstimatedValue(pEstimated);
+        pMissionServiceLine = checkAmount(pMissionServiceLine, missionServicePrice, product);
+        pMissionServiceLine = VATConvert(product, pMissionServiceLine);
       }
-      pMissionServiceLine.setEstimatedValue(pEstimated);
-      pMissionServiceLine = checkAmount(pMissionServiceLine, missionServicePrice, product);
-      VATConvert(product, pMissionServiceLine);
     }
     return pMissionServiceLine;
   }
@@ -573,7 +585,7 @@ public class MissionServicePriceManagementImpl implements MissionServicePriceMan
     }
     pMissionServiceLine.setEstimatedValue(pEstimated);
     pMissionServiceLine = checkAmount(pMissionServiceLine, missionServicePrice, product);
-    VATConvert(product, pMissionServiceLine);
+    pMissionServiceLine = VATConvert(product, pMissionServiceLine);
 
     return pMissionServiceLine;
   }
@@ -741,8 +753,9 @@ public class MissionServicePriceManagementImpl implements MissionServicePriceMan
     if (product2.getCheckChargeAmountRange()
             == ProductRepository.CHECKCHARGEAMOUNTRANGE_BEFOREBIDDING
         && isApplyOnBidPrice) return pMissionServiceLine;
-    if (missionServicePrice2.getMinimumChargeAmount().compareTo(BigDecimal.ZERO) != 0
-        || missionServicePrice2.getMaximumChargeAmount().compareTo(BigDecimal.ZERO) != 0) {
+    if (missionServicePrice2 != null
+        && (missionServicePrice2.getMinimumChargeAmount().compareTo(BigDecimal.ZERO) != 0
+            || missionServicePrice2.getMaximumChargeAmount().compareTo(BigDecimal.ZERO) != 0)) {
 
       if (priceRangeChange(
           pMissionServiceLine.getUnitPrice(),
@@ -829,7 +842,7 @@ public class MissionServicePriceManagementImpl implements MissionServicePriceMan
            END;
   */
   private Boolean findServicePrice(MissionServiceLine pMissionServiceLine) throws AxelorException {
-    if (!lUseJudicialTariff) {
+    if (lUseJudicialTariff == null || !lUseJudicialTariff) {
       return findServicePrice(
           pMissionServiceLine.getProductNo(),
           pMissionServiceLine.getMissionTemplateCode(),
@@ -951,32 +964,34 @@ public class MissionServicePriceManagementImpl implements MissionServicePriceMan
       throws AxelorException {
     MissionServicePriceRepository missionServicePriceRepo =
         Beans.get(MissionServicePriceRepository.class);
-    String filter = "self.product = :product ";
-    filter += " AND self.startingDate <= :priceDate";
-    filter += " AND ( self.endingDate is null OR self.endingDate >= :priceDate )";
-    if (checkRespCenter) {
-      filter += " AND self.responsibilityCenter = :responsibilityCenter";
-    } else {
-      filter +=
-          " AND ( self.responsibilityCenter is null OR self.responsibilityCenter = :responsibilityCenter)";
-    }
-    if (missionTemplateCode == null) {
-      filter += " AND self.missionType <> :missionType ";
-    }
-    filter +=
-        " AND ( (self.missionHeader is null AND self.missionTemplate is null ) OR self.missionHeader = :missionNo OR self.missionTemplate = :missionTemplateCode ) ";
-    if (lotPriceGroup == null) {
-      filter += " AND self.lotType <> :lotType ";
-    }
-    filter +=
-        " AND ((self.lot is null AND self.lotPriceGroup is null) OR self.lot = :lotCode OR self.lotPriceGroup = :lotPriceGroup) ";
-    if (contactPriceGroup == null) {
-      filter += " AND self.contactType <> :contactType ";
-    }
-    filter +=
-        " AND ((self.contact is null AND self.contactPriceGroup is null) OR self.contact = :contactCode OR self.contactPriceGroup = :contactPriceGroup) ";
-    filter += " AND self.minimumBaseAmount <= :baseAmount ";
+    String filter = "self.itemNo = :product ";
+    /*
+        filter += " AND self.startingDate <= :priceDate";
+        filter += " AND ( self.endingDate is null OR self.endingDate >= :priceDate )";
+        if (checkRespCenter) {
+          filter += " AND self.responsibilityCenter = :responsibilityCenter";
+        } else {
+          filter +=
+              " AND ( self.responsibilityCenter is null OR self.responsibilityCenter = :responsibilityCenter)";
+        }
 
+        if (missionTemplateCode == null) {
+          filter += " AND self.missionType <> :missionType ";
+        }
+        filter +=
+            " AND ( (self.missionHeader is null AND self.missionTemplate is null ) OR self.missionHeader = :missionNo OR self.missionTemplate = :missionTemplateCode ) ";
+        if (lotPriceGroup == null) {
+          filter += " AND self.lotType <> :lotType ";
+        }
+        filter +=
+            " AND ((self.lot is null AND self.lotPriceGroup is null) OR self.lot = :lotCode OR self.lotPriceGroup = :lotPriceGroup) ";
+        if (contactPriceGroup == null) {
+          filter += " AND self.contactType <> :contactType ";
+        }
+        filter +=
+            " AND ((self.contact is null AND self.contactPriceGroup is null) OR self.contact = :contactCode OR self.contactPriceGroup = :contactPriceGroup) ";
+        filter += " AND self.minimumBaseAmount <= :baseAmount ";
+    */
     getLotAmount(missionNo, lotNo);
     List<MissionServicePrice> missionServicePriceList =
         missionServicePriceRepo
@@ -996,7 +1011,7 @@ public class MissionServicePriceManagementImpl implements MissionServicePriceMan
             .bind("contactPriceGroup", contactPriceGroup)
             .bind("contactCode", contact)
             .bind("baseAmount", baseAmount)
-            .order("self.pricePriority")
+            .order("pricePriority")
             .fetch();
 
     for (MissionServicePrice lMissionServicePrice : missionServicePriceList) {
@@ -1210,7 +1225,7 @@ public class MissionServicePriceManagementImpl implements MissionServicePriceMan
         missionLineRepository
             .all()
             .filter(
-                "self.missionHeader = ?1 AND self.type = ?2 AND self.lot = ?3",
+                "self.missionNo = ?1 AND self.type = ?2 AND self.noLot = ?3",
                 pMissionHeaderNo,
                 MissionLineRepository.TYPE_LOT,
                 pLotNo)
@@ -1229,9 +1244,11 @@ public class MissionServicePriceManagementImpl implements MissionServicePriceMan
       estimatedMinAmount = lMissionLine.getEstimateMinValue();
       estimatedMaxAmount = lMissionLine.getEstimateMaxValue();
 
-      bidPriceInclVAT = lMissionServiceLine.getAmountInclVAT();
-      bidPrice = lMissionServiceLine.getAmount();
-      bidReferenceAmount = lMissionServiceLine.getReferenceAmount();
+      if (lMissionServiceLine != null) {
+        bidPriceInclVAT = lMissionServiceLine.getAmountInclVAT();
+        bidPrice = lMissionServiceLine.getAmount();
+        bidReferenceAmount = lMissionServiceLine.getReferenceAmount();
+      }
     }
     if (isApplyOnBidPrice) {
       switch (product.getBaseCalcAfterAuction()) {
@@ -1465,10 +1482,64 @@ public class MissionServicePriceManagementImpl implements MissionServicePriceMan
     return null;
   }
 
-  @Override
-  public void VATConvert(Product pItem, MissionServiceLine pMissServLine) {
-    // TODO Auto-generated method stub
+  /*
+  * PROCEDURE VATConvert@1180113000(pItem@1180113000 : Record 27;VAR pMissServLine@1180113002 : Record 8011449);
+   VAR
+     lVATFactor@1180113004 : Decimal;
+     lVATPostingSetup@1180113006 : TEMPORARY Record 325;
+     lVATPostingSetup2@1180113007 : TEMPORARY Record 325;
+     lAPPostingSetup@1180113008 : Codeunit 8011670;
+     lTempMissServLine@1180113003 : TEMPORARY Record 8011449;
+   BEGIN
+     //AP16.ST
+     IF (pItem."VAT Bus. Posting Gr. (Price)" = '') OR
+        (NOT pMissServLine."Price Includes VAT") THEN
+       EXIT;
+     lTempMissServLine := pMissServLine;
+     WITH lTempMissServLine DO BEGIN
+       SetSkipChangeCheck(TRUE);
+       CASE "Contact Imputation Type" OF
+         "Contact Imputation Type"::Seller :
+           IF "Seller VAT Bus. Posting Group" = pItem."VAT Bus. Posting Gr. (Price)" THEN
+             EXIT
+           ELSE
+             VALIDATE("Seller VAT Bus. Posting Group", pItem."VAT Bus. Posting Gr. (Price)");
+         "Contact Imputation Type"::Buyer :
+           IF "Buyer VAT Bus. Posting Group" = pItem."VAT Bus. Posting Gr. (Price)" THEN
+             EXIT
+           ELSE
+             VALIDATE("Buyer VAT Bus. Posting Group", pItem."VAT Bus. Posting Gr. (Price)");
+         ELSE
+           EXIT;
+       END; //CASE
+     END;
 
+     IF pMissServLine."VAT Calculation Type" = pMissServLine."VAT Calculation Type"::"Reverse Charge VAT" THEN
+       lVATFactor := 1 / (1 + lTempMissServLine."VAT %" / 100)
+     ELSE
+       lVATFactor := (100 + pMissServLine."VAT %") / (100 + lTempMissServLine."VAT %");
+
+     IF lVATFactor = 1 THEN
+       EXIT;
+
+     // Modification du prix unitaire ou  %
+     WITH pMissServLine DO BEGIN
+       CASE "Calculation Type" OF
+         "Calculation Type"::UnitPrice, "Calculation Type"::"Commission Scale" :
+           VALIDATE("Unit Price", "Unit Price" * lVATFactor);
+         "Calculation Type"::"Service%" : BEGIN
+           "Service %" := "Service %" * lVATFactor;
+           VALIDATE("Unit Price", "Unit Price" * lVATFactor);
+         END;
+       END; // case
+     END; //WITH
+   END;
+  */
+  @Override
+  public MissionServiceLine VATConvert(Product pItem, MissionServiceLine pMissServLine) {
+    // TODO à finir
+
+    return pMissServLine;
   }
 
   @Override

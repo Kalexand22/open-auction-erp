@@ -82,7 +82,7 @@ public interface MissionServicePriceManagement {
   public Date getPriceDate(MissionServiceLine pMissServLine);
   // PROCEDURE VATConvert@1180113000(pItem@1180113000 : Record 27;VAR pMissServLine@1180113002 :
   // Record 8011449);
-  public void VATConvert(Product pItem, MissionServiceLine pMissServLine);
+  public MissionServiceLine VATConvert(Product pItem, MissionServiceLine pMissServLine);
   // PROCEDURE SetHideDialog@1180113001(pHideDialog@1180113000 : Boolean);
 
   // PROCEDURE GetSellerComByAuctionLine@1180113002(VAR pAuctionLine@1180113000 : Record 8011401;VAR

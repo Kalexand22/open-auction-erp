@@ -576,13 +576,11 @@ public class MissionServiceLineValidate {
         // TODO : MissServLineTools.AllowChargeableContactChange(Rec,TRUE);
       }
     }*/
-    /*
-    if (chargeableContactNo == null)
-    {
+
+    if (chargeableContactNo == null) {
       missionServiceLine.setChargeableContactNo(null);
       return missionServiceLine;
     }
-
     missionServiceLine.setChargeableContactNo(chargeableContactNo);
     if (missionServiceLine
         .getTransactionType()
@@ -593,7 +591,6 @@ public class MissionServiceLineValidate {
       missionServiceLine.setAuctionContactPriceGroup(
           missionServiceLine.getChargeableContactNo().getContactAuctionPriceGroup());
     }
-
 
     if (missionServiceLine
         .getContactImputationType()
@@ -621,7 +618,7 @@ public class MissionServiceLineValidate {
             this.validateMissionNo(missionServiceLine, missionServiceLine.getMissionNo());
       }
     }
-    */
+
     return missionServiceLine;
   }
 
@@ -788,7 +785,7 @@ public class MissionServiceLineValidate {
       return missionServiceLine;
     }
 
-    Partner newContactNo = new Partner();
+    Partner newContactNo = null;
     switch (missionServiceLine.getContactImputationType()) {
       case MissionServiceLineRepository.CONTACTIMPUTATIONTYPE_SELLER:
         newContactNo = missionServiceLine.getMissionNo().getMasterContactNo();
@@ -809,7 +806,7 @@ public class MissionServiceLineValidate {
         newContactNo = null;
         break;
     }
-    if (!newContactNo.equals(missionServiceLine.getChargeableContactNo())) {
+    if (newContactNo != null && !newContactNo.equals(missionServiceLine.getChargeableContactNo())) {
       missionServiceLine = this.validateChargeableContactNo(missionServiceLine, newContactNo);
     }
 

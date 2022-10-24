@@ -893,6 +893,6 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
     }
     // pMissionHeader.getLotInputJournalList().remove(pLotQuickInputJournal);
     // Beans.get(MissionHeaderRepository.class).save(pMissionHeader);
-    //    lotQuickInputJournalRepository.remove(pLotQuickInputJournal);
+    // lotQuickInputJournalRepository.remove(pLotQuickInputJournal);
   }
 }

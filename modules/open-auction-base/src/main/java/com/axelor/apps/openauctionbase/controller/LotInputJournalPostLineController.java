@@ -19,6 +19,8 @@ public class LotInputJournalPostLineController {
 
       LotInputJournalPostLine lotInputJournalPostLine = Beans.get(LotInputJournalPostLine.class);
       lotInputJournalPostLine.runMissionHeader(missionHeader);
+
+      response.setCanClose(true);
     } catch (Exception e) {
       TraceBackService.trace(response, e);
     }
