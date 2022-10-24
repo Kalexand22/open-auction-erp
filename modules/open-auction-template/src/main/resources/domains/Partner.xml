@@ -6,9 +6,20 @@
   <module name="base" package="com.axelor.apps.base.db"/>
 
   <entity name="Partner" lang="java">
-    <boolean name="vIP" title="VIP"/>
-    <boolean name="preemptingAuthorized" title="Préempteur"/>
+    <many-to-one name="contactTemplateCode" title="N° modèle contact"
+      ref="com.axelor.apps.openauction.db.ContactTemplate"/>
+    <many-to-one name="currencyCode" title="Code devise"
+      ref="com.axelor.apps.base.db.Currency"/>
+    <string name="countryCode" title="Code pays"/>
+    <string name="businessRelationCode" title="Code relation d'affaire"/>
+    <string name="industryGroupCode" title="Code secteur activité"/>
+    <boolean name="isVIP" title="VIP"/>
+    <boolean name="isPreemptingAuthorized" title="Préempteur"/>
     <string name="locationCode" title="Code magasin"/>
+    <many-to-one name="paymentTermsCode" title="Code conditions paiement"
+      ref="com.axelor.apps.account.db.PaymentMode"/>
+    <many-to-one name="fiscalPosition" title="Position fiscale"
+      ref="com.axelor.apps.account.db.FiscalPosition"/>
     <many-to-one name="contactMissionPriceGroup" title="Groupe tarif mission contact"
       ref="com.axelor.apps.openauction.db.MissionContactPriceGroup"/>
     <many-to-one name="contactAuctionPriceGroup" title="Groupe tarif vente contact"
@@ -18,5 +29,86 @@
       selection="openauction.addedValueType.select"/>
     <many-to-one name="freeReasonCode" title="Code motif exonération"
       ref="com.axelor.apps.openauction.db.FreeReason"/>
+    <string name="addedValueType" title="Type de plus-value"
+      selection="openauction.addedValueType.select"/>
+    <string name="sellerInvoiceStatementUnit" title="Unité bordereau vendeur"
+      selection="openauction.sellerInvoiceStatementUnit.select.contact"/>
+    <string name="blockpayment" title="Blocage règlement"
+      selection="openauction.blockpayment.select.contact"/>
+    <string name="hearAboutUs" title="Origine contact"
+      selection="openauction.hearAboutUs.select"/>
+    <string name="statusContact" title="Statut" selection="openauction.status.select.contact"/>
+    <string name="priorityPhone" title="Téléphone prioritaire"
+      selection="openauction.priorityPhone.select"/>
+    <string name="invoicingType" title="Type facturation"
+      selection="openauction.invoicingType.select"/>
+    <decimal name="advPaymentMaxAllowed" title="Plafond autorisé frais avancés"/>
+    <date name="lastMissionDate" title="Date dernière msision"/>
+    <string name="webContactID" title="ID contact web"/>
+    <boolean name="isWebExport" title="Exportation Internet"/>
+    <many-to-one name="globalDimension1Code" title="Code axe principal 1"
+      ref="com.axelor.apps.account.db.AnalyticAxis"/>
+    <many-to-one name="globalDimension2Code" title="Code axe principal 2"
+      ref="com.axelor.apps.account.db.AnalyticAxis"/>
+    <string name="accreditationPeriod" title="Période accréditation"/>
+    <date name="accreditationStartingDate" title="Date début accréditation"/>
+    <date name="accreditationEndingDate" title="Date fin accréditation"/>
+    <extra-code>
+      <![CDATA[
+      //openauction.type.select.contact
+      public static final String TYPE_COMPANY = "Company0";
+      public static final String TYPE_PERSON = "Person1";
+
+      //openauction.correspondenceType.select.contact
+      public static final String CORRESPONDENCE_TYPE_EMPTY = "Empty0";
+      public static final String CORRESPONDENCE_TYPE_HARD_COPY = "HardCopy1";
+      public static final String CORRESPONDENCE_TYPE_EMAIL = "EMail2";
+      public static final String CORRESPONDENCE_TYPE_FAX = "Fax3";
+      public static final String CORRESPONDENCE_TYPE_PDFMAIL = "PDFMail4";
+      public static final String CORRESPONDENCE_TYPE_SMS = "SMS5";
+
+      //openauction.status.select.contact
+      public static final String STATUS_IDLE = "Idle0";
+      public static final String STATUS_ACTIVE = "Active1";
+      public static final String STATUS_PROSPECT = "Prospect2";
+      public static final String STATUS_CUSTOMER = "Customer3";
+      public static final String STATUS_WAITING = "Waiting4";
+
+
+      //openauction.hearAboutUs.select.contact
+      public static final String HEAR_ABOUT_US_AUCTIONEER = "Auctioneer0";
+      public static final String HEAR_ABOUT_US_OUR_WEB_SITE = "OurWebSite1";
+      public static final String HEAR_ABOUT_US_OTHER_WEB_SITE = "OtherWebSite2";
+      public static final String HEAR_ABOUT_US_AUCTION_ANNOUNCEMENT = "AuctionAnnouncement3";
+      public static final String HEAR_ABOUT_US_OTHERS = "Others4";
+
+      //openauction.blockpayment.select.contact
+      public static final String BLOCKPAYMENT_EMPTY = "Empty0";
+      public static final String BLOCKPAYMENT_BLOCKED = "Blocked1";
+
+      //openauction.sellerInvoiceStatementUnit.select.contact
+      public static final String SELLER_INVOICE_STATEMENT_UNIT_AUCTION = "Auction0";
+      public static final String SELLER_INVOICE_STATEMENT_UNIT_LOT = "Lot1";
+      public static final String SELLER_INVOICE_STATEMENT_UNIT_MISSION = "Mission2";
+      public static final String SELLER_INVOICE_STATEMENT_UNIT_PERIOD = "Period3";
+
+      //openauction.addedValueType.select.contact
+      public static final String ADDED_VALUE_TYPE_FREE = "Free0";
+      public static final String ADDED_VALUE_TYPE_SPECIFIC_SUM = "SpecificSum1";
+
+
+      //openauction.priorityPhone.select.contact
+      public static final String PRIORITY_PHONE_PHONE = "Phone0";
+      public static final String PRIORITY_PHONE_MOBILE_PHONE = "MobilePhone1";
+      public static final String PRIORITY_PHONE_TELEX = "Telex2";
+
+
+      //openauction.invoicingType.select.contact
+      public static final String INVOICING_TYPE_ADJ_FEES_OUTLAY = "AdjFeesOutlay0";
+      public static final String INVOICING_TYPE_ADJ_FEES = "AdjFees1";
+      public static final String INVOICING_TYPE_ADJ = "Adj2";
+
+      ]]>
+    </extra-code>
   </entity>
 </domain-models>

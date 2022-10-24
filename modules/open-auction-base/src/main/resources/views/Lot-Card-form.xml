@@ -3,8 +3,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 
-  <grid name="lots-list-grid" title="liste des Véhicules"
-    model="com.axelor.apps.openauction.db.Lot">
+  <grid name="lot-grid" title="liste des Véhicules" model="com.axelor.apps.openauction.db.Lot">
     <field name="currentMissionNo"/>
     <field name="description" width="300"/>
     <field title="N° vendeur" name="currentMissionNo.masterContactNo"/>
@@ -20,7 +19,7 @@
     <field name="lotCategorie3Code1"/>
   </grid>
 
-  <form name="lot-card-form" title="Lot" model="com.axelor.apps.openauction.db.Lot"
+  <form name="lot-form" title="Lot" model="com.axelor.apps.openauction.db.Lot"
     onSave="method-lot-save" width="large">
 
     <menubar>

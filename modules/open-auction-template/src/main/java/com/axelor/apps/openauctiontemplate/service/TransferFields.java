@@ -1,4 +1,4 @@
-package com.axelor.apps.openauctionbase.util;
+package com.axelor.apps.openauctiontemplate.service;
 
 import java.beans.PropertyDescriptor;
 import org.apache.commons.beanutils.PropertyUtils;

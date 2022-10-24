@@ -2179,4 +2179,25 @@
     <option value="Mission">Mission</option>
     <option value="Lot">Lot</option>
   </selection>
+
+
+  <selection name="openauction.status.select.contact">
+    <option value="Idle0">Inactif</option>
+    <option value="Active1">Actif</option>
+    <option value="Prospect2">Prospect</option>
+    <option value="Customer3">Client</option>
+    <option value="Waiting4">En veille</option>
+  </selection>
+  <selection name="openauction.blockpayment.select.contact">
+    <option value="Empty0">
+    </option>
+    <option value="Blocked1">Bloqué</option>
+  </selection>
+  <selection name="openauction.sellerInvoiceStatementUnit.select.contact">
+    <option value="Auction0">Vente</option>
+    <option value="Lot1">Lot</option>
+    <option value="Mission2">Mission</option>
+    <option value="Period3">Période</option>
+  </selection>
+
 </object-views>

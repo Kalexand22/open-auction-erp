@@ -6,15 +6,7 @@
   <module name="base" package="com.axelor.apps.base.db"/>
 
   <entity name="Partner" lang="java">
-    <one-to-many name="partnerAccreditationList"
-      ref="com.axelor.apps.openauction.db.PartnerAccreditation" mappedBy="partner"
-      title="Liste des accréditations"/>
-    <one-to-many name="auctionBiddingPaddleList"
-      ref="com.axelor.apps.openauction.db.AuctionBiddingPaddle" mappedBy="contactNo"
-      title="Liste des ventes"/>
-    <one-to-many name="postedAbsenteeBidLineList"
-      ref="com.axelor.apps.openauction.db.PostedAbsenteeBidLine" mappedBy="contactNo"
-      title="Liste des ordres d'achat'"/>
+
   </entity>
 
 </domain-models>

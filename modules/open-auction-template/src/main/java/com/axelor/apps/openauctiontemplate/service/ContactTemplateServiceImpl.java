@@ -34,24 +34,14 @@ public class ContactTemplateServiceImpl implements ContactTemplateService {
     Set<Company> set = new HashSet<Company>(companyRepository.all().fetch());
     tmpPartner.setCompanySet(set);
     tmpPartner = initPartnerFromTemplate(contactTemplate, tmpPartner);
+    tmpPartner.setContactTemplateCode(contactTemplate);
     partnerRepository.save(tmpPartner);
     log.debug("Creation d'un contact depuis un modèle OK");
     return tmpPartner;
   }
 
   private Partner initPartnerFromTemplate(ContactTemplate contactTemplate, Partner tmpPartner) {
-    tmpPartner.setFiscalPosition(contactTemplate.getFiscalPosition());
-    tmpPartner.setAddedValueType(contactTemplate.getAddedValueType());
-    tmpPartner.setContactAuctionPriceGroup(contactTemplate.getContactAuctionPriceGroup());
-    tmpPartner.setContactMissionPriceGroup(contactTemplate.getContactMissionPriceGroup());
-    tmpPartner.setContactTemplateColor(contactTemplate.getContactTemplateColor());
-    tmpPartner.setFreeReasonCode(contactTemplate.getFreeReasonCode());
-    tmpPartner.setCurrency(contactTemplate.getCurrencyCode());
-    // TODO paramétrer 2 type de mode de paiment dans le modèle de contact
-    tmpPartner.setInPaymentMode(contactTemplate.getPaymentTermsCode());
-    tmpPartner.setOutPaymentMode(contactTemplate.getPaymentTermsCode());
-
-    tmpPartner.setPreemptingAuthorized(contactTemplate.getPreemptingAuthorized());
+    tmpPartner = (Partner) TransferFields.transferFields(contactTemplate, tmpPartner);
     return tmpPartner;
   }
 }

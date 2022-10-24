@@ -3,7 +3,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
   <form name="mission-creation-wizard-form" title="Création de mission"
-    model="com.axelor.apps.openauction.db.MissionHeaderWizard" width="large">
+    model="com.axelor.apps.openauction.db.MissionHeaderWizard" width="large"
+    onNew="action-template-wizard-init, action-attrs-init-domain-mission-template">
 
     <!-- <panel name="stepStatusPanel" colSpan="12"> <field name="stepStatusSelect" showTitle="false"
       readonly="true" colSpan="12" type="integer" widget="NavSelect"/> <panel name="buttonPanel" colSpan="12">
@@ -21,6 +22,8 @@
       <field name="missionTemplateCode"/>
       <field name="responsibilityCenter"/>
       <field name="description"/>
+      <field name="_isJudicialMission" showIf="_isJudicialMission"/>
+      <field name="judicial"/>
     </panel>
     <panel name="MainPanel2">
       <field title="N° contact principal" name="masterContactNo"/>
@@ -39,6 +42,15 @@
   <action-record name="action-template-wizard-init"
     model="com.axelor.apps.openauction.db.MissionHeaderWizard">
     <field name="missionStatus" expr="Initial0"/>
+    <field name="judicial" expr="true" if="_isJudicialMission"/>
   </action-record>
+
+  <action-attrs name="action-attrs-init-domain-mission-template">
+    <attribute name="domain" for="missionTemplateCode" expr="self.judicialMission = true"
+      if="_isJudicialMission"/>
+    <attribute name="domain" for="missionTemplateCode"
+      expr="self.judicialMission = false and self.vehicleMission = false and self.equipmentMission = false"
+      if="!_isJudicialMission"/>
+  </action-attrs>
 
 </object-views>

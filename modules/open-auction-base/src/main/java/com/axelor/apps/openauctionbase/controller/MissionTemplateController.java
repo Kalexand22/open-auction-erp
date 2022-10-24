@@ -3,7 +3,7 @@ package com.axelor.apps.openauctionbase.controller;
 import com.axelor.apps.openauction.db.MissionHeader;
 import com.axelor.apps.openauction.db.MissionHeaderWizard;
 import com.axelor.apps.openauctionbase.service.MissionTemplateManagement;
-import com.axelor.apps.openauctionbase.util.TransferFields;
+import com.axelor.apps.openauctiontemplate.service.TransferFields;
 import com.axelor.exception.service.TraceBackService;
 import com.axelor.inject.Beans;
 import com.axelor.meta.schema.actions.ActionView;

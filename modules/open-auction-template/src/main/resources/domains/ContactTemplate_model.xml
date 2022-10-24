@@ -11,8 +11,8 @@
     <string name="countryCode" title="Code pays"/>
     <string name="businessRelationCode" title="Code relation d'affaire"/>
     <string name="industryGroupCode" title="Code secteur activité"/>
-    <boolean name="vIP" title="VIP"/>
-    <boolean name="preemptingAuthorized" title="Préempteur"/>
+    <boolean name="isVIP" title="VIP"/>
+    <boolean name="isPreemptingAuthorized" title="Préempteur"/>
     <string name="locationCode" title="Code magasin"/>
     <many-to-one name="paymentTermsCode" title="Code conditions paiement"
       ref="com.axelor.apps.account.db.PaymentMode"/>
