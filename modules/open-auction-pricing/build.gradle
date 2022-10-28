@@ -1,6 +1,5 @@
 apply plugin: "com.axelor.app-module"
 
-
 axelor {
 	title "Open Auction Pricing"
 	description "Open Auction - Tarification"
