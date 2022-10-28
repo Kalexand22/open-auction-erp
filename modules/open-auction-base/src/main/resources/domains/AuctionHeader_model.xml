@@ -25,8 +25,8 @@
       ref="com.axelor.apps.openauction.db.APCampaign"/>
     <many-to-one name="missionNo" title="N° mission"
       ref="com.axelor.apps.openauction.db.MissionHeader"/>
-    <string name="auctionStatus" title="Statut vente"
-      selection="openauction.auctionStatus.select" default="Initial0"/>
+    <integer name="auctionStatus" title="Statut vente"
+      selection="openauction.auctionStatus.select" />
     <string name="salespersonCode" title="Code intervenant"/>
     <many-to-one name="activityCodeToHeader" title="Code activité pour en-tête"
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>
@@ -48,14 +48,14 @@
       ref="com.axelor.apps.base.db.Partner"/>
     <many-to-one name="paymentMethod" title="Mode de règlement"
       ref="com.axelor.apps.account.db.PaymentMode"/>
-    <string name="buyerInvoiceUnit" title="Unité bordereau adjudication"
+    <integer name="buyerInvoiceUnit" title="Unité bordereau adjudication"
       selection="openauction.buyerInvoiceUnit.select"/>
     <boolean name="buyerDownPaymentPosting" title="Encaissement prépaiement acheteur"/>
     <many-to-one name="centralizedVendorNo" title="N° fournisseur centralisé"
       ref="com.axelor.apps.base.db.Partner"/>
-    <string name="inventoryRemovalDocument" title="Document sortie stock"
+    <integer name="inventoryRemovalDocument" title="Document sortie stock"
       selection="openauction.inventoryRemovalDocument.select"/>
-    <string name="lotReportDescription" title="Edition description lot"
+    <integer name="lotReportDescription" title="Edition description lot"
       selection="openauction.lotReportDescription.select"/>
     <many-to-one name="reasonCode" title="Code motif"
       ref="com.axelor.apps.openauction.db.ReasonCode"/>
@@ -74,7 +74,7 @@
       ref="com.axelor.apps.openauction.db.StandardText"/>
     <boolean name="manualCatalog" title="Catalogue manuel"/>
     <boolean name="specificAuctionPricing" title="Tarif spécifique sur vente"/>
-    <string name="sortingMethod" title="Méthode de tri"
+    <integer name="sortingMethod" title="Méthode de tri"
       selection="openauction.sortingMethod.select"/>
     <boolean name="pricesIncludingVAT" title="Vente TTC"/>
     <many-to-one name="auctionTemplate" title="Code modèle vente"
@@ -88,7 +88,7 @@
       ref="com.axelor.apps.openauction.db.ContactTemplate"/>
     <many-to-one name="defaultLotTemplate" title="Modèle lot par défaut"
       ref="com.axelor.apps.openauction.db.LotTemplate"/>
-    <string name="auctionScreenSize" title="Taille écran vente"
+    <integer name="auctionScreenSize" title="Taille écran vente"
       selection="openauction.auctionScreenSize.select"/>
     <boolean name="autoSearchBuyer" title="Recherche acheteur auto"/>
     <integer name="docNoOccurrence" title="Occurrence n° doc."/>

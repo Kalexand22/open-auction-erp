@@ -24,7 +24,7 @@
     <string name="searchMethod" title="Mode recherche"/>
     <integer name="quantity" title="Quantité"/>
     <boolean name="valuationAtBest" title="Valeur au mieux"/>
-    <string name="shipmentOption" title="Option livraison"
+    <integer name="shipmentOption" title="Option livraison"
       selection="openauction.shipmentOption.select"/>
     <decimal name="shipmentChargePercent" title="% charge livraison"/>
     <decimal name="shipmentChargeCost" title="Coût charge livraison"/>
@@ -32,7 +32,7 @@
       ref="com.axelor.apps.base.db.Product"/>
     <many-to-one name="specialEquipmentCode" title="Code équipement spécial"
       ref="com.axelor.apps.openauction.db.SpecialEquipment"/>
-    <string name="guarantBidPriceOption" title="Option garantie prix adjudication"
+    <integer name="guarantBidPriceOption" title="Option garantie prix adjudication"
       selection="openauction.guarantBidPriceOption.select"/>
     <decimal name="guarantBidPriceChargePercent" title="% charge prix garanti"/>
     <decimal name="guarantBidPriceChargeCost" title="Coût charge prix garanti"/>
@@ -56,7 +56,7 @@
       ref="com.axelor.apps.openauction.db.MissionLotPriceGroup"/>
     <many-to-one name="lotAuctionPriceGroup" title="Groupe tarif vente lot"
       ref="com.axelor.apps.openauction.db.AuctionLotPriceGroup"/>
-    <string name="addedValueType" title="Type plus-value"
+    <integer name="addedValueType" title="Type plus-value"
       selection="openauction.addedValueType.select"/>
     <many-to-one name="freeReasonCode" title="Code motif exonération"
       ref="com.axelor.apps.openauction.db.FreeReason"/>
@@ -66,18 +66,18 @@
     <boolean name="internetBroadcasting" title="Diffusion internet"/>
     <boolean name="immediatePaymentRequired" title="Paiement immédiat requis"/>
     <boolean name="judicial" title="Judiciaire"/>
-    <string name="lotType" title="Type lot" selection="openauction.lotType.select"/>
+    <integer name="lotType" title="Type lot" selection="openauction.lotType.select"/>
     <many-to-one name="lotConditionCode" title="Etat lot"
       ref="com.axelor.apps.openauction.db.LotCondition"/>
-    <string name="lotInventoryStatus" title="Statut stock lot"
+    <integer name="lotInventoryStatus" title="Statut stock lot"
       selection="openauction.lotInventoryStatus.select.lot"/>
-    <string name="lotGeneralStatus" title="Statut général lot"
+    <integer name="lotGeneralStatus" title="Statut général lot"
       selection="openauction.lotGeneralStatus.select"/>
-    <string name="curMisLotOperationStatus" title="Statut opérationnel"
+    <integer name="curMisLotOperationStatus" title="Statut opérationnel"
       selection="openauction.curMisLotOperationStatus.select"/>
-    <string name="currentMissionLotDocStatus" title="Statut administratif"
+    <integer name="currentMissionLotDocStatus" title="Statut administratif"
       selection="openauction.currentMissionLotDocStatus.select"/>
-    <string name="auctionStatus" title="Statut vente"
+    <integer name="auctionStatus" title="Statut vente"
       selection="openauction.auctionStatus.select.lot"/>
     <boolean name="closed" title="Cloturé"/>
     <decimal name="dueBalanceForThatLot" title="Solde dû pour ce lot"/>
@@ -95,7 +95,7 @@
     <many-to-one name="eUTariffNumber" title="Nomenclature produit UE"
       ref="com.axelor.apps.stock.db.CustomsCodeNomenclature"/>
     <string name="labelNo" title="N° étiquette"/>
-    <string name="labelIdentifierType" title="Type identifiant étiquette"
+    <integer name="labelIdentifierType" title="Type identifiant étiquette"
       selection="openauction.labelIdentifierType.select"/>
     <string name="externalNo" title="N° externe"/>
     <boolean name="autoExtendedText" title="Texte étendu automatique"/>
@@ -145,7 +145,7 @@
     <string name="variousField5" title="Champ divers 5"/>
     <string name="variousField6" title="Champ divers 6"/>
     <string name="variousField7" title="Champ divers 7"/>
-    <string name="creationProcess" title="Process de création"
+    <integer name="creationProcess" title="Process de création"
       selection="openauction.creationProcess.select"/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
       ref="com.axelor.apps.base.db.TradingName"/>
@@ -278,7 +278,7 @@
     <date name="roadworthinessTestsDate" title="Date CT"/>
     <string name="roadworthinessTestsNote" title="Note CT"/>
     <string name="secondaryRegistration" title="Immatriculation secondaire"/>
-    <string name="halfYearNumber" title="Semestre"
+    <integer name="halfYearNumber" title="Semestre"
       selection="openauction.halfYearNumber.select"/>
     <integer name="estimateKilometrage" title="Kilométrage estimé"/>
     <integer name="standingCapacity" title="Places debout"/>
@@ -332,13 +332,13 @@
     <string name="potentialofAgeing" title="Potentiel de vieillissement"/>
 
     <string name="title" title="Titre"/>
-    <string name="attributionType" title="Type attribution"
+    <integer name="attributionType" title="Type attribution"
       selection="openauction.attributionType.select"/>
     <many-to-one name="authorCode" title="Code auteur"
       ref="com.axelor.apps.openauction.db.Author"/>
     <many-to-one name="historicalPeriod" title="Période historique"
       ref="com.axelor.apps.openauction.db.HistoricalPeriod"/>
-    <string name="schoolType" title="Type école" selection="openauction.schoolType.select"/>
+    <integer name="schoolType" title="Type école" selection="openauction.schoolType.select"/>
     <many-to-one name="schoolCode" title="Code école"
       ref="com.axelor.apps.openauction.db.Ecole"/>
     <many-to-one name="styleCode" title="Code style"
@@ -359,47 +359,47 @@
       <![CDATA[
 
       //openauction.auctionStatus.select.lot
-      public static final String AUCTIONSTATUS_INITIAL = "Initial0";
-      public static final String AUCTIONSTATUS_TOSIGN = "ToSign1";
-      public static final String AUCTIONSTATUS_TOPREPARE = "ToPrepare2";
-      public static final String AUCTIONSTATUS_READYTOAUCTION = "ReadyToAuction3";
-      public static final String AUCTIONSTATUS_AUCTION = "Auction4";
-      public static final String AUCTIONSTATUS_AUCTIONNED = "Auctionned5";
-      public static final String AUCTIONSTATUS_RETIRED = "Retired6";
-      public static final String AUCTIONSTATUS_NOAUCTION = "NoAuction7";
-      public static final String AUCTIONSTATUS_AUCTIONINGROUP = "AuctionInGroup8";
-      public static final String AUCTIONSTATUS_UNGROUPED = "Ungrouped9";
+      public static final Integer AUCTIONSTATUS_INITIAL = 0;
+      public static final Integer AUCTIONSTATUS_TOSIGN = 1;
+      public static final Integer AUCTIONSTATUS_TOPREPARE = 2;
+      public static final Integer AUCTIONSTATUS_READYTOAUCTION = 3;
+      public static final Integer AUCTIONSTATUS_AUCTION = 4;
+      public static final Integer AUCTIONSTATUS_AUCTIONNED = 5;
+      public static final Integer AUCTIONSTATUS_RETIRED = 6;
+      public static final Integer AUCTIONSTATUS_NOAUCTION = 7;
+      public static final Integer AUCTIONSTATUS_AUCTIONINGROUP = 8;
+      public static final Integer AUCTIONSTATUS_UNGROUPED = 9;
 
       //openauction.lotInventoryStatus.select.lot
-      public static final String LOTINVENTORYSTATUS_UNKNOWN = "Unkonw";
-      public static final String LOTINVENTORYSTATUS_INSTOCK = "InStock";
-      public static final String LOTINVENTORYSTATUS_DELIVERED = "Delivered";
-      public static final String LOTINVENTORYSTATUS_RESTITUED = "Restitued";
-      public static final String LOTINVENTORYSTATUS_UNGROUPED = "Ungrouped";
-      public static final String LOTINVENTORYSTATUS_INTRANSIT4 = "InTransit4";
-      public static final String LOTINVENTORYSTATUS_TO_PICK = "ToPick";
+      public static final Integer LOTINVENTORYSTATUS_UNKNOWN = 0;
+      public static final Integer LOTINVENTORYSTATUS_INSTOCK = 1;
+      public static final Integer LOTINVENTORYSTATUS_DELIVERED = 2;
+      public static final Integer LOTINVENTORYSTATUS_RESTITUED = 3;
+      public static final Integer LOTINVENTORYSTATUS_UNGROUPED = 4;
+      public static final Integer LOTINVENTORYSTATUS_INTRANSIT = 5;
+      public static final Integer LOTINVENTORYSTATUS_TO_PICK = 6;
 
 
       //openauction.lotGeneralStatus.select.lot
-      public static final String LOTGENERALSTATUS_IDENTIFIED = "Identified0";
-      public static final String LOTGENERALSTATUS_ONMISSION = "OnMission1";
-      public static final String LOTGENERALSTATUS_ONSALE = "OnSale2";
-      public static final String LOTGENERALSTATUS_SOLD = "Sold3";
-      public static final String LOTGENERALSTATUS_RETURN = "Return4";
-      public static final String LOTGENERALSTATUS_CANCELED = "Canceled5";
+      public static final Integer LOTGENERALSTATUS_IDENTIFIED = 0;
+      public static final Integer LOTGENERALSTATUS_ONMISSION = 1;
+      public static final Integer LOTGENERALSTATUS_ONSALE = 2;
+      public static final Integer LOTGENERALSTATUS_SOLD = 3;
+      public static final Integer LOTGENERALSTATUS_RETURN = 4;
+      public static final Integer LOTGENERALSTATUS_CANCELED = 5;
 
 
       //openauction.lotType.select.lot
-      public static final String LOTTYPE_MEETINGSALE = "MeetingSale0";
-      public static final String LOTTYPE_GROUPINGONSALE = "GroupingOnSale1";
-      public static final String LOTTYPE_LOT = "Lot2";
-      public static final String LOTTYPE_UNGROUPINGORIGINLOT = "UnGroupingOriginLot3";
-      public static final String LOTTYPE_ORIGINLOTCOMPONENT = "OriginLotComponent4";
+      public static final Integer LOTTYPE_MEETINGSALE = 0;
+      public static final Integer LOTTYPE_GROUPINGONSALE = 1;
+      public static final Integer LOTTYPE_LOT = 2;
+      public static final Integer LOTTYPE_UNGROUPINGORIGINLOT = 3;
+      public static final Integer LOTTYPE_ORIGINLOTCOMPONENT = 4;
 
 
       //openauction.addedValueType.select.lot
-      public static final String ADDEDVALUETYPE_FREE = "Free0";
-      public static final String ADDEDVALUETYPE_SPECIFICSUM = "SpecificSum1";
+      public static final Integer ADDEDVALUETYPE_FREE = 0;
+      public static final Integer ADDEDVALUETYPE_SPECIFICSUM = 1;
 
       ]]>
     </extra-code>

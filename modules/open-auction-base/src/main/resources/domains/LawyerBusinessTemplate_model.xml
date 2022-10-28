@@ -20,10 +20,10 @@
       ref="com.axelor.apps.base.db.TradingName"/>
     <many-to-one name="defaultMissionTemplate" title="Modèle mission par défaut"
       ref="com.axelor.apps.openauction.db.MissionTemplate"/>
-    <string name="processType" title="Type de procédure"
+    <integer name="processType" title="Type de procédure"
       selection="openauction.processType.select"/>
     <boolean name="judicial" title="Judiciaire"/>
-    <string name="contactNotoInvoice" title="N° contact à facturer"
+    <integer name="contactNotoInvoice" title="N° contact à facturer"
       selection="openauction.contactNotoInvoice.select"/>
     <boolean name="openMissionOnCreation"
       title="Ouvrir la mission à la création de l'affaire"/>

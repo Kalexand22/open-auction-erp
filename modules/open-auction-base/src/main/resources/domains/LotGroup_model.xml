@@ -7,7 +7,7 @@
     <many-to-one name="lotGroupNo" title="N° lot groupe"
       ref="com.axelor.apps.openauction.db.Lot"/>
     <string name="contactNo" title="N° contact"/>
-    <string name="processType" title="Type de process"
+    <integer name="processType" title="Type de process"
       selection="openauction.processType.select"/>
     <string name="lotDescription" title="Désignation lot"/>
     <string name="catalogDescription" title="Description catalogue" large="true"/>

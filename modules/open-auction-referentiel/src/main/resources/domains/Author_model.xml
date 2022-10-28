@@ -10,10 +10,10 @@
     <string name="usageName" title="Nom d'usage"/>
     <string name="dateofBirth" title="Date de naissance"/>
     <string name="dateofDeath" title="Date de décès"/>
-    <string name="sex" title="Sexe" selection="openauction.sex.select"/>
+    <integer name="sex" title="Sexe" selection="openauction.sex.select"/>
     <many-to-one name="age" title="Epoque" ref="com.axelor.apps.openauction.db.Epoque"/>
     <string name="salutationCode" title="Code appelation"/>
-    <string name="schoolType" title="Type école" selection="openauction.schoolType.select"/>
+    <integer name="schoolType" title="Type école" selection="openauction.schoolType.select"/>
     <many-to-one name="school" title="Ecole" ref="com.axelor.apps.openauction.db.Ecole"/>
     <many-to-one name="style" title="Style" ref="com.axelor.apps.openauction.db.Style"/>
     <many-to-one name="century" title="Siècle"

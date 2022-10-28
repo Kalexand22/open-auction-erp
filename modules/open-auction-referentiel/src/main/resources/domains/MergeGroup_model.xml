@@ -6,6 +6,6 @@
   <entity name="MergeGroup">
     <string name="code" title="Code"/>
     <string name="description" title="Désignation"/>
-    <string name="status" title="Statut" selection="openauction.status.select"/>
+    <integer name="status" title="Statut" selection="openauction.status.select"/>
   </entity>
 </domain-models>

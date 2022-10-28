@@ -12,9 +12,9 @@
     <many-to-one name="bindingContactNo" title="N° contact associé"
       ref="com.axelor.apps.base.db.Partner"/>
     <string name="responsability" title="Responsabilité"/>
-    <string name="bindingType" title="Type lien" selection="openauction.bindingType.select"/>
+    <integer name="bindingType" title="Type lien" selection="openauction.bindingType.select"/>
     <boolean name="masterContactMission" title="Contact principal mission"/>
-    <string name="heirType" title="Type héritier" selection="openauction.heirType.select"/>
+    <integer name="heirType" title="Type héritier" selection="openauction.heirType.select"/>
     <decimal name="percentHeir" title="Quote part héritier (%)"/>
     <string name="contactFamilyLink" title="Lien familial"/>
     <many-to-one name="contactLinkTemplateCode" title="Code modèle contact"

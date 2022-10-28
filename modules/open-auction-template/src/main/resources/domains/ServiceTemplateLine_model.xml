@@ -8,7 +8,7 @@
       ref="com.axelor.apps.openauction.db.ServiceTemplate"/>
     <many-to-one name="product" title="Article" ref="com.axelor.apps.base.db.Product"/>
     <integer name="lineNo" title="N° ligne"/>
-    <string name="type" title="Type" selection="openauction.type.select.servicetemplateline"/>
+    <integer name="type" title="Type" selection="openauction.type.select.servicetemplateline"/>
     <string name="description" title="Désignation"/>
     <boolean name="automaticExtTexts" title="Textes étendus automatiques"/>
     <many-to-one name="unitOfMeasure" title="Unité" ref="com.axelor.apps.base.db.Unit"/>

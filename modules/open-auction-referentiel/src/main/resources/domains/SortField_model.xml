@@ -13,8 +13,8 @@
     <boolean name="newPage" title="Changement de page"/>
     <boolean name="header" title="Titre"/>
     <boolean name="footer" title="Total"/>
-    <string name="sortDirection" title="Ordre Tri"
+    <integer name="sortDirection" title="Ordre Tri"
       selection="openauction.sortDirection.select"/>
-    <string name="periodicity" title="Périodicité" selection="openauction.periodicity.select"/>
+    <integer name="periodicity" title="Périodicité" selection="openauction.periodicity.select"/>
   </entity>
 </domain-models>

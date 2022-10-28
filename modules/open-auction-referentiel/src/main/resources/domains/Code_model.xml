@@ -14,7 +14,7 @@
     <string name="description" title="Description" namecolumn="true"/>
   </entity>
   <entity name="Ecole">
-    <string name="type" title="Type" selection="openauction.schoolType.select"/>
+    <integer name="type" title="Type" selection="openauction.schoolType.select"/>
     <string name="code" title="Code"/>
     <string name="description" title="Description" namecolumn="true"/>
   </entity>

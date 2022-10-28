@@ -8,7 +8,7 @@
     <string name="description" title="Description" namecolumn="true"/>
     <string name="comment1" title="Commentaire"/>
     <many-to-one name="file1" title="Fichier" ref="com.axelor.meta.db.MetaFile"/>
-    <string name="typeaccreditation" title="Type d'accrédiation"
+    <integer name="typeaccreditation" title="Type d'accrédiation"
       selection="openauction.typeaccreditation.select"/>
   </entity>
 </domain-models>

@@ -9,7 +9,7 @@
     <many-to-one name="auctionRoom" title="Salle de vente"
       ref="com.axelor.apps.openauction.db.AuctionRoom"/>
     <string name="auctionnerCode" title="Commissaire-priseur"/>
-    <string name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
+    <integer name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
     <string name="salespersonCode" title="Code intervenant"/>
     <many-to-one name="activityCodeToHeader" title="Code activité pour en-tête"
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>
@@ -25,11 +25,11 @@
     <string name="sellerSourceCode" title="Code journal vendeur"/>
     <many-to-one name="paymentMethod" title="Mode de règlement"
       ref="com.axelor.apps.account.db.PaymentMode"/>
-    <string name="buyerInvoiceUnit" title="Unité bordereau adjudication"
+    <integer name="buyerInvoiceUnit" title="Unité bordereau adjudication"
       selection="openauction.buyerInvoiceUnit.select"/>
-    <string name="inventoryRemovalDocument" title="Document sortie stock"
+    <integer name="inventoryRemovalDocument" title="Document sortie stock"
       selection="openauction.inventoryRemovalDocument.select"/>
-    <string name="lotReportDescription" title="Edition description lot"
+    <integer name="lotReportDescription" title="Edition description lot"
       selection="openauction.lotReportDescription.select"/>
     <boolean name="manualCatalog" title="Catalogue manuel"/>
     <string name="centralizedCustomerTemplate" title="Modèle client centralisé"/>

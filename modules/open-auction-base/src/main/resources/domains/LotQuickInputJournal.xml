@@ -45,11 +45,11 @@
     <many-to-one name="lotCategorie4Code" title="Code catégorie 4"
       ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
     <string name="originCountryCode" title="Code pays provenance"/>
-    <string name="lineType" title="Type ligne" selection="openauction.lineType.select"/>
+    <integer name="lineType" title="Type ligne" selection="openauction.lineType.select"/>
     <integer name="indentation" title="Indentation"/>
-    <string name="valueType" title="Type de valeur" selection="openauction.valueType.select"
-      default="Appraisal0"/>
-    <string name="lotAddedValue" title="Type plus-value"
+    <integer name="valueType" title="Type de valeur" selection="openauction.valueType.select"
+     />
+    <integer name="lotAddedValue" title="Type plus-value"
       selection="openauction.lotAddedValue.select"/>
     <string name="locationCode" title="Code magasin"/>
     <string name="zoneCode" title="Code zone"/>

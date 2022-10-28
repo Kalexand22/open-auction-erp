@@ -5,7 +5,7 @@
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="ArgusVersionModel">
     <integer name="year" title="Année"/>
-    <string name="halfYear" title="Semestre" selection="openauction.halfYear.select"/>
+    <integer name="halfYear" title="Semestre" selection="openauction.halfYear.select"/>
     <string name="argusID" title="Id Argus"/>
     <many-to-one name="categoryCode" title="Code catégorie"
       ref="com.axelor.apps.openauction.db.ArgusCategory"/>

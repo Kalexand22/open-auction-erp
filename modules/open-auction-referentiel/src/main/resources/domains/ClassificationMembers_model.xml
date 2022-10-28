@@ -11,7 +11,7 @@
     <many-to-one name="parentMemberCode" title="Code membre parent"
       ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
     <string name="description" title="Désignation" namecolumn="true"/>
-    <string name="classificationType" title="Type classification"
+    <integer name="classificationType" title="Type classification"
       selection="openauction.classificationType.select"/>
     <integer name="level1" title="Niveau"/>
     <string name="externalNo" title="N° externe"/>

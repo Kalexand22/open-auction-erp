@@ -6,11 +6,11 @@
   <entity name="TariffScale">
     <string name="code" title="Code"/>
     <string name="description" title="Désignation"/>
-    <string name="scaleType" title="Type barème"
+    <integer name="scaleType" title="Type barème"
       selection="openauction.scaleType.select.tariff"/>
-    <string name="calculationMethod" title="Mode calcul"
+    <integer name="calculationMethod" title="Mode calcul"
       selection="openauction.calculationMethod.select"/>
-    <string name="calculationLevels" title="Calcul niveau"
+    <integer name="calculationLevels" title="Calcul niveau"
       selection="openauction.calculationLevels.select"/>
     <extra-code>
       <![CDATA[

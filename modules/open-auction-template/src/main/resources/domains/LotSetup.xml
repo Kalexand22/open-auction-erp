@@ -14,13 +14,13 @@
       ref="com.axelor.apps.base.db.Unit"/>
     <many-to-one name="authorNos" title="N° auteur"
       ref="com.axelor.apps.base.db.Sequence"/>
-    <string name="indexMode" title="Mode index" selection="openauction.indexMode.select"/>
+    <integer name="indexMode" title="Mode index" selection="openauction.indexMode.select"/>
     <string name="delimiters" title="Séparateurs"/>
     <boolean name="activateLotParser" title="Parser description lot"/>
     <many-to-one name="reserveToSellingOffScale"
       title="Synchro mise à prix avec réserve" ref="com.axelor.apps.openauction.db.TariffScale"/>
     <string name="lastLotCreated" title="Dernier lot créé"/>
-    <string name="officeClassification" title="Classification office"
+    <integer name="officeClassification" title="Classification office"
       selection="openauction.officeClassification.select"/>
     <string name="lastVehicleCreated" title="Dernier véhicule créé"/>
     <string name="defaultPictureImportFile"
@@ -37,7 +37,7 @@
     <string name="serviceArgusAddress" title="Adresse service argus"/>
     <string name="orderArgus" title="Commande argus"/>
     <string name="argusPath" title="Chemin ficher argus"/>
-    <string name="argusType" title="Type Argus" selection="openauction.argusType.select"/>
+    <integer name="argusType" title="Type Argus" selection="openauction.argusType.select"/>
     <string name="planetVOPath" title="Chemin fichier PlanetVO"/>
     <string name="planetVOExportFileName" title="Nom fichier export PlanetVO"/>
     <string name="planetVOImportFileName" title="Nom fichier Import PlanetVO"/>

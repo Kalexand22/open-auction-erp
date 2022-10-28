@@ -10,7 +10,7 @@
     <boolean name="detailedBuyerInvoice" title="Bordereau adjudication détaillé"/>
     <many-to-one name="defaultPawnBank" title="Crédit municipal par défaut"
       ref="com.axelor.apps.base.db.Partner"/>
-    <string name="buyerInvoiceUnit" title="Unité bordereau adjudication"
+    <integer name="buyerInvoiceUnit" title="Unité bordereau adjudication"
       selection="openauction.buyerInvoiceUnit.select"/>
     <string name="preemptingConfirmationLimit" title="Delai limite confirmation préemption"/>
     <string name="actionOutofDaysDelay" title="Délai carence actions"/>
@@ -39,7 +39,7 @@
     <boolean name="reserveVariance" title="Ecart de réserve"/>
     <many-to-one name="reserveVarianceItemNo" title="N° article écart sur réserve"
       ref="com.axelor.apps.base.db.Product"/>
-    <string name="reserveVariantInvoiceMode" title="Mode facturation écart de réserve"
+    <integer name="reserveVariantInvoiceMode" title="Mode facturation écart de réserve"
       selection="openauction.reserveVariantInvoiceMode.select"/>
     <string name="auctionBudgetName" title="Nom budget vente"/>
     <many-to-one name="missionNoFormat" title="Masque n° mission"
@@ -48,7 +48,7 @@
       ref="com.axelor.apps.base.db.Partner"/>
     <many-to-one name="buyerContactNoFormat" title="Masque n° contact acheteur"
       ref="com.axelor.apps.base.db.Partner"/>
-    <string name="defaultAuctionScreenSize" title="Taille écran vente par défaut"
+    <integer name="defaultAuctionScreenSize" title="Taille écran vente par défaut"
       selection="openauction.defaultAuctionScreenSize.select"/>
     <many-to-one name="customerGroupDimensionCode" title="Code axe groupe clients"
       ref="com.axelor.apps.account.db.AnalyticAxis"/>
@@ -57,7 +57,7 @@
     <many-to-one name="auctionDimensionCode" title="Code axe vente"
       ref="com.axelor.apps.account.db.AnalyticAxis"/>
     <boolean name="autoCreateAuctionDimValues" title="Création automatique sections"/>
-    <string name="auctionDimensionValueFormat" title="Format section analytiques"
+    <integer name="auctionDimensionValueFormat" title="Format section analytiques"
       selection="openauction.auctionDimensionValueFormat.select"/>
     <integer name="missingBuyerColor" title="Couleur acheteur manquant"/>
     <integer name="retiredColor" title="Couleur retiré"/>
@@ -114,7 +114,7 @@
     <string name="webFtpPassword" title="Web Ftp mot de passe"/>
     <string name="webFtpURL" title="Web Ftp URL"/>
     <boolean name="nosendingReelDocs" title="Pas d'envoi de dossiers physiques"/>
-    <string name="printSaleCertificateType" title="Impression Certificat de vente"
+    <integer name="printSaleCertificateType" title="Impression Certificat de vente"
       selection="openauction.printSaleCertificateType.select"/>
     <boolean name="printPurchWdWithPInvc"
       title="Imprimer bon de retrait en facture enregistrée"/>
@@ -125,11 +125,11 @@
       ref="com.axelor.apps.openauction.db.AuctionTemplate"/>
     <many-to-one name="defaultBuyerNo" title="Acheteur par défaut"
       ref="com.axelor.apps.base.db.Partner"/>
-    <string name="baseCalcAuctionEstimate" title="Base calcul estimation vente"
+    <integer name="baseCalcAuctionEstimate" title="Base calcul estimation vente"
       selection="openauction.baseCalcAuctionEstimate.select"/>
     <boolean name="doubleAuctionAffectAlert" title="Alerte double affectation vente lot"/>
     <boolean name="auctTypeModifiableInAuct" title="Type vente modifiable en vente"/>
-    <string name="lotGroupDescription" title="Description lot regroupé"
+    <integer name="lotGroupDescription" title="Description lot regroupé"
       selection="openauction.LotGroupingDescription.select"/>
     <boolean name="fillSalespersonCode"/>
     <many-to-one name="webAuctionTemplate" title="Modèle de vente internet"

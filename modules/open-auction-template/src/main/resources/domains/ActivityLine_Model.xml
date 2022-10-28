@@ -7,7 +7,7 @@
     <many-to-one name="activityCode" title="Code activité"
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>
     <integer name="lineNo" title="N° ligne"/>
-    <string name="toDoApplicableTo" title="Action applicable à"
+    <integer name="toDoApplicableTo" title="Action applicable à"
       selection="openauction.toDoApplicableTo.select"/>
     <many-to-one name="lotTemplateFilter" title="Filtre modèle lot"
       ref="com.axelor.apps.openauction.db.LotTemplate"/>
@@ -19,11 +19,11 @@
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
       ref="com.axelor.apps.base.db.TradingName"/>
     <string name="todoCondition" title="Condition action"/>
-    <string name="todoStatusCondition" title="Condition statut action"
+    <integer name="todoStatusCondition" title="Condition statut action"
       selection="openauction.todoStatusCondition.select"/>
     <many-to-one name="activityCondition" title="Condition activité"
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>
-    <string name="defaultTodoStatus" title="Statut action par défaut"
+    <integer name="defaultTodoStatus" title="Statut action par défaut"
       selection="openauction.defaultTodoStatus.select"/>
     <extra-code>
       <![CDATA[

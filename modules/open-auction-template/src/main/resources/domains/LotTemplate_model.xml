@@ -23,13 +23,13 @@
     <integer name="defaultLotSize" title="Taille lot par défaut"/>
     <integer name="defaultLotQuantity" title="Quantité lot par défaut"/>
     <boolean name="valuationAtBest" title="Valeur au mieux"/>
-    <string name="insuranceOption" title="Option Assurance"
+    <integer name="insuranceOption" title="Option Assurance"
       selection="openauction.insuranceOption.select"/>
     <decimal name="insuranceFeePercent" title="% charge assurance"/>
     <decimal name="insuranceFeeCost" title="Cout charge assurance"/>
     <many-to-one name="insuranceItemNo" title="N° article assurance"
       ref="com.axelor.apps.base.db.Product"/>
-    <string name="shipmentOption" title="Option livraison"
+    <integer name="shipmentOption" title="Option livraison"
       selection="openauction.shipmentOption.select"/>
     <decimal name="shipmentChargePercent" title="% charge livraison"/>
     <decimal name="shipmentChargeCost" title="Cout charge livraison"/>
@@ -38,7 +38,7 @@
     <string name="locationCode" title="Code magasin"/>
     <string name="defaultBinCode" title="Code emplacement par défaut"/>
     <string name="specialEquipmentCode" title="Code équipement spécial"/>
-    <string name="guarantBidPriceOption" title="Option garantie prix adjudication"
+    <integer name="guarantBidPriceOption" title="Option garantie prix adjudication"
       selection="openauction.guarantBidPriceOption.select"/>
     <decimal name="guarantBidPriceChargePercent" title="% charge prix garanti"/>
     <decimal name="guarantBidPriceChargeCost" title="Cout charge prix garanti"/>
@@ -62,7 +62,7 @@
       ref="com.axelor.apps.openauction.db.MissionLotPriceGroup"/>
     <many-to-one name="lotAuctionPriceGroup" title="Groupe tarif vente lot"
       ref="com.axelor.apps.openauction.db.AuctionLotPriceGroup"/>
-    <string name="addedValueType" title="Type plus-value"
+    <integer name="addedValueType" title="Type plus-value"
       selection="openauction.addedValueType.select"/>
     <boolean name="propertyRegister" title="Livre de police"/>
     <boolean name="nobleMetalRegister" title="Livre des métaux précieux"/>

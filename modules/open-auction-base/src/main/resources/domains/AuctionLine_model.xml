@@ -9,14 +9,14 @@
     <integer name="lineNo" title="N° ligne"/>
     <string name="lotNo" title="N° lot"/>
     <string name="lotDescription" title="Description lot"/>
-    <string name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
+    <integer name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
     <many-to-one name="currencyCode" title="Code devise"
       ref="com.axelor.apps.base.db.Currency"/>
     <string name="locationCode" title="Code magasin"/>
     <decimal name="quantity" title="Quantité"/>
     <decimal name="bidPrice" title="Adjugé"/>
     <time name="auctionTime" title="Heure adjudication"/>
-    <string name="lineStatus" title="Statut ligne" selection="openauction.lineStatus.select"/>
+    <integer name="lineStatus" title="Statut ligne" selection="openauction.lineStatus.select"/>
     <decimal name="bidPriceInclVAT" title="Adjudication TTC"/>
     <many-to-one name="missionNo" title="N° mission"
       ref="com.axelor.apps.openauction.db.MissionHeader"/>
@@ -29,7 +29,7 @@
       ref="com.axelor.apps.openauction.db.BiddingPaddleSet"/>
     <many-to-one name="biddingPaddleNo" title="N° plaquette"
       ref="com.axelor.apps.openauction.db.AuctionBiddingPaddle"/>
-    <string name="buyerInvoiceUnit" title="Unité bordereau adjudication"
+    <integer name="buyerInvoiceUnit" title="Unité bordereau adjudication"
       selection="openauction.buyerInvoiceUnit.select"/>
     <many-to-one name="sellerContactNo" title="N° contact vendeur"
       ref="com.axelor.apps.base.db.Partner"/>
@@ -42,13 +42,13 @@
     <many-to-one name="buyerCustomerNo" title="N° client acheteur"
       ref="com.axelor.apps.base.db.Partner"/>
     <boolean name="absenteeBidForm" title="Ordre d'achat"/>
-    <string name="lotType" title="Type lot" selection="openauction.lotType.select"/>
+    <integer name="lotType" title="Type lot" selection="openauction.lotType.select"/>
     <many-to-one name="sourceLotNo" title="N° lot origine"
       ref="com.axelor.apps.openauction.db.Lot"/>
     <decimal name="averageAuctionProcessTime" title="Temps  moyen adjudication vente"/>
     <boolean name="ungroupingAuthorization" title="Dégroupement autorisé"/>
     <boolean name="groupingAuthorization" title="Groupement autorisé"/>
-    <string name="groupProcessType" title="Type de process regroupement"
+    <integer name="groupProcessType" title="Type de process regroupement"
       selection="openauction.groupProcessType.select"/>
     <string name="groupProcessCode" title="Code groupe"/>
     <integer name="meetingNo" title="N° réunion"/>
@@ -89,8 +89,8 @@
     <many-to-one name="passingIndexNo" title="N° indice"
       ref="com.axelor.apps.openauction.db.PassingIndex"/>
     <boolean name="showinAuction" title="Affichage vente"/>
-    <string name="auctionStatus" title="Statut vente"
-      selection="openauction.auctionStatus.select.auctionline" default="Initial0"/>
+    <integer name="auctionStatus" title="Statut vente"
+      selection="openauction.auctionStatus.select.auctionline" />
     <boolean name="isAuctionned" title="Adjugé"/>
     <integer name="lotNoMission" title="N° lot/mission"/>
     <many-to-one name="sellerVATBusPostingGroup"
@@ -101,20 +101,20 @@
       ref="com.axelor.apps.base.db.ProductFamily"/>
     <many-to-one name="lotVATProdPostingGroup" title="Groupe compta produit TVA Lot"
       ref="com.axelor.apps.account.db.Tax"/>
-    <string name="vATCalculationType" title="Mode calcul TVA"
+    <integer name="vATCalculationType" title="Mode calcul TVA"
       selection="openauction.vATCalculationType.select"/>
     <decimal name="vATPercent" title="% TVA"/>
     <string name="vATIdentifier" title="Identifiant TVA"/>
     <decimal name="vATBaseAmount" title="Montant base TVA"/>
     <decimal name="vATAmount" title="Montant TVA"/>
     <decimal name="sellerVATPercent" title="% TVA vendeur"/>
-    <string name="buyerInvoicingStatus" title="Statut facturation acheteur"
+    <integer name="buyerInvoicingStatus" title="Statut facturation acheteur"
       selection="openauction.buyerInvoicingStatus.select"/>
     <string name="buyerInvoiceNo" title="N° facture acheteur"/>
-    <string name="sellerInvoicingStatus" title="Statut facturation vendeur"
+    <integer name="sellerInvoicingStatus" title="Statut facturation vendeur"
       selection="openauction.sellerInvoicingStatus.select"/>
     <string name="sellerInvoiceNo" title="N° facture vendeur"/>
-    <string name="sellerDocumentType" title="Type document vendeur"
+    <integer name="sellerDocumentType" title="Type document vendeur"
       selection="openauction.sellerDocumentType.select"/>
     <many-to-one name="vehicleMake" title="Marque"
       ref="com.axelor.apps.openauction.db.VehiclesMake"/>
@@ -126,7 +126,7 @@
     <boolean name="newExitInvoice" title="Refacturé à l'export"/>
     <string name="exitInvoiceNo" title="No facture à l'export"/>
     <string name="countryExitNo" title="No doc sortie"/>
-    <string name="customerInvoicingStatus" title="Statut facturation client vendeur"
+    <integer name="customerInvoicingStatus" title="Statut facturation client vendeur"
       selection="openauction.customerInvoicingStatus.select"/>
     <string name="customerInvoiceNo" title="N° facture client vendeur"/>
     <string name="auctionLineAuctioneerCode" title="Commissaire-priseur ligne de vente"/>
@@ -139,23 +139,23 @@
       <![CDATA[
 
       //openauction.lineStatus.select
-      public static final String LINESTATUS_EMPTY = "Empty0";
-      public static final String LINESTATUS_AUCTIONED = "Auctionned1";
-      public static final String LINESTATUS_RETIRED = "Retired2";
-      public static final String LINESTATUS_UNPRESENTED = "Unpresented3";
-      public static final String LINESTATUS_PAID = "Paid4";
-      public static final String LINESTATUS_SHIPPED = "Shipped5";
-      public static final String LINESTATUS_UNCONSESIGNED = "Unconsigned6";
-      public static final String LINESTATUS_OUTOFAUCTION = "OutOfAuction7";
+      public static final Integer LINESTATUS_EMPTY = 0;
+      public static final Integer LINESTATUS_AUCTIONED = 1;
+      public static final Integer LINESTATUS_RETIRED = 2;
+      public static final Integer LINESTATUS_UNPRESENTED = 3;
+      public static final Integer LINESTATUS_PAID = 4;
+      public static final Integer LINESTATUS_SHIPPED = 5;
+      public static final Integer LINESTATUS_UNCONSESIGNED = 6;
+      public static final Integer LINESTATUS_OUTOFAUCTION = 7;
 
 
       //openauction.auctionStatus.select.auctionline
-      public static final String AUCTIONSTATUS_INITIAL = "Initial0";
-      public static final String AUCTIONSTATUS_CONFIRMED = "Confirmed1";
-      public static final String AUCTIONSTATUS_AUCTION = "Auction2";
-      public static final String AUCTIONSTATUS_FINISHED = "Finished3";
-      public static final String AUCTIONSTATUS_CLOSED = "Closed";
-      public static final String AUCTIONSTATUS_CANCELED = "Canceled";
+      public static final Integer AUCTIONSTATUS_INITIAL = 0;
+      public static final Integer AUCTIONSTATUS_CONFIRMED = 1;
+      public static final Integer AUCTIONSTATUS_AUCTION = 2;
+      public static final Integer AUCTIONSTATUS_FINISHED = 3;
+      public static final Integer AUCTIONSTATUS_CLOSED = 4;
+      public static final Integer AUCTIONSTATUS_CANCELED = 5;
       ]]>
     </extra-code>
   </entity>

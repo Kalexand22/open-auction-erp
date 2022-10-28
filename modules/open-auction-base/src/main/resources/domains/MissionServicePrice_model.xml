@@ -5,20 +5,20 @@
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="MissionServicePrice">
     <many-to-one name="itemNo" title="N° article" ref="com.axelor.apps.base.db.Product"/>
-    <string name="missionType" title="Type mission"
+    <integer name="missionType" title="Type mission"
       selection="openauction.missionType.select.missionserviceprice"/>
     <many-to-one ref="com.axelor.apps.openauction.db.MissionHeader" name="missionHeader"/>
     <many-to-one ref="com.axelor.apps.openauction.db.MissionTemplate"
       name="missionTemplate"/>
-    <string name="lotType" title="Type de lot"
+    <integer name="lotType" title="Type de lot"
       selection="openauction.lotType.select.missionserviceprice"/>
-    <string name="contactType" title="Type contact"
+    <integer name="contactType" title="Type contact"
       selection="openauction.contactType.select.missionserviceprice"/>
     <many-to-one name="currencyCode" title="Code devise"
       ref="com.axelor.apps.base.db.Currency"/>
     <date name="startingDate" title="Date début"/>
     <date name="endingDate" title="Date fin"/>
-    <string name="calculationType" title="Type calcul"
+    <integer name="calculationType" title="Type calcul"
       selection="openauction.calculationType.select"/>
     <decimal name="unitPrice" title="Prix unitaire"/>
 
@@ -36,7 +36,7 @@
     <many-to-one ref="com.axelor.apps.base.db.Partner" name="contact"/>
     <many-to-one ref="com.axelor.apps.openauction.db.MissionContactPriceGroup"
       name="contactPriceGroup"/>
-    <string name="commBaseCalc" title="Base calcul prestation"
+    <integer name="commBaseCalc" title="Base calcul prestation"
       selection="openauction.commBaseCalc.select"/>
     <boolean name="budgetedCostReinvoicing" title="Refacturation coût budget-"/>
     <many-to-one name="unitofMeasureCode" title="Code unité"

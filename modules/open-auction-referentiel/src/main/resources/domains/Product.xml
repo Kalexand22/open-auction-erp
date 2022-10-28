@@ -5,19 +5,19 @@
   <module name="openauction" package="com.axelor.apps.base.db"/>
   <entity name="Product">
     <boolean name="purchasePreInvoicing" title="Pré-facture achat"/>
-    <string name="invoicingType" title="Type facturation"
+    <integer name="invoicingType" title="Type facturation"
       selection="openauction.invoicingType.select.product"/>
-    <string name="commissionType" title="Type honoraire"
+    <integer name="commissionType" title="Type honoraire"
       selection="openauction.commissionType.select"/>
-    <string name="contactImputationType" title="Type imputation contact"
+    <integer name="contactImputationType" title="Type imputation contact"
       selection="openauction.contactImputationType.select.product"/>
-    <string name="lotImputationType" title="Type imputation lot"
+    <integer name="lotImputationType" title="Type imputation lot"
       selection="openauction.lotImputationType.select"/>
-    <string name="serviceType" title="Type prestation"
+    <integer name="serviceType" title="Type prestation"
       selection="openauction.serviceType.select.product"/>
-    <string name="transactionType" title="Type transaction"
+    <integer name="transactionType" title="Type transaction"
       selection="openauction.transactionType.select.product"/>
-    <string name="imputationBase" title="Base Imputation"
+    <integer name="imputationBase" title="Base Imputation"
       selection="openauction.imputationBase.select"/>
     <boolean name="printPercentage" title="Edition pourcentage"/>
     <many-to-one name="verificationSubstItemNo"
@@ -32,18 +32,18 @@
     <boolean name="valueAddedItem" title="Plus-value"/>
     <many-to-one name="tariffScale" title="Code barème"
       ref="com.axelor.apps.openauction.db.TariffScale"/>
-    <string name="baseCalcBeforeAuction" title="Base calcul avant vente"
+    <integer name="baseCalcBeforeAuction" title="Base calcul avant vente"
       selection="openauction.baseCalcBeforeAuction.select.product"/>
-    <string name="baseCalcAfterAuction" title="Base calcul après vente"
+    <integer name="baseCalcAfterAuction" title="Base calcul après vente"
       selection="openauction.baseCalcAfterAuction.select.product"/>
     <boolean name="authorizedZeroBudgetedCost" title="Coût budget à zéro autorisé"/>
     <boolean name="invoiceServiceDetail" title="Détail prestation sur bordereau"/>
     <boolean name="advanceOnSale" title="Avance sur vente"/>
     <boolean name="partialBillingAllowed" title="Autoriser facturation partielle"/>
-    <string name="checkChargeAmountRange" title="Contrôle montant min/max"
+    <integer name="checkChargeAmountRange" title="Contrôle montant min/max"
       selection="openauction.checkChargeAmountRange.select.product"/>
     <boolean name="allowLineDisc" title="Autoriser remise ligne"/>
-    <string name="quantityEvaluation" title="Evaluation quantité"
+    <integer name="quantityEvaluation" title="Evaluation quantité"
       selection="openauction.quantityEvaluation.select.product"/>
     <boolean name="detailledSellerGLPosting" title="Comptabilisation détaillée mission"/>
     <boolean name="displayInPayment" title="Affichage en règlement"/>
@@ -51,7 +51,7 @@
       ref="com.axelor.apps.openauction.db.InventoryCategoryProduct"/>
     <string name="inventoryItemDescription" title="Désignation article inventaire"/>
     <integer name="invMissionAssOrderPriority" title="Ordre priorité demande évaluation"/>
-    <string name="servicePriceSystem" title="Système de tarification"
+    <integer name="servicePriceSystem" title="Système de tarification"
       selection="openauction.servicePriceSystem.select.product"/>
     <boolean name="useProductFamilyLot" title="utiliser la famille produit du lot"/>
     <extra-code>

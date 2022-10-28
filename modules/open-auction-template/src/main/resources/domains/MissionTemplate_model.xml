@@ -14,10 +14,10 @@
       ref="com.axelor.auth.db.User"/>
     <many-to-one name="managerEntryCode" title="Responsable de saisie"
       ref="com.axelor.auth.db.User"/>
-    <string name="sortingMethod" title="Méthode de tri"
+    <integer name="sortingMethod" title="Méthode de tri"
       selection="openauction.sortingMethod.select"/>
     <boolean name="auctionMission" title="Mission de vente"/>
-    <string name="missionType" title="Type mission"
+    <integer name="missionType" title="Type mission"
       selection="openauction.missionType.select"/>
     <many-to-one name="activityCodeToHeader" title="Code activité pour en-tête"
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>
@@ -26,7 +26,7 @@
     <boolean name="printConsignmentAgreement" title="Edition mandat vente"/>
     <boolean name="reqConsignmentAgreement" title="Mandant de vente requis"/>
     <boolean name="evaluetedCommissionDemand" title="Demande d'évaluation d'honoraire"/>
-    <string name="priority" title="Priorité" selection="openauction.priority.select"/>
+    <integer name="priority" title="Priorité" selection="openauction.priority.select"/>
     <string name="contactBusinessRelationCode" title="Code relation d'affaire contact"/>
     <many-to-one name="centralizedCustomer" title="N° client centralisé"
       ref="com.axelor.apps.base.db.Partner"/>
@@ -39,9 +39,9 @@
     <string name="correspBussRelationCode" title="Relation d'affaire correspondant"/>
     <many-to-one name="inventoryType" title="Type inventaire"
       ref="com.axelor.apps.openauction.db.InventoryType"/>
-    <string name="inventoryNature" title="Nature inventaire"
+    <integer name="inventoryNature" title="Nature inventaire"
       selection="openauction.inventoryNature.select"/>
-    <string name="sellerInvStatementUnit" title="Unité de facturation"
+    <integer name="sellerInvStatementUnit" title="Unité de facturation"
       selection="openauction.sellerInvStatementUnit.select"/>
     <string name="sellerInvStatementPeriod" title="Période décompte vente"/>
     <boolean name="noChargeable" title="Charges non facturables"/>
@@ -61,7 +61,7 @@
       ref="com.axelor.apps.base.db.TradingName"/>
     <boolean name="vehicleMission" title="Mission Véhicule"/>
     <boolean name="equipmentMission" title="Mission matériel"/>
-    <string name="processType" title="Type de procédure"
+    <integer name="processType" title="Type de procédure"
       selection="openauction.processType.select"/>
     <many-to-one name="correspondentContactNo" title="N° contact correspondant"
       ref="com.axelor.apps.base.db.Partner"/>
@@ -71,13 +71,13 @@
     <boolean name="dVSOExport" title="Export DVSO"/>
     <many-to-one name="defaultTransportServiceCode"
       title="Prestation transport par défaut" ref="com.axelor.apps.base.db.Product"/>
-    <string name="sendInvoiceTo" title="Facture envoyée à "
+    <integer name="sendInvoiceTo" title="Facture envoyée à "
       selection="openauction.sendInvoiceTo.select"/>
     <boolean name="judicialMission" title="Mission judiciaire"/>
     <boolean name="inventoryMission" title="Mission d'inventaire"/>
     <boolean name="rJLJ" title="RJ/LJ"/>
     <decimal name="advPaymentMaxAllowed" title="Plafond autorisé pour les frais avancés"/>
-    <string name="invoicingType" title="Type facturation"
+    <integer name="invoicingType" title="Type facturation"
       selection="openauction.invoicingType.select"/>
     <many-to-one name="inventoryService" title="Prestation d'inventaire judiciaire"
       ref="com.axelor.apps.base.db.Product"/>

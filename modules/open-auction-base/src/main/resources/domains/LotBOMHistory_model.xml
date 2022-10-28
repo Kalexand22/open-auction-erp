@@ -8,8 +8,8 @@
     <many-to-one name="lotNo" title="N° lot" ref="com.axelor.apps.openauction.db.Lot"/>
     <many-to-one name="childLotNo" title="N° lot enfant"
       ref="com.axelor.apps.openauction.db.Lot"/>
-    <string name="processType" title="Type transaction"
-      selection="openauction.processType.select.lotbomhistory" default="Meeting"/>
+    <integer name="processType" title="Type transaction"
+      selection="openauction.processType.select.lotbomhistory" />
     <boolean name="cancelled" title="Annulé"/>
     <extra-code>
         <![CDATA[

@@ -21,11 +21,11 @@
     <string name="text1" title="Text 1"/>
     <integer name="integer2" title="Integer 2"/>
     <string name="code5" title="Code 5"/>
-    <string name="option1" selection="openauction.option1.select"/>
-    <string name="option2" selection="openauction.option2.select"/>
-    <string name="option3" selection="openauction.option3.select"/>
-    <string name="option4" selection="openauction.option4.select"/>
-    <string name="option5" selection="openauction.option5.select"/>
-    <string name="option6" selection="openauction.option6.select"/>
+    <integer name="option1" selection="openauction.option1.select"/>
+    <integer name="option2" selection="openauction.option2.select"/>
+    <integer name="option3" selection="openauction.option3.select"/>
+    <integer name="option4" selection="openauction.option4.select"/>
+    <integer name="option5" selection="openauction.option5.select"/>
+    <integer name="option6" selection="openauction.option6.select"/>
   </entity>
 </domain-models>

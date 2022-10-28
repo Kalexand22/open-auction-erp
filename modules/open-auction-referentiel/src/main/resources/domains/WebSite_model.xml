@@ -10,9 +10,9 @@
     <string name="uRLAdmin" title="Url admin"/>
     <string name="contractNo" title="N° contrat"/>
     <string name="password" title="Password"/>
-    <string name="typeLotClassification" title="Classification lot type"
+    <integer name="typeLotClassification" title="Classification lot type"
       selection="openauction.typeLotClassification.select"/>
-    <string name="objectType" title="Type objet" selection="openauction.objectType.select"/>
+    <integer name="objectType" title="Type objet" selection="openauction.objectType.select"/>
     <string name="exportPath" title="Répertoire exportation"/>
     <string name="scriptsPath" title="Répertoire scripts"/>
     <string name="script1" title="Script création répertoire"/>

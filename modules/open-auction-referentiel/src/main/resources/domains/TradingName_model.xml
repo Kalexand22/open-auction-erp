@@ -49,7 +49,7 @@
     <string name="footerPicture" title="Image pied-de-page"/>
     <string name="auctionReportCancelNos" title="N° Dire au PV"/>
     <string name="countryExitNos" title="N° Sortie du territoire"/>
-    <string name="vAToption" title="Fiscalité TVA" selection="openauction.vAToption.select"/>
+    <integer name="vAToption" title="Fiscalité TVA" selection="openauction.vAToption.select"/>
     <boolean name="vATExemptionAllowed" title="Autoriser franchise de TVA"/>
     <string name="agreementNo" title="N° agrément"/>
     <string name="vATRegistrationNo" title="N° identif. intracomm."/>
@@ -78,7 +78,7 @@
       ref="com.axelor.apps.base.db.BankDetails"/>
     <many-to-one name="defaultBankAccountNoVend"
       title="N° compte banc. acomptes vendeurs" ref="com.axelor.apps.base.db.BankDetails"/>
-    <string name="waitingRefundOption" title="Option attente remboursement"
+    <integer name="waitingRefundOption" title="Option attente remboursement"
       selection="openauction.waitingRefundOption.select"/>
     <string name="reminderNos" title="N° relance"/>
     <string name="issuedReminderNos" title="N° relance émise"/>

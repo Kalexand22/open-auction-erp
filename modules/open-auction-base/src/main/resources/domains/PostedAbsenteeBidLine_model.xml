@@ -13,11 +13,11 @@
     <many-to-one name="resourceLanguageCode" title="Code langue ressource"
       ref="com.axelor.apps.base.db.Language"/>
     <string name="agentResourceNo" title="N° resource intervenant"/>
-    <string name="operationMode" title="Mode opératoire"
+    <integer name="operationMode" title="Mode opératoire"
       selection="openauction.operationMode.select"/>
     <many-to-one name="shipmentAddressCode" title="Adresse destinataire"
       ref="com.axelor.apps.base.db.Address"/>
-    <string name="deliveryMethod" title="Mode livraison"
+    <integer name="deliveryMethod" title="Mode livraison"
       selection="openauction.deliveryMethod.select"/>
     <date name="requestedDeliveryDate" title="Date livraison demandée"/>
     <decimal name="absenteeBidPrice" title="Prix ordre d'achat"/>

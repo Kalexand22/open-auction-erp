@@ -6,19 +6,19 @@
   <entity name="TariffDetailLine">
     <many-to-one name="itemNo" title="N° article" ref="com.axelor.apps.base.db.Product"/>
     <boolean name="unitPriceItemCard" title="Prix fiche article"/>
-    <string name="transactionType" title="Type de transaction"
+    <integer name="transactionType" title="Type de transaction"
       selection="openauction.transactionType.select.tariff"/>
-    <string name="documentType" title="Type document"
+    <integer name="documentType" title="Type document"
       selection="openauction.documentType.select.tariff"/>
     <string name="documentCode" title="Code document"/>
-    <string name="lotType" title="Type de lot" selection="openauction.lotType.select.tariff"/>
-    <string name="contactType" title="Type contact"
+    <integer name="lotType" title="Type de lot" selection="openauction.lotType.select.tariff"/>
+    <integer name="contactType" title="Type contact"
       selection="openauction.contactType.select.tariff"/>
     <many-to-one name="currencyCode" title="Code devise"
       ref="com.axelor.apps.base.db.Currency"/>
     <date name="startingDate" title="Date début"/>
     <date name="endingDate" title="Date fin"/>
-    <string name="calculationType" title="Type calcul"
+    <integer name="calculationType" title="Type calcul"
       selection="openauction.calculationType.select.tariff"/>
     <decimal name="unitPrice" title="Prix unitaire"/>
     <decimal name="servicePercent" title="% prestation"/>
@@ -28,14 +28,14 @@
     <boolean name="allowInvoiceDisc" title="Remise facture autorisée"/>
     <decimal name="minimumServiceAmount" title="Montant prestation minimum"/>
     <decimal name="maximumServiceAmount" title="Montant prestation maximum"/>
-    <string name="commBaseCalc" title="Base calcul prestation"
+    <integer name="commBaseCalc" title="Base calcul prestation"
       selection="openauction.commBaseCalc.select.tariff"/>
     <many-to-one name="tariffCode" title="Code"
       ref="com.axelor.apps.openauction.db.TariffScale"/>
     <decimal name="minBaseRate" title="Taux base minimum"/>
     <decimal name="maxBaseRate" title="Taux de base maximum"/>
     <decimal name="percentage" title="Poucentage"/>
-    <string name="scaleType" title="Type barème"
+    <integer name="scaleType" title="Type barème"
       selection="openauction.scaleType.select.tariff"/>
     <decimal name="minAmount" title="Montant minimum"/>
     <decimal name="maxAmount" title="Montant maximum"/>

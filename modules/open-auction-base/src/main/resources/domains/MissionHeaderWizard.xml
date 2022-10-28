@@ -17,12 +17,12 @@
       ref="com.axelor.auth.db.User"/>
     <many-to-one name="managerEntryCode" title="Responsable de saisie"
       ref="com.axelor.auth.db.User"/>
-    <string name="sortingMethod" title="Méthode de tri"
+    <integer name="sortingMethod" title="Méthode de tri"
       selection="openauction.sortingMethod.select"/>
     <boolean name="auctionMission" title="Mission de vente"/>
-    <string name="missionType" title="Type mission"
+    <integer name="missionType" title="Type mission"
       selection="openauction.missionType.select"/>
-    <string name="missionStatus" title="Statut mission"
+    <integer name="missionStatus" title="Statut mission"
       selection="openauction.missionStatus.select"/>
     <boolean name="judicial" title="Judiciaire"/>
     <many-to-one name="activityCodeToHeader" title="Code activité pour en-tête"
@@ -32,7 +32,7 @@
     <boolean name="printConsignmentAgreement" title="Edition mandat vente"/>
     <boolean name="reqConsignmentAgreement" title="Mandat de vente requis"/>
     <boolean name="evaluetedCommissionDemand" title="Demande d'évaluation d'honoraire"/>
-    <string name="priority" title="Priorité" selection="openauction.priority.select"/>
+    <integer name="priority" title="Priorité" selection="openauction.priority.select"/>
     <many-to-one name="centralizedCustomerNo" title="N° client centralisé"
       ref="com.axelor.apps.base.db.Partner"/>
     <many-to-one name="vendorNo" title="N° fournisseur"
@@ -60,7 +60,7 @@
     <date name="judgmentAuctionDate" title="Date ordonnance de vente"/>
     <many-to-one name="inventoryType" title="Type inventaire"
       ref="com.axelor.apps.openauction.db.InventoryType"/>
-    <string name="inventoryNature" title="Nature inventaire"
+    <integer name="inventoryNature" title="Nature inventaire"
       selection="openauction.inventoryNature.select"/>
     <date name="inventoryDate" title="Date inventaire"/>
     <string name="defaultLocationCode" title="Code magasin par défaut"/>
@@ -76,7 +76,7 @@
     <boolean name="overdueFile" title="Procédure Impécunieuse"/>
     <string name="legalOrigin" title="Origine judicaire"/>
     <boolean name="blockInvoicing" title="Blocage facturation"/>
-    <string name="sellerInvStatementUnit" title="Unité de facturation"
+    <integer name="sellerInvStatementUnit" title="Unité de facturation"
       selection="openauction.sellerInvStatementUnit.select"/>
     <string name="sellerInvStatementPeriod" title="Période décompte vente"/>
     <boolean name="specificAuctPricingPolicy" title="Application tarif spec. vente"/>
@@ -108,7 +108,7 @@
     <string name="masterContactTelexNo" title="N° Téléphone 2"/>
     <integer name="phoneNoPrefix" title="Indicatif n° téléphone"/>
     <integer name="telexNoPrefix" title="Indicatif n° téléphone 2"/>
-    <string name="masterContPriorityPhone" title="Téléphone prioritaire"
+    <integer name="masterContPriorityPhone" title="Téléphone prioritaire"
       selection="openauction.masterContPriorityPhone.select"/>
     <integer name="docNoOccurrence" title="Occurrence n° doc."/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
@@ -127,9 +127,9 @@
       ref="com.axelor.apps.base.db.Partner"/>
     <many-to-one name="lawyerBusNo" title="N° d'affaire"
       ref="com.axelor.apps.openauction.db.LawyerBusiness"/>
-    <string name="processType" title="Type procédure"
+    <integer name="processType" title="Type procédure"
       selection="openauction.processType.select"/>
-    <string name="fileStatus" title="Statut saisie" selection="openauction.fileStatus.select"/>
+    <integer name="fileStatus" title="Statut saisie" selection="openauction.fileStatus.select"/>
     <many-to-one name="defaultLotTemplate" title="Modèle lot par défaut"
       ref="com.axelor.apps.openauction.db.LotTemplate"/>
     <string name="paraLawyerBusNo" title="N° affaire d'origine"/>

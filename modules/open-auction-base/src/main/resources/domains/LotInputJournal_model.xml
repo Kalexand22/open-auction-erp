@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="LotInputJournal">
-    <string name="documentType" title="Type document"
+    <integer name="documentType" title="Type document"
       selection="openauction.documentType.select"/>
     <many-to-one name="documentNo" title="N° document"
       ref="com.axelor.apps.openauction.db.MissionHeader"/>
@@ -17,7 +17,7 @@
     <string name="description" title="Description" namecolumn="true"/>
     <integer name="quantity" title="Quantité"/>
     <boolean name="valuationAtBest" title="Valeur au mieux"/>
-    <string name="valueType" title="Type valeur" selection="openauction.valueType.select"/>
+    <integer name="valueType" title="Type valeur" selection="openauction.valueType.select"/>
     <decimal name="value" title="Valeur"/>
     <decimal name="minimumValue" title="Valeur minimale"/>
     <decimal name="maximumValue" title="Valeur maximale"/>
@@ -44,7 +44,7 @@
       ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
     <string name="originCountryCode" title="Code pays provenance"/>
     <integer name="lotNoMission" title="N° lot/mission"/>
-    <string name="lineType" title="Type ligne" selection="openauction.lineType.select"/>
+    <integer name="lineType" title="Type ligne" selection="openauction.lineType.select"/>
     <string name="totaling" title="Totalisation"/>
     <integer name="indentation" title="Indentation"/>
     <string name="locationCode" title="Code magasin"/>
@@ -82,13 +82,13 @@
     <many-to-one name="cubageUnit" title="Unité de volume"
       ref="com.axelor.apps.base.db.Unit"/>
     <string name="title" title="Titre"/>
-    <string name="attributionType" title="Type attribution"
+    <integer name="attributionType" title="Type attribution"
       selection="openauction.attributionType.select"/>
     <many-to-one name="authorCode" title="Code auteur"
       ref="com.axelor.apps.openauction.db.Author"/>
     <many-to-one name="historicalPeriod" title="Période historique"
       ref="com.axelor.apps.openauction.db.HistoricalPeriod"/>
-    <string name="schoolType" title="Type école" selection="openauction.schoolType.select"/>
+    <integer name="schoolType" title="Type école" selection="openauction.schoolType.select"/>
     Unitof
     <many-to-one name="schoolCode" title="Code école"
       ref="com.axelor.apps.openauction.db.Ecole"/>

@@ -13,11 +13,11 @@
     <many-to-one name="thirdDestContactNo" title="&quot;Pour le compte de : &quot;"
       ref="com.axelor.apps.base.db.Partner"/>
     <string name="resourceInCharge" title="Responsable dossier"/>
-    <string name="lawyerBusStatus" title="Statut"
+    <integer name="lawyerBusStatus" title="Statut"
       selection="openauction.lawyerBusStatus.select"/>
     <date name="documentDate" title="&quot;Date document &quot;"/>
     <date name="postingDate" title="Date comptabilisation"/>
-    <string name="processType" title="Type procédure"
+    <integer name="processType" title="Type procédure"
       selection="openauction.processType.select"/>
     <many-to-one name="debtorContactNo" title="Débiteur"
       ref="com.axelor.apps.base.db.Partner"/>
@@ -32,7 +32,7 @@
     <string name="proceedingsNo" title="N° procédure judiciaire"/>
     <boolean name="overdueFile" title="Procédure impécunieuse"/>
     <date name="judgmentAuctionDate" title="Date ordonnance de vente"/>
-    <string name="procedureType" title="Type procédure"
+    <integer name="procedureType" title="Type procédure"
       selection="openauction.procedureType.select"/>
     <many-to-one name="competentCourt" title="Tribunal compétent"
       ref="com.axelor.apps.base.db.Partner"/>
@@ -41,7 +41,7 @@
     <many-to-one name="representativeofCreditors" title="Représentant des créanciers"
       ref="com.axelor.apps.base.db.Partner"/>
     <many-to-one name="manager" title="Gérant" ref="com.axelor.apps.base.db.Partner"/>
-    <string name="fileStatus" title="Statut dossier"
+    <integer name="fileStatus" title="Statut dossier"
       selection="openauction.fileStatus.select"/>
     <string name="industryGroup" title="Secteur d'activité"/>
     <string name="mandatoryExternalNo" title="Réf. externe mandataire"/>
@@ -53,7 +53,7 @@
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
       ref="com.axelor.apps.base.db.TradingName"/>
     <string name="fileNo" title="N° dossier"/>
-    <string name="appointmentType" title="Type RdV"
+    <integer name="appointmentType" title="Type RdV"
       selection="openauction.appointmentType.select"/>
     <date name="appointmentDate" title="Date RdV"/>
     <time name="appointmentTime" title="Heure RdV"/>

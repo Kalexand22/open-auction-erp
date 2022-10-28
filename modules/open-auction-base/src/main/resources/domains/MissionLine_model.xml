@@ -10,18 +10,18 @@
     <integer name="lotNoMission" title="N° lot/mission"/>
     <integer name="sortingSequenceNo" title="N° séquence tri"/>
     <boolean name="auctionMission" title="Mission de vente"/>
-    <string name="missionType" title="Type mission"
+    <integer name="missionType" title="Type mission"
       selection="openauction.missionType.select"/>
     <string name="type" title="Type" selection="openauction.type.select.missionline"/>
     <many-to-one name="noLot" title="Lot" ref="com.axelor.apps.openauction.db.Lot"/>
     <many-to-one name="contactNo" title="N° contact"
       ref="com.axelor.apps.base.db.Partner"/>
     <string name="description" title="Désignation"/>
-    <string name="priority" title="Priorité" selection="openauction.priority.select"/>
-    <string name="lotStatus" title="Statut lot" selection="openauction.lotStatus.select"/>
-    <string name="missionLotOpStatus" title="Statut opérationnel"
+    <integer name="priority" title="Priorité" selection="openauction.priority.select"/>
+    <integer name="lotStatus" title="Statut lot" selection="openauction.lotStatus.select"/>
+    <integer name="missionLotOpStatus" title="Statut opérationnel"
       selection="openauction.missionLotOpStatus.select"/>
-    <string name="missionLotDocumentStatus" title="Statut administratif"
+    <integer name="missionLotDocumentStatus" title="Statut administratif"
       selection="openauction.missionLotDocumentStatus.select"/>
     <decimal name="quantity" title="Quantité"/>
     <decimal name="quantitytoShip" title="Quantité à expédier"/>
@@ -42,7 +42,7 @@
     <many-to-one name="companySpecialCode" title="Code spécialité société"
       ref="com.axelor.apps.openauction.db.Specializing"/>
     <string name="equipementSpecialCode" title="Code équipement spécial"/>
-    <string name="lotType" title="Type lot" selection="openauction.lotType.select"/>
+    <integer name="lotType" title="Type lot" selection="openauction.lotType.select"/>
     <boolean name="canceled" title="Annulé"/>
     <string name="canceledReason" title="Motif Annulation"/>
     <boolean name="consignmentPrint" title="Edition Mandat"/>
@@ -76,7 +76,7 @@
     <many-to-one name="shipmentMethodCode" title="Code condition livraison"
       ref="com.axelor.apps.stock.db.ShipmentMode"/>
     <boolean name="inventoryComment" title="Commentaire inventaire"/>
-    <string name="bidInvoicingStatus" title="Statut facturation adjudication"
+    <integer name="bidInvoicingStatus" title="Statut facturation adjudication"
       selection="openauction.bidInvoicingStatus.select"/>
     <string name="bidInvoiceNo" title="N° facture adjudication"/>
     <string name="auctionDelay" title="Délai vente"/>
@@ -84,7 +84,7 @@
     <date name="firstAuctionDelay" title="Délai de première vente"/>
     <date name="liveAutoLicReceiptDate" title="Date réception carte grise valide"/>
     <date name="obtAutoNoPawnRcptDate" title="Date réception non gage obtenu"/>
-    <string name="sellerInvStatementUnit" title="Unité décompte vente"
+    <integer name="sellerInvStatementUnit" title="Unité décompte vente"
       selection="openauction.sellerInvStatementUnit.select"/>
     <string name="sellerInvStatementPeriod" title="Période décompte vente"/>
     <many-to-one name="missionComLotGroup" title="Groupe tarif mission lot"
@@ -94,7 +94,7 @@
     <boolean name="paymentAuctionOnAdvance" title="Avance sur vente"/>
     <many-to-one name="templateMissionCode" title="Code modèle mission"
       ref="com.axelor.apps.openauction.db.MissionTemplate"/>
-    <string name="inventoryLineType" title="Type ligne inventaire"
+    <integer name="inventoryLineType" title="Type ligne inventaire"
       selection="openauction.inventoryLineType.select"/>
     <integer name="inventoryIndentation" title="Indentation inventaire"/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
@@ -111,11 +111,11 @@
       ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
     <many-to-one name="parentInvClassification" title="Classification inv. parent"
       ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
-    <string name="externalContactType" title="Type contact externe"
+    <integer name="externalContactType" title="Type contact externe"
       selection="openauction.externalContactType.select"/>
     <decimal name="volInvLowEstimate" title="Estimation basse"/>
     <decimal name="volInvHighEstimate" title="Estimation haute"/>
-    <string name="lotInventoryLineStatus" title="Statut lot inventaire"
+    <integer name="lotInventoryLineStatus" title="Statut lot inventaire"
       selection="openauction.lotInventoryLineStatus.select"/>
     <string name="lotReferenceNo" title="N° référence lot"/>
     <string name="invOpInterface" title="Exploitation"/>

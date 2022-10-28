@@ -5,9 +5,9 @@
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="AuctionServicePrice">
     <many-to-one name="itemNo" title="N° article" ref="com.axelor.apps.base.db.Product"/>
-    <string name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
-    <string name="lotType" title="Type de lot" selection="openauction.lotType.select"/>
-    <string name="contactType" title="Type contact"
+    <integer name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
+    <integer name="lotType" title="Type de lot" selection="openauction.lotType.select"/>
+    <integer name="contactType" title="Type contact"
       selection="openauction.contactType.select"/>
     <string name="contactCode" title="Code contact"/>
     <many-to-one name="currencyCode" title="Code devise"
@@ -15,7 +15,7 @@
     <date name="startingDate" title="Date début"/>
     <date name="endingDate" title="Date fin"/>
     <decimal name="minimumBid" title="Adjudication minimum"/>
-    <string name="calculationType" title="Type calcul"
+    <integer name="calculationType" title="Type calcul"
       selection="openauction.calculationType.select"/>
     <decimal name="unitPrice" title="Prix unitaire"/>
     <decimal name="servicePercent" title="% prestation"/>
@@ -26,11 +26,11 @@
     <boolean name="allowInvoiceDisc" title="Remise facture autorisée"/>
     <decimal name="minimumBaseAmount" title="Montant base minimum"/>
     <decimal name="maximumBaseAmount" title="Montant base maximum"/>
-    <string name="commBaseCalcBeforeAuction" title="Base calcul prestation avant vente"
+    <integer name="commBaseCalcBeforeAuction" title="Base calcul prestation avant vente"
       selection="openauction.commBaseCalcBeforeAuction.select"/>
-    <string name="commBaseCalcSellingPrice" title="Base calcul prestation sur adjudication"
+    <integer name="commBaseCalcSellingPrice" title="Base calcul prestation sur adjudication"
       selection="openauction.commBaseCalcSellingPrice.select"/>
-    <string name="commBaseCalcAfterAuction" title="Base calcul prestation après vente"
+    <integer name="commBaseCalcAfterAuction" title="Base calcul prestation après vente"
       selection="openauction.commBaseCalcAfterAuction.select"/>
     <boolean name="budgetedCostReinvoicing" title="Refacturation coût budget"/>
     <many-to-one name="unitofMeasureCode" title="Code unité"

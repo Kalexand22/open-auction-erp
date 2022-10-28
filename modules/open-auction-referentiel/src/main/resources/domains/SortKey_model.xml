@@ -6,6 +6,6 @@
   <entity name="SortKey">
     <integer name="sortKey" title="N° ligne"/>
     <string name="sortFields" title="Clé"/>
-    <string name="print" title="Imprimer détail" selection="openauction.print.select"/>
+    <integer name="print" title="Imprimer détail" selection="openauction.print.select"/>
   </entity>
 </domain-models>

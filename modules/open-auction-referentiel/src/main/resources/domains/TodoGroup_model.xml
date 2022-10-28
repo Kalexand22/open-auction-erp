@@ -7,7 +7,7 @@
     <string name="code" title="Code"/>
     <string name="description" title="Désignation"/>
     <integer name="todoColor" title="Couleur action"/>
-    <string name="todoGroupType" title="Type groupe action"
+    <integer name="todoGroupType" title="Type groupe action"
       selection="openauction.todoGroupType.select"/>
   </entity>
 </domain-models>

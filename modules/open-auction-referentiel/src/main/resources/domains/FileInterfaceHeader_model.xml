@@ -5,12 +5,12 @@
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="FileInterfaceHeader">
     <string name="no" title="N°"/>
-    <string name="interfaceType" title="Type interface"
+    <integer name="interfaceType" title="Type interface"
       selection="openauction.interfaceType.select"/>
-    <string name="processType" title="Type de process"
+    <integer name="processType" title="Type de process"
       selection="openauction.processType.select"/>
     <integer name="fileStartingLine" title="Ligne début fichier"/>
-    <string name="fileFormat" title="Format fichier"
+    <integer name="fileFormat" title="Format fichier"
       selection="openauction.fileFormat.select"/>
     <string name="fieldSeparator" title="Séparateur"/>
     <string name="fieldDelimiter" title="Délimiteur de champ"/>
