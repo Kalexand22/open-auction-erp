@@ -189,32 +189,32 @@
     <![CDATA[
 
     //openauction.missionType.select
-    public static final Integer MISSIONTYPE_QUOTE = 0;
-    public static final Integer MISSIONTYPE_ORDER = 1;
+    public static final int MISSIONTYPE_QUOTE = 0;
+    public static final int MISSIONTYPE_ORDER = 1;
 
 
     //openauction.missionStatus.select
-    public static final Integer MISSIONSTATUS_INITIAL = 0;
-    public static final Integer MISSIONSTATUS_CURRENT = 1;
-    public static final Integer MISSIONSTATUS_DONE = 2;
-    public static final Integer MISSIONSTATUS_WAITING = 3;
-    public static final Integer MISSIONSTATUS_CANCELED = 4;
-    public static final Integer MISSIONSTATUS_FINISHED = 5;
+    public static final int MISSIONSTATUS_INITIAL = 0;
+    public static final int MISSIONSTATUS_CURRENT = 1;
+    public static final int MISSIONSTATUS_DONE = 2;
+    public static final int MISSIONSTATUS_WAITING = 3;
+    public static final int MISSIONSTATUS_CANCELED = 4;
+    public static final int MISSIONSTATUS_FINISHED = 5;
 
 
     //openauction.processType.select
-    public static final Integer PROCESSTYPE_EMPTY = 0;
-    public static final Integer PROCESSTYPE_PROCEDURERJ = 1;
-    public static final Integer PROCESSTYPE_PROCEDURELJ = 2;
-    public static final Integer PROCESSTYPE_RECOVERY = 3;
-    public static final Integer PROCESSTYPE_INHERITANCE = 4;
-    public static final Integer PROCESSTYPE_DISPUTE = 5;
-    public static final Integer PROCESSTYPE_ESTIMATE = 6;
-    public static final Integer PROCESSTYPE_EXPERTISE = 7;
-    public static final Integer PROCESSTYPE_BACKUP = 8;
-    public static final Integer PROCESSTYPE_VERIFICATION = 9;
-    public static final Integer PROCESSTYPE_SIMPLELJ = 10;
-    public static final Integer PROCESSTYPE_ADDITIONALINVENTORY = 11;
+    public static final int PROCESSTYPE_EMPTY = 0;
+    public static final int PROCESSTYPE_PROCEDURERJ = 1;
+    public static final int PROCESSTYPE_PROCEDURELJ = 2;
+    public static final int PROCESSTYPE_RECOVERY = 3;
+    public static final int PROCESSTYPE_INHERITANCE = 4;
+    public static final int PROCESSTYPE_DISPUTE = 5;
+    public static final int PROCESSTYPE_ESTIMATE = 6;
+    public static final int PROCESSTYPE_EXPERTISE = 7;
+    public static final int PROCESSTYPE_BACKUP = 8;
+    public static final int PROCESSTYPE_VERIFICATION = 9;
+    public static final int PROCESSTYPE_SIMPLELJ = 10;
+    public static final int PROCESSTYPE_ADDITIONALINVENTORY = 11;
 
 
 

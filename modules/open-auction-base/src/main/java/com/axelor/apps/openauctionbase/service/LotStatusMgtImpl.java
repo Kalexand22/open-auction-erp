@@ -123,7 +123,7 @@ public class LotStatusMgtImpl implements LotStatusMgt {
          VALIDATE("Lot General Status", lGeneralStatus);
      END;
     */
-    String lGeneralStatus = pLot.getLotGeneralStatus();
+    Integer lGeneralStatus = pLot.getLotGeneralStatus();
     switch (pLot.getLotInventoryStatus()) {
       case LotRepository.LOTINVENTORYSTATUS_UNKNOWN:
       case LotRepository.LOTINVENTORYSTATUS_TO_PICK:
@@ -141,7 +141,7 @@ public class LotStatusMgtImpl implements LotStatusMgt {
         break;
       case LotRepository.LOTINVENTORYSTATUS_UNGROUPED:
         break;
-      case LotRepository.LOTINVENTORYSTATUS_INTRANSIT4:
+      case LotRepository.LOTINVENTORYSTATUS_INTRANSIT:
         break;
     }
     if (!pLot.getLotGeneralStatus().equals(lGeneralStatus)) {
@@ -161,7 +161,7 @@ public class LotStatusMgtImpl implements LotStatusMgt {
          VALIDATE("Lot General Status", lGeneralStatus);
      END;
     */
-    String lGeneralStatus = pLot.getLotGeneralStatus();
+    Integer lGeneralStatus = pLot.getLotGeneralStatus();
     if (!pLot.getLotGeneralStatus().equals(lGeneralStatus)) {
       pLot = lotValidate.validateLotGeneralStatus(pLot, lGeneralStatus);
     }
@@ -179,7 +179,7 @@ public class LotStatusMgtImpl implements LotStatusMgt {
          VALIDATE("Lot General Status", lGeneralStatus);
      END;
     */
-    String lGeneralStatus = pLot.getLotGeneralStatus();
+    Integer lGeneralStatus = pLot.getLotGeneralStatus();
     if (!pLot.getLotGeneralStatus().equals(lGeneralStatus)) {
       pLot = lotValidate.validateLotGeneralStatus(pLot, lGeneralStatus);
     }

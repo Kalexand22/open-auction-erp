@@ -132,8 +132,8 @@
       <![CDATA[
 
       //openauction.type.select.missionline
-      public static final Integer TYPE_EMPTY = 0;
-      public static final Integer TYPE_LOT = 1;
+      public static final int TYPE_EMPTY = 0;
+      public static final int TYPE_LOT = 1;
 
 
 

@@ -65,57 +65,57 @@
     <extra-code>
       <![CDATA[
       //openauction.type.select.contact
-      public static final Integer TYPE_COMPANY = 0;
-      public static final Integer TYPE_PERSON = 1;
+      public static final int TYPE_COMPANY = 0;
+      public static final int TYPE_PERSON = 1;
 
       //openauction.correspondenceType.select.contact
-      public static final Integer CORRESPONDENCE_TYPE_EMPTY = 0;
-      public static final Integer CORRESPONDENCE_TYPE_HARD_COPY = 1;
-      public static final Integer CORRESPONDENCE_TYPE_EMAIL = 2;
-      public static final Integer CORRESPONDENCE_TYPE_FAX = 3;
-      public static final Integer CORRESPONDENCE_TYPE_PDFMAIL = 4;
-      public static final Integer CORRESPONDENCE_TYPE_SMS = 5;
+      public static final int CORRESPONDENCE_TYPE_EMPTY = 0;
+      public static final int CORRESPONDENCE_TYPE_HARD_COPY = 1;
+      public static final int CORRESPONDENCE_TYPE_EMAIL = 2;
+      public static final int CORRESPONDENCE_TYPE_FAX = 3;
+      public static final int CORRESPONDENCE_TYPE_PDFMAIL = 4;
+      public static final int CORRESPONDENCE_TYPE_SMS = 5;
 
       //openauction.status.select.contact
-      public static final Integer STATUS_IDLE = 0;
-      public static final Integer STATUS_ACTIVE = 1;
-      public static final Integer STATUS_PROSPECT = 2;
-      public static final Integer STATUS_CUSTOMER = 3;
-      public static final Integer STATUS_WAITING = 4;
+      public static final int STATUS_IDLE = 0;
+      public static final int STATUS_ACTIVE = 1;
+      public static final int STATUS_PROSPECT = 2;
+      public static final int STATUS_CUSTOMER = 3;
+      public static final int STATUS_WAITING = 4;
 
 
       //openauction.hearAboutUs.select.contact
-      public static final Integer HEAR_ABOUT_US_AUCTIONEER = 0;
-      public static final Integer HEAR_ABOUT_US_OUR_WEB_SITE = 1;
-      public static final Integer HEAR_ABOUT_US_OTHER_WEB_SITE = 2;
-      public static final Integer HEAR_ABOUT_US_AUCTION_ANNOUNCEMENT = 3;
-      public static final Integer HEAR_ABOUT_US_OTHERS = 1;
+      public static final int HEAR_ABOUT_US_AUCTIONEER = 0;
+      public static final int HEAR_ABOUT_US_OUR_WEB_SITE = 1;
+      public static final int HEAR_ABOUT_US_OTHER_WEB_SITE = 2;
+      public static final int HEAR_ABOUT_US_AUCTION_ANNOUNCEMENT = 3;
+      public static final int HEAR_ABOUT_US_OTHERS = 1;
 
       //openauction.blockpayment.select.contact
-      public static final Integer BLOCKPAYMENT_EMPTY = 0;
-      public static final Integer BLOCKPAYMENT_BLOCKED = 1;
+      public static final int BLOCKPAYMENT_EMPTY = 0;
+      public static final int BLOCKPAYMENT_BLOCKED = 1;
 
       //openauction.sellerInvoiceStatementUnit.select.contact
-      public static final Integer SELLER_INVOICE_STATEMENT_UNIT_AUCTION = 0;
-      public static final Integer SELLER_INVOICE_STATEMENT_UNIT_LOT = 1;
-      public static final Integer SELLER_INVOICE_STATEMENT_UNIT_MISSION = 2;
-      public static final Integer SELLER_INVOICE_STATEMENT_UNIT_PERIOD = 3;
+      public static final int SELLER_INVOICE_STATEMENT_UNIT_AUCTION = 0;
+      public static final int SELLER_INVOICE_STATEMENT_UNIT_LOT = 1;
+      public static final int SELLER_INVOICE_STATEMENT_UNIT_MISSION = 2;
+      public static final int SELLER_INVOICE_STATEMENT_UNIT_PERIOD = 3;
 
       //openauction.addedValueType.select.contact
-      public static final Integer ADDED_VALUE_TYPE_FREE = 0;
-      public static final Integer ADDED_VALUE_TYPE_SPECIFIC_SUM = 1;
+      public static final int ADDED_VALUE_TYPE_FREE = 0;
+      public static final int ADDED_VALUE_TYPE_SPECIFIC_SUM = 1;
 
 
       //openauction.priorityPhone.select.contact
-      public static final Integer PRIORITY_PHONE_PHONE = 0;
-      public static final Integer PRIORITY_PHONE_MOBILE_PHONE = 1;
-      public static final Integer PRIORITY_PHONE_TELEX = 2;
+      public static final int PRIORITY_PHONE_PHONE = 0;
+      public static final int PRIORITY_PHONE_MOBILE_PHONE = 1;
+      public static final int PRIORITY_PHONE_TELEX = 2;
 
 
       //openauction.invoicingType.select.contact
-      public static final Integer INVOICING_TYPE_ADJ_FEES_OUTLAY = 0;
-      public static final Integer INVOICING_TYPE_ADJ_FEES = 1;
-      public static final Integer INVOICING_TYPE_ADJ = 2;
+      public static final int INVOICING_TYPE_ADJ_FEES_OUTLAY = 0;
+      public static final int INVOICING_TYPE_ADJ_FEES = 1;
+      public static final int INVOICING_TYPE_ADJ = 2;
 
       ]]>
     </extra-code>

@@ -53,30 +53,30 @@
         <![CDATA[
 
           //openauction.entryType.select
-          public static final Integer ENTRYTYPE_ESTIMATE0 = 0;
-            public static final Integer ENTRYTYPE_SELLERESTIMATE1 = 1;
-            public static final Integer ENTRYTYPE_APPRAISAL2 = 2;
-            public static final Integer ENTRYTYPE_BIDPRICE3 = 3;
-            public static final Integer ENTRYTYPE_INVENTORY4 = 4;
-            public static final Integer ENTRYTYPE_RESERVEPRICE5 = 5;
-            public static final Integer ENTRYTYPE_AUCTION6 = 6;
-            public static final Integer ENTRYTYPE_ACQUISITION7 = 7;
-            public static final Integer ENTRYTYPE_QUOTATION8 = 8;
-            public static final Integer ENTRYTYPE_GUARANTEEDPRICE9 = 9;
-            public static final Integer ENTRYTYPE_AUCTIONESTIMATE10 = 10;
+          public static final int ENTRYTYPE_ESTIMATE0 = 0;
+            public static final int ENTRYTYPE_SELLERESTIMATE1 = 1;
+            public static final int ENTRYTYPE_APPRAISAL2 = 2;
+            public static final int ENTRYTYPE_BIDPRICE3 = 3;
+            public static final int ENTRYTYPE_INVENTORY4 = 4;
+            public static final int ENTRYTYPE_RESERVEPRICE5 = 5;
+            public static final int ENTRYTYPE_AUCTION6 = 6;
+            public static final int ENTRYTYPE_ACQUISITION7 = 7;
+            public static final int ENTRYTYPE_QUOTATION8 = 8;
+            public static final int ENTRYTYPE_GUARANTEEDPRICE9 = 9;
+            public static final int ENTRYTYPE_AUCTIONESTIMATE10 = 10;
 
 
             //openauction.sourceType.select.lotvaluejournal
-            public static final Integer SOURCETYPE_MISSION0 = 0;
-            public static final Integer SOURCETYPE_AUCTION1 = 1;
+            public static final int SOURCETYPE_MISSION0 = 0;
+            public static final int SOURCETYPE_AUCTION1 = 1;
 
 
             //openauction.auctionType.select.lotvaluejournal
-            public static final Integer AUCTIONTYPE_EMPTY0 = 0;
-            public static final Integer AUCTIONTYPE_SELLOFFPRICE1 = 1;
-            public static final Integer AUCTIONTYPE_ABSENTEE_BID2 = 2;
-            public static final Integer AUCTIONTYPE_MAXIMUM_BID3 = 3;
-            public static final Integer AUCTIONTYPE_RETIREDPRICE = 4;
+            public static final int AUCTIONTYPE_EMPTY0 = 0;
+            public static final int AUCTIONTYPE_SELLOFFPRICE1 = 1;
+            public static final int AUCTIONTYPE_ABSENTEE_BID2 = 2;
+            public static final int AUCTIONTYPE_MAXIMUM_BID3 = 3;
+            public static final int AUCTIONTYPE_RETIREDPRICE = 4;
         ]]>
     </extra-code>
   </entity>

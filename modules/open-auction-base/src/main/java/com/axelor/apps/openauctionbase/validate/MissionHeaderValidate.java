@@ -65,7 +65,7 @@ public class MissionHeaderValidate {
   //  MissionStatusMgt.CancelCancelledMission(Rec);
   // MissionManagement.SaveChangeStatus(xRec,Rec);//
 
-  public MissionHeader validateMissionStatus(MissionHeader missionHeader, String missionStatus)
+  public MissionHeader validateMissionStatus(MissionHeader missionHeader, Integer missionStatus)
       throws AxelorException {
     missionHeader.setMissionStatus(missionStatus);
     if (missionHeader.getMissionStatus().equals(MissionHeaderRepository.MISSIONSTATUS_FINISHED)) {

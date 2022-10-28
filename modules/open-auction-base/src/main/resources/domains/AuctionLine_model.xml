@@ -141,23 +141,23 @@
       <![CDATA[
 
       //openauction.lineStatus.select
-      public static final Integer LINESTATUS_EMPTY = 0;
-      public static final Integer LINESTATUS_AUCTIONED = 1;
-      public static final Integer LINESTATUS_RETIRED = 2;
-      public static final Integer LINESTATUS_UNPRESENTED = 3;
-      public static final Integer LINESTATUS_PAID = 4;
-      public static final Integer LINESTATUS_SHIPPED = 5;
-      public static final Integer LINESTATUS_UNCONSESIGNED = 6;
-      public static final Integer LINESTATUS_OUTOFAUCTION = 7;
+      public static final int LINESTATUS_EMPTY = 0;
+      public static final int LINESTATUS_AUCTIONED = 1;
+      public static final int LINESTATUS_RETIRED = 2;
+      public static final int LINESTATUS_UNPRESENTED = 3;
+      public static final int LINESTATUS_PAID = 4;
+      public static final int LINESTATUS_SHIPPED = 5;
+      public static final int LINESTATUS_UNCONSESIGNED = 6;
+      public static final int LINESTATUS_OUTOFAUCTION = 7;
 
 
       //openauction.auctionStatus.select.auctionline
-      public static final Integer AUCTIONSTATUS_INITIAL = 0;
-      public static final Integer AUCTIONSTATUS_CONFIRMED = 1;
-      public static final Integer AUCTIONSTATUS_AUCTION = 2;
-      public static final Integer AUCTIONSTATUS_FINISHED = 3;
-      public static final Integer AUCTIONSTATUS_CLOSED = 4;
-      public static final Integer AUCTIONSTATUS_CANCELED = 5;
+      public static final int AUCTIONSTATUS_INITIAL = 0;
+      public static final int AUCTIONSTATUS_CONFIRMED = 1;
+      public static final int AUCTIONSTATUS_AUCTION = 2;
+      public static final int AUCTIONSTATUS_FINISHED = 3;
+      public static final int AUCTIONSTATUS_CLOSED = 4;
+      public static final int AUCTIONSTATUS_CANCELED = 5;
       ]]>
     </extra-code>
   </entity>

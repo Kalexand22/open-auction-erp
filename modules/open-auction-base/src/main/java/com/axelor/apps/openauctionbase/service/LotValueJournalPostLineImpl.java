@@ -135,7 +135,7 @@ public class LotValueJournalPostLineImpl implements LotValueJournalPostLine {
   */
   private void checkReplaced(LotValueEntry lotValueEntry) {
 
-    String entryType = lotValueEntry.getEntryType();
+    Integer entryType = lotValueEntry.getEntryType();
     lotValueEntryRepo
         .all()
         .filter(

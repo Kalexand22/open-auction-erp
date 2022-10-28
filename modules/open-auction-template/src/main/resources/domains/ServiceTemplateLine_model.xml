@@ -16,9 +16,9 @@
     <extra-code>
       <![CDATA[
       //TypeSelect
-      public static final Integer TYPE_SERVICE = 0;
-      public static final Integer TYPE_RESSOURCE = 1;
-      public static final Integer TYPE_EMPTY = 2;
+      public static final int TYPE_SERVICE = 0;
+      public static final int TYPE_RESSOURCE = 1;
+      public static final int TYPE_EMPTY = 2;
       ]]>
     </extra-code>
   </entity>

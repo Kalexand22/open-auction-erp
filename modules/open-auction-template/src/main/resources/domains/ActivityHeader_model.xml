@@ -24,11 +24,11 @@
     <extra-code>
       <![CDATA[
       //ACTIVITYTYPE
-      public static final Integer ACTIVITYTYPE_MISSION = 1;
-      public static final Integer ACTIVITYTYPE_AUCTION = 0;
+      public static final int ACTIVITYTYPE_MISSION = 1;
+      public static final int ACTIVITYTYPE_AUCTION = 0;
 
-      public static final Integer APPLICABLEON_HEADER = 0;
-      public static final Integer APPLICABLEON_LINE = 1;
+      public static final int APPLICABLEON_HEADER = 0;
+      public static final int APPLICABLEON_LINE = 1;
       ]]>
     </extra-code>
   </entity>

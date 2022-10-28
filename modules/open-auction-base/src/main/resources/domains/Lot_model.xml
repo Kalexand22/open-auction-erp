@@ -359,47 +359,47 @@
       <![CDATA[
 
       //openauction.auctionStatus.select.lot
-      public static final Integer AUCTIONSTATUS_INITIAL = 0;
-      public static final Integer AUCTIONSTATUS_TOSIGN = 1;
-      public static final Integer AUCTIONSTATUS_TOPREPARE = 2;
-      public static final Integer AUCTIONSTATUS_READYTOAUCTION = 3;
-      public static final Integer AUCTIONSTATUS_AUCTION = 4;
-      public static final Integer AUCTIONSTATUS_AUCTIONNED = 5;
-      public static final Integer AUCTIONSTATUS_RETIRED = 6;
-      public static final Integer AUCTIONSTATUS_NOAUCTION = 7;
-      public static final Integer AUCTIONSTATUS_AUCTIONINGROUP = 8;
-      public static final Integer AUCTIONSTATUS_UNGROUPED = 9;
+      public static final int AUCTIONSTATUS_INITIAL = 0;
+      public static final int AUCTIONSTATUS_TOSIGN = 1;
+      public static final int AUCTIONSTATUS_TOPREPARE = 2;
+      public static final int AUCTIONSTATUS_READYTOAUCTION = 3;
+      public static final int AUCTIONSTATUS_AUCTION = 4;
+      public static final int AUCTIONSTATUS_AUCTIONNED = 5;
+      public static final int AUCTIONSTATUS_RETIRED = 6;
+      public static final int AUCTIONSTATUS_NOAUCTION = 7;
+      public static final int AUCTIONSTATUS_AUCTIONINGROUP = 8;
+      public static final int AUCTIONSTATUS_UNGROUPED = 9;
 
       //openauction.lotInventoryStatus.select.lot
-      public static final Integer LOTINVENTORYSTATUS_UNKNOWN = 0;
-      public static final Integer LOTINVENTORYSTATUS_INSTOCK = 1;
-      public static final Integer LOTINVENTORYSTATUS_DELIVERED = 2;
-      public static final Integer LOTINVENTORYSTATUS_RESTITUED = 3;
-      public static final Integer LOTINVENTORYSTATUS_UNGROUPED = 4;
-      public static final Integer LOTINVENTORYSTATUS_INTRANSIT = 5;
-      public static final Integer LOTINVENTORYSTATUS_TO_PICK = 6;
+      public static final int LOTINVENTORYSTATUS_UNKNOWN = 0;
+      public static final int LOTINVENTORYSTATUS_INSTOCK = 1;
+      public static final int LOTINVENTORYSTATUS_DELIVERED = 2;
+      public static final int LOTINVENTORYSTATUS_RESTITUED = 3;
+      public static final int LOTINVENTORYSTATUS_UNGROUPED = 4;
+      public static final int LOTINVENTORYSTATUS_INTRANSIT = 5;
+      public static final int LOTINVENTORYSTATUS_TO_PICK = 6;
 
 
       //openauction.lotGeneralStatus.select.lot
-      public static final Integer LOTGENERALSTATUS_IDENTIFIED = 0;
-      public static final Integer LOTGENERALSTATUS_ONMISSION = 1;
-      public static final Integer LOTGENERALSTATUS_ONSALE = 2;
-      public static final Integer LOTGENERALSTATUS_SOLD = 3;
-      public static final Integer LOTGENERALSTATUS_RETURN = 4;
-      public static final Integer LOTGENERALSTATUS_CANCELED = 5;
+      public static final int LOTGENERALSTATUS_IDENTIFIED = 0;
+      public static final int LOTGENERALSTATUS_ONMISSION = 1;
+      public static final int LOTGENERALSTATUS_ONSALE = 2;
+      public static final int LOTGENERALSTATUS_SOLD = 3;
+      public static final int LOTGENERALSTATUS_RETURN = 4;
+      public static final int LOTGENERALSTATUS_CANCELED = 5;
 
 
       //openauction.lotType.select.lot
-      public static final Integer LOTTYPE_MEETINGSALE = 0;
-      public static final Integer LOTTYPE_GROUPINGONSALE = 1;
-      public static final Integer LOTTYPE_LOT = 2;
-      public static final Integer LOTTYPE_UNGROUPINGORIGINLOT = 3;
-      public static final Integer LOTTYPE_ORIGINLOTCOMPONENT = 4;
+      public static final int LOTTYPE_MEETINGSALE = 0;
+      public static final int LOTTYPE_GROUPINGONSALE = 1;
+      public static final int LOTTYPE_LOT = 2;
+      public static final int LOTTYPE_UNGROUPINGORIGINLOT = 3;
+      public static final int LOTTYPE_ORIGINLOTCOMPONENT = 4;
 
 
       //openauction.addedValueType.select.lot
-      public static final Integer ADDEDVALUETYPE_FREE = 0;
-      public static final Integer ADDEDVALUETYPE_SPECIFICSUM = 1;
+      public static final int ADDEDVALUETYPE_FREE = 0;
+      public static final int ADDEDVALUETYPE_SPECIFICSUM = 1;
 
       ]]>
     </extra-code>

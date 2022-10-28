@@ -51,26 +51,26 @@
       <![CDATA[
 
       //openauction.missionType.select.missionserviceprice
-      public static final Integer MISSIONTYPE_ALLMISSION = 0;
-      public static final Integer MISSIONTYPE_MISSIONTEMPLATE = 1;
-      public static final Integer MISSIONTYPE_MISSION = 2;
+      public static final int MISSIONTYPE_ALLMISSION = 0;
+      public static final int MISSIONTYPE_MISSIONTEMPLATE = 1;
+      public static final int MISSIONTYPE_MISSION = 2;
 
 
       //openauction.lotType.select.missionserviceprice
-      public static final Integer LOTTYPE_ALLLOT = 0;
-      public static final Integer LOTTYPE_LOTPRICEGROUP = 1;
-      public static final Integer LOTTYPE_LOT = 2;
+      public static final int LOTTYPE_ALLLOT = 0;
+      public static final int LOTTYPE_LOTPRICEGROUP = 1;
+      public static final int LOTTYPE_LOT = 2;
 
       //openauction.contactType.select.missionserviceprice
-      public static final Integer CONTACTTYPE_ALLCONTACT = 0;
-      public static final Integer CONTACTTYPE_CONTACTPRICEGROUP = 1;
-      public static final Integer CONTACTTYPE_CONTACT = 2;
+      public static final int CONTACTTYPE_ALLCONTACT = 0;
+      public static final int CONTACTTYPE_CONTACTPRICEGROUP = 1;
+      public static final int CONTACTTYPE_CONTACT = 2;
 
 
       //openauction.calculationType.select
-      public static final Integer CALCULATIONTYPE_UNITPRICE = 0;
-      public static final Integer CALCULATIONTYPE_SERVICE = 1;
-      public static final Integer CALCULATIONTYPE_COMMISSIONSCALE = 2;
+      public static final int CALCULATIONTYPE_UNITPRICE = 0;
+      public static final int CALCULATIONTYPE_SERVICE = 1;
+      public static final int CALCULATIONTYPE_COMMISSIONSCALE = 2;
 
       ]]>
     </extra-code>

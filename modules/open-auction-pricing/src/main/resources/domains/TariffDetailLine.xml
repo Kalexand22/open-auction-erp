@@ -48,35 +48,35 @@
     <extra-code>
       <![CDATA[
       //openauction.transactionType.select.tariff
-      public static final Integer TRANSACTION_TYPE_MISSION = 0;
-      public static final Integer TRANSACTION_TYPE_AUCTION = 1;
-      public static final Integer TRANSACTION_TYPE_SEGMENT = 2;
+      public static final int TRANSACTION_TYPE_MISSION = 0;
+      public static final int TRANSACTION_TYPE_AUCTION = 1;
+      public static final int TRANSACTION_TYPE_SEGMENT = 2;
 
       //openauction.documentType.select.tariff
-      public static final Integer DOCUMENT_TYPE_ALL = 0;
-      public static final Integer DOCUMENT_TYPE_TEMPLATE = 1;
-      public static final Integer DOCUMENT_TYPE_NO = 2;
+      public static final int DOCUMENT_TYPE_ALL = 0;
+      public static final int DOCUMENT_TYPE_TEMPLATE = 1;
+      public static final int DOCUMENT_TYPE_NO = 2;
 
       //openauction.lotType.select.tariff
-      public static final Integer LOT_TYPE_ALL_LOT = 0;
-      public static final Integer LOT_TYPE_LOT_PRICE_GROUP = 1;
-      public static final Integer LOT_TYPE_LOT = 2;
+      public static final int LOT_TYPE_ALL_LOT = 0;
+      public static final int LOT_TYPE_LOT_PRICE_GROUP = 1;
+      public static final int LOT_TYPE_LOT = 2;
 
       //openauction.contactType.select.tariff
-      public static final Integer CONTACT_TYPE_ALL_CONTACT = 0;
-      public static final Integer CONTACT_TYPE_CONTACT_PRICE_GROUP = 1;
-      public static final Integer CONTACT_TYPE_CONTACT = 2;
+      public static final int CONTACT_TYPE_ALL_CONTACT = 0;
+      public static final int CONTACT_TYPE_CONTACT_PRICE_GROUP = 1;
+      public static final int CONTACT_TYPE_CONTACT = 2;
 
       //openauction.calculationType.select.tariff
-      public static final Integer CALCULATION_TYPE_UNIT_PRICE = 0;
-      public static final Integer CALCULATION_TYPE_SERVICE = 1;
-      public static final Integer CALCULATION_TYPE_COMMISSION_SCALE = 2;
+      public static final int CALCULATION_TYPE_UNIT_PRICE = 0;
+      public static final int CALCULATION_TYPE_SERVICE = 1;
+      public static final int CALCULATION_TYPE_COMMISSION_SCALE = 2;
 
       //openauction.commBaseCalc.select.tariff
-      public static final Integer COMM_BASE_CALC_EMPTY = 0;
-      public static final Integer COMM_BASE_CALC_RESERVE_PRICE = 1;
-      public static final Integer COMM_BASE_CALC_ESTIMATED_VALUE_MIN = 2;
-      public static final Integer COMM_BASE_CALC_ESTIMATED_VALUE_MAX = 3;
+      public static final int COMM_BASE_CALC_EMPTY = 0;
+      public static final int COMM_BASE_CALC_RESERVE_PRICE = 1;
+      public static final int COMM_BASE_CALC_ESTIMATED_VALUE_MIN = 2;
+      public static final int COMM_BASE_CALC_ESTIMATED_VALUE_MAX = 3;
 
       ]]>
     </extra-code>

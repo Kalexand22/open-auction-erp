@@ -14,10 +14,10 @@
     <extra-code>
         <![CDATA[
           //openauction.processType.select.lotbomhistory
-          public static final Integer PROCESSTYPE_MEETING = 0;
-            public static final Integer PROCESSTYPE_GROUP = 1;
-            public static final Integer PROCESSTYPE_UNGROUP = 2;
-            public static final StIntegerring PROCESSTYPE_DUPLICATE = 3;
+          public static final int PROCESSTYPE_MEETING = 0;
+            public static final int PROCESSTYPE_GROUP = 1;
+            public static final int PROCESSTYPE_UNGROUP = 2;
+            public static final int PROCESSTYPE_DUPLICATE = 3;
         ]]>
 
     </extra-code>

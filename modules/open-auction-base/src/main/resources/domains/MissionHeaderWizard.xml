@@ -178,17 +178,17 @@
     <![CDATA[
 
     //openauction.missionType.select
-    public static final Integer MISSIONTYPE_QUOTE = 0;
-    public static final Integer MISSIONTYPE_ORDER = 1;
+    public static final int MISSIONTYPE_QUOTE = 0;
+    public static final int MISSIONTYPE_ORDER = 1;
 
 
     //openauction.missionStatus.select
-    public static final Integer MISSIONSTATUS_INITIAL = 0;
-    public static final Integer MISSIONSTATUS_CURRENT = 1;
-    public static final Integer MISSIONSTATUS_DONE = 2;
-    public static final Integer MISSIONSTATUS_WAITING = 3;
-    public static final Integer MISSIONSTATUS_CANCELED = 4;
-    public static final Integer MISSIONSTATUS_FINISHED = 5;
+    public static final int MISSIONSTATUS_INITIAL = 0;
+    public static final int MISSIONSTATUS_CURRENT = 1;
+    public static final int MISSIONSTATUS_DONE = 2;
+    public static final int MISSIONSTATUS_WAITING = 3;
+    public static final int MISSIONSTATUS_CANCELED = 4;
+    public static final int MISSIONSTATUS_FINISHED = 5;
     ]]>
     </extra-code>
   </entity>
