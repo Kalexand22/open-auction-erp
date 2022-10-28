@@ -35,7 +35,8 @@
       selection="openauction.blockpayment.select.contact"/>
     <integer name="hearAboutUs" title="Origine contact"
       selection="openauction.hearAboutUs.select"/>
-    <integer name="statusContact" title="Statut" selection="openauction.status.select.contact"/>
+    <integer name="statusContact" title="Statut"
+      selection="openauction.status.select.contact"/>
     <integer name="priorityPhone" title="Téléphone prioritaire"
       selection="openauction.priorityPhone.select"/>
     <integer name="invoicingType" title="Type facturation"
@@ -49,71 +50,72 @@
     <many-to-one name="globalDimension2Code" title="Code axe principal 2"
       ref="com.axelor.apps.account.db.AnalyticAxis"/>
     <string name="accreditationPeriod" title="Période accréditation"/>
-    <date name="accreditationStartingDate" title="Date début accréditation"/> 
+    <date name="accreditationStartingDate" title="Date début accréditation"/>
     <date name="accreditationEndingDate" title="Date fin accréditation"/>
 
-    <boolean name="isCentralizedCustomer" title="Client centralisé" />
-    <boolean name="isInvoiceStatementPrint" title="Edition relevés facture" />    
-    <string name="purchaserNo" title="Acheteur N°" />
-    <string name="defaultBankAccountCode" title="Code compte bancaire par défaut" />
-	  <boolean name="isCentralizedVendor" title="Fournisseur centralisé" />
-    <many-to-one name="defaultCompanyBankAccount" title="Banque société par défaut" ref="com.axelor.apps.base.db.BankDetails" />
-    <boolean name="isConsolidation" title="Consolidation" />
-    
+    <boolean name="isCentralizedCustomer" title="Client centralisé"/>
+    <boolean name="isInvoiceStatementPrint" title="Edition relevés facture"/>
+    <string name="purchaserNo" title="Acheteur N°"/>
+    <string name="defaultBankAccountCode" title="Code compte bancaire par défaut"/>
+    <boolean name="isCentralizedVendor" title="Fournisseur centralisé"/>
+    <many-to-one name="defaultCompanyBankAccount" title="Banque société par défaut"
+      ref="com.axelor.apps.base.db.BankDetails"/>
+    <boolean name="isConsolidation" title="Consolidation"/>
+
     <extra-code>
       <![CDATA[
       //openauction.type.select.contact
-      public static final String TYPE_COMPANY = "Company0";
-      public static final String TYPE_PERSON = "Person1";
+      public static final Integer TYPE_COMPANY = 0;
+      public static final Integer TYPE_PERSON = 1;
 
       //openauction.correspondenceType.select.contact
-      public static final String CORRESPONDENCE_TYPE_EMPTY = "Empty0";
-      public static final String CORRESPONDENCE_TYPE_HARD_COPY = "HardCopy1";
-      public static final String CORRESPONDENCE_TYPE_EMAIL = "EMail2";
-      public static final String CORRESPONDENCE_TYPE_FAX = "Fax3";
-      public static final String CORRESPONDENCE_TYPE_PDFMAIL = "PDFMail4";
-      public static final String CORRESPONDENCE_TYPE_SMS = "SMS5";
+      public static final Integer CORRESPONDENCE_TYPE_EMPTY = 0;
+      public static final Integer CORRESPONDENCE_TYPE_HARD_COPY = 1;
+      public static final Integer CORRESPONDENCE_TYPE_EMAIL = 2;
+      public static final Integer CORRESPONDENCE_TYPE_FAX = 3;
+      public static final Integer CORRESPONDENCE_TYPE_PDFMAIL = 4;
+      public static final Integer CORRESPONDENCE_TYPE_SMS = 5;
 
       //openauction.status.select.contact
-      public static final String STATUS_IDLE = "Idle0";
-      public static final String STATUS_ACTIVE = "Active1";
-      public static final String STATUS_PROSPECT = "Prospect2";
-      public static final String STATUS_CUSTOMER = "Customer3";
-      public static final String STATUS_WAITING = "Waiting4";
+      public static final Integer STATUS_IDLE = 0;
+      public static final Integer STATUS_ACTIVE = 1;
+      public static final Integer STATUS_PROSPECT = 2;
+      public static final Integer STATUS_CUSTOMER = 3;
+      public static final Integer STATUS_WAITING = 4;
 
 
       //openauction.hearAboutUs.select.contact
-      public static final String HEAR_ABOUT_US_AUCTIONEER = "Auctioneer0";
-      public static final String HEAR_ABOUT_US_OUR_WEB_SITE = "OurWebSite1";
-      public static final String HEAR_ABOUT_US_OTHER_WEB_SITE = "OtherWebSite2";
-      public static final String HEAR_ABOUT_US_AUCTION_ANNOUNCEMENT = "AuctionAnnouncement3";
-      public static final String HEAR_ABOUT_US_OTHERS = "Others4";
+      public static final Integer HEAR_ABOUT_US_AUCTIONEER = 0;
+      public static final Integer HEAR_ABOUT_US_OUR_WEB_SITE = 1;
+      public static final Integer HEAR_ABOUT_US_OTHER_WEB_SITE = 2;
+      public static final Integer HEAR_ABOUT_US_AUCTION_ANNOUNCEMENT = 3;
+      public static final Integer HEAR_ABOUT_US_OTHERS = 1;
 
       //openauction.blockpayment.select.contact
-      public static final String BLOCKPAYMENT_EMPTY = "Empty0";
-      public static final String BLOCKPAYMENT_BLOCKED = "Blocked1";
+      public static final Integer BLOCKPAYMENT_EMPTY = 0;
+      public static final Integer BLOCKPAYMENT_BLOCKED = 1;
 
       //openauction.sellerInvoiceStatementUnit.select.contact
-      public static final String SELLER_INVOICE_STATEMENT_UNIT_AUCTION = "Auction0";
-      public static final String SELLER_INVOICE_STATEMENT_UNIT_LOT = "Lot1";
-      public static final String SELLER_INVOICE_STATEMENT_UNIT_MISSION = "Mission2";
-      public static final String SELLER_INVOICE_STATEMENT_UNIT_PERIOD = "Period3";
+      public static final Integer SELLER_INVOICE_STATEMENT_UNIT_AUCTION = 0;
+      public static final Integer SELLER_INVOICE_STATEMENT_UNIT_LOT = 1;
+      public static final Integer SELLER_INVOICE_STATEMENT_UNIT_MISSION = 2;
+      public static final Integer SELLER_INVOICE_STATEMENT_UNIT_PERIOD = 3;
 
       //openauction.addedValueType.select.contact
-      public static final String ADDED_VALUE_TYPE_FREE = "Free0";
-      public static final String ADDED_VALUE_TYPE_SPECIFIC_SUM = "SpecificSum1";
+      public static final Integer ADDED_VALUE_TYPE_FREE = 0;
+      public static final Integer ADDED_VALUE_TYPE_SPECIFIC_SUM = 1;
 
 
       //openauction.priorityPhone.select.contact
-      public static final String PRIORITY_PHONE_PHONE = "Phone0";
-      public static final String PRIORITY_PHONE_MOBILE_PHONE = "MobilePhone1";
-      public static final String PRIORITY_PHONE_TELEX = "Telex2";
+      public static final Integer PRIORITY_PHONE_PHONE = 0;
+      public static final Integer PRIORITY_PHONE_MOBILE_PHONE = 1;
+      public static final Integer PRIORITY_PHONE_TELEX = 2;
 
 
       //openauction.invoicingType.select.contact
-      public static final String INVOICING_TYPE_ADJ_FEES_OUTLAY = "AdjFeesOutlay0";
-      public static final String INVOICING_TYPE_ADJ_FEES = "AdjFees1";
-      public static final String INVOICING_TYPE_ADJ = "Adj2";
+      public static final Integer INVOICING_TYPE_ADJ_FEES_OUTLAY = 0;
+      public static final Integer INVOICING_TYPE_ADJ_FEES = 1;
+      public static final Integer INVOICING_TYPE_ADJ = 2;
 
       ]]>
     </extra-code>

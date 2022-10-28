@@ -47,8 +47,8 @@
     <string name="originCountryCode" title="Code pays provenance"/>
     <integer name="lineType" title="Type ligne" selection="openauction.lineType.select"/>
     <integer name="indentation" title="Indentation"/>
-    <integer name="valueType" title="Type de valeur" selection="openauction.valueType.select"
-     />
+    <integer name="valueType" title="Type de valeur"
+      selection="openauction.valueType.select"/>
     <integer name="lotAddedValue" title="Type plus-value"
       selection="openauction.lotAddedValue.select"/>
     <string name="locationCode" title="Code magasin"/>
@@ -98,16 +98,16 @@
       <![CDATA[
 
       //openauction.valueType.select
-      public static final String VALUETYPE_APPRAISAL = "Appraisal0";
-      public static final String VALUETYPE_ESTIMATE = "Estimate1";
+      public static final Integer VALUETYPE_APPRAISAL = 0;
+      public static final Integer VALUETYPE_ESTIMATE = 1;
 
 
       //openauction.valueType.select
-      public static final String LINETYPE_EMPTY = "Empty0";
-      public static final String LINETYPE_HEADING = "Heading1";
-      public static final String LINETYPE_TOTAL = "Total2";
-      public static final String LINETYPE_BEGINSUBTOTAL = "BeginSubTotal3";
-      public static final String LINETYPE_ENDSUBTOTAL = "EndSubTotal4";
+      public static final Integer LINETYPE_EMPTY = 0;
+      public static final Integer LINETYPE_HEADING = 1;
+      public static final Integer LINETYPE_TOTAL = 2;
+      public static final Integer LINETYPE_BEGINSUBTOTAL = 3;
+      public static final Integer LINETYPE_ENDSUBTOTAL = 4;
       ]]>
     </extra-code>
   </entity>

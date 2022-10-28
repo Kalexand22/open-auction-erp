@@ -142,22 +142,22 @@ public class MissionTemplateManagementImpl implements MissionTemplateManagement 
         if (lLawyerBus != null) {
           // TODO REVOIR LE CODE
           switch (lLawyerBus.getProcessType()) {
-            case "Procedure RJ":
+            case 1:
               pMissionHeader =
                   missionHeaderValidate.validateMasterContactNo(
                       pMissionHeader, lLawyerBus.getDebtorContactNo());
               break;
-            case "Backup":
+            case 8:
               pMissionHeader =
                   missionHeaderValidate.validateMasterContactNo(
                       pMissionHeader, lLawyerBus.getDebtorContactNo());
               break;
-            case "Procedure LJ":
+            case 2:
               pMissionHeader =
                   missionHeaderValidate.validateMasterContactNo(
                       pMissionHeader, pMissionHeader.getMasterContactNo());
               break;
-            case "Recovery":
+            case 3:
               pMissionHeader =
                   missionHeaderValidate.validateManager(pMissionHeader, lLawyerBus.getManager());
               // lmissionHeader = missionHeaderValidate.validateMainInterlocutorNo(lmissionHeader,

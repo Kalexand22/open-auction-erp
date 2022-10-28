@@ -9,14 +9,16 @@
     <integer name="lineNo" title="N° ligne"/>
     <string name="lotNo" title="N° lot"/>
     <string name="lotDescription" title="Description lot"/>
-    <integer name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
+    <integer name="auctionType" title="Type vente"
+      selection="openauction.auctionType.select"/>
     <many-to-one name="currencyCode" title="Code devise"
       ref="com.axelor.apps.base.db.Currency"/>
     <string name="locationCode" title="Code magasin"/>
     <decimal name="quantity" title="Quantité"/>
     <decimal name="bidPrice" title="Adjugé"/>
     <time name="auctionTime" title="Heure adjudication"/>
-    <integer name="lineStatus" title="Statut ligne" selection="openauction.lineStatus.select"/>
+    <integer name="lineStatus" title="Statut ligne"
+      selection="openauction.lineStatus.select"/>
     <decimal name="bidPriceInclVAT" title="Adjudication TTC"/>
     <many-to-one name="missionNo" title="N° mission"
       ref="com.axelor.apps.openauction.db.MissionHeader"/>
@@ -90,7 +92,7 @@
       ref="com.axelor.apps.openauction.db.PassingIndex"/>
     <boolean name="showinAuction" title="Affichage vente"/>
     <integer name="auctionStatus" title="Statut vente"
-      selection="openauction.auctionStatus.select.auctionline" />
+      selection="openauction.auctionStatus.select.auctionline"/>
     <boolean name="isAuctionned" title="Adjugé"/>
     <integer name="lotNoMission" title="N° lot/mission"/>
     <many-to-one name="sellerVATBusPostingGroup"

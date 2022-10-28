@@ -16,18 +16,18 @@
       <![CDATA[
 
       //openauction.scaleType.select.tariff
-      public static final String SCALE_TYPE_TARIFF = "Tariff0";
-      public static final String SCALE_TYPE_JUDICIAL_INVENTORY = "JudicialInventory1";
-      public static final String SCALE_TYPE_VALUE_SYNCHRO = "ValueSynchro2";
+      public static final Integer SCALE_TYPE_TARIFF =0;
+      public static final Integer SCALE_TYPE_JUDICIAL_INVENTORY = 1;
+      public static final Integer SCALE_TYPE_VALUE_SYNCHRO = 2;
 
       //openauction.calculationMethod.select
-      public static final String CALCULATION_METHOD_PERCENTAGE = "Percentage0";
-      public static final String CALCULATION_METHOD_AMOUNT = "Amount1";
+      public static final Integer CALCULATION_METHOD_PERCENTAGE = 0;
+      public static final Integer CALCULATION_METHOD_AMOUNT = 1;
 
 
       //openauction.calculationLevels.select
-      public static final String CALCULATION_LEVELS_SLICE = "Slice0";
-      public static final String CALCULATION_LEVELS_THRESHOLD = "Threshold1";
+      public static final Integer CALCULATION_LEVELS_SLICE = 0;
+      public static final Integer CALCULATION_LEVELS_THRESHOLD = 1;
 
 
       ]]>

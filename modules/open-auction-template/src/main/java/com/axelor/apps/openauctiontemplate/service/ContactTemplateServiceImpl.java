@@ -44,5 +44,4 @@ public class ContactTemplateServiceImpl implements ContactTemplateService {
     tmpPartner = (Partner) TransferFields.transferFields(contactTemplate, tmpPartner);
     return tmpPartner;
   }
-
 }

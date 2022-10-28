@@ -251,7 +251,7 @@ public class LotValidate {
   //  END;
   //END;//
     */
-  public Lot validateLotGeneralStatus(Lot lot, String lotGeneralStatus) {
+  public Lot validateLotGeneralStatus(Lot lot, Integer lotGeneralStatus) {
     lot.setLotGeneralStatus(lotGeneralStatus);
     LotStatusMgt lotStatusMgt = Beans.get(LotStatusMgt.class);
     lot = lotStatusMgt.CheckGeneralStatus(lot);
@@ -273,7 +273,7 @@ public class LotValidate {
   //  END;
   //END;//
     */
-  public Lot validateAuctionStatus(Lot lot, String auctionStatus) {
+  public Lot validateAuctionStatus(Lot lot, Integer auctionStatus) {
     lot.setAuctionStatus(auctionStatus);
     LotStatusMgt lotStatusMgt = Beans.get(LotStatusMgt.class);
     lot = lotStatusMgt.UpdLotAuctionStatus(lot);
@@ -318,7 +318,7 @@ public class LotValidate {
   //  END;
   //END;//
     */
-  public Lot validateLotInventoryStatus(Lot lot, String lotInventoryStatus) {
+  public Lot validateLotInventoryStatus(Lot lot, Integer lotInventoryStatus) {
     lot.setLotInventoryStatus(lotInventoryStatus);
     LotStatusMgt lotStatusMgt = Beans.get(LotStatusMgt.class);
     lot = lotStatusMgt.UpdLotInventoryStatus(lot);
@@ -332,7 +332,7 @@ public class LotValidate {
                                                              BEGIN
   //lLotStatusMgt.UpdLotOperationStatus(Rec);//
     */
-  public Lot validateCurMisLotOperationStatus(Lot lot, String curMisLotOperationStatus) {
+  public Lot validateCurMisLotOperationStatus(Lot lot, Integer curMisLotOperationStatus) {
     lot.setCurMisLotOperationStatus(curMisLotOperationStatus);
     LotStatusMgt lotStatusMgt = Beans.get(LotStatusMgt.class);
     lot = lotStatusMgt.UpdLotOperationStatus(lot);
@@ -346,7 +346,7 @@ public class LotValidate {
                                                              BEGIN
   //lLotStatusMgt.UpdLotMissionStatus(Rec);//
     */
-  public Lot validateCurrentMissionLotDocStatus(Lot lot, String currentMissionLotDocStatus) {
+  public Lot validateCurrentMissionLotDocStatus(Lot lot, Integer currentMissionLotDocStatus) {
     lot.setCurrentMissionLotDocStatus(currentMissionLotDocStatus);
     LotStatusMgt lotStatusMgt = Beans.get(LotStatusMgt.class);
     lot = lotStatusMgt.UpdLotMissionStatus(lot);
@@ -493,7 +493,7 @@ public class LotValidate {
   //  END;
   //END;//
   */
-  public Lot validateLotType(Lot lot, String lotType) {
+  public Lot validateLotType(Lot lot, Integer lotType) {
     lot.setLotType(lotType);
     if (lotType != null) {
       if (lotType.equals(LotRepository.LOTTYPE_UNGROUPINGORIGINLOT)) {

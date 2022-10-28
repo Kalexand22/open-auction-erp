@@ -12,11 +12,11 @@
     <many-to-one name="lotNo" title="N° lot" ref="com.axelor.apps.openauction.db.Lot"/>
     <many-to-one name="productNo" title="N° lot" ref="com.axelor.apps.base.db.Product"/>
     <integer name="transactionType" title="Type de transaction"
-      selection="openauction.transactionType.select" />
+      selection="openauction.transactionType.select"/>
     <long name="documentNo" title="N° de document"/>
     <integer name="transactionLineNo" title="N° ligne transaction"/>
-    <integer name="type" title="Type" selection="openauction.type.select.servicetemplateline"
-      />
+    <integer name="type" title="Type"
+      selection="openauction.type.select.servicetemplateline"/>
     <string name="description" title="Désignation"/>
     <decimal name="quantity" title="Quantité"/>
     <decimal name="qtytoInvoice" title="Qté à facturer"/>
@@ -117,32 +117,32 @@
 
 
       //openauction.invoicingType.select.missionserviceline
-      public static final String INVOICINGTYPE_BILLABLE = "Billable";
-      public static final String INVOICINGTYPE_BILLABLEONBID = "BillableOnBid";
-      public static final String INVOICINGTYPE_UNBILLABLE = "Unbillable";
+      public static final Integer INVOICINGTYPE_BILLABLE = 0;
+      public static final Integer INVOICINGTYPE_BILLABLEONBID = 1;
+      public static final Integer INVOICINGTYPE_UNBILLABLE = 2;
 
 
       //openauction.transactionType.select
-      public static final String TRANSACTIONTYPE_MISSION = "Mission0";
-      public static final String TRANSACTIONTYPE_VENTE = "Auction1";
+      public static final Integer TRANSACTIONTYPE_MISSION = 0;
+      public static final Integer TRANSACTIONTYPE_VENTE = 1;
 
 
       //openauction.contactImputationType.select
-      public static final String CONTACTIMPUTATIONTYPE_SELLER = "Seller0";
-      public static final String CONTACTIMPUTATIONTYPE_BUYER = "Buyer1";
-      public static final String CONTACTIMPUTATIONTYPE_NONE = "None2";
+      public static final Integer CONTACTIMPUTATIONTYPE_SELLER = 0;
+      public static final Integer CONTACTIMPUTATIONTYPE_BUYER = 1;
+      public static final Integer CONTACTIMPUTATIONTYPE_NONE = 2;
 
 
       //openauction.serviceType.select.missionserviceline
-      public static final String SERVICETYPE_COMMISSION = "Commission0";
-      public static final String SERVICETYPE_EXPENSE = "Expense1";
-      public static final String SERVICETYPE_AUCTIONBID = "AuctionBid2";
+      public static final Integer SERVICETYPE_COMMISSION = 0;
+      public static final Integer SERVICETYPE_EXPENSE = 1;
+      public static final Integer SERVICETYPE_AUCTIONBID = 2;
 
 
       //openauction.type.select.servicetemplateline
-      public static final String TYPE_SERVICE = "Service0";
-      public static final String TYPE_RESSOURCE = "Ressource1";
-      public static final String TYPE_EMPTY = "Empty2";
+      public static final Integer TYPE_SERVICE = 0;
+      public static final Integer TYPE_RESSOURCE = 1;
+      public static final Integer TYPE_EMPTY = 2;
       ]]>
     </extra-code>
   </entity>

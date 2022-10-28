@@ -6,7 +6,7 @@
   <entity name="ArgusEquipement">
     <string name="code" title="Code"/>
     <string name="description" title="Désignation"/>
-    <integer  name="type" title="Intérieur,Extérieur,Sécurité"
+    <integer name="type" title="Intérieur,Extérieur,Sécurité"
       selection="openauction.type.select"/>
     <integer name="displayOrder" title="Ordre affichage"/>
     <boolean name="argusRererenced" title="Référencé argus"/>

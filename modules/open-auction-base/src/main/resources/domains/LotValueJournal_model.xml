@@ -6,8 +6,7 @@
   <entity name="LotValueJournal">
     <integer name="lineNo" title="N° ligne"/>
     <many-to-one name="lotNo" title="N° lot" ref="com.axelor.apps.openauction.db.Lot"/>
-    <integer name="entryType" title="Type écriture" selection="openauction.entryType.select"
-      />
+    <integer name="entryType" title="Type écriture" selection="openauction.entryType.select"/>
     <date name="postingDate" title="Date comptabilisation"/>
     <date name="documentDate" title="Date document"/>
     <many-to-one name="missionNo" title="N° mission"
@@ -23,7 +22,7 @@
     <many-to-one name="activityLineNo" title="N° ligne activité"
       ref="com.axelor.apps.openauction.db.ActivityLine"/>
     <integer name="sourceType" title="Type origine"
-      selection="openauction.sourceType.select.lotvaluejournal" />
+      selection="openauction.sourceType.select.lotvaluejournal"/>
     <decimal name="unitPrice" title="Prix unitaire"/>
     <decimal name="quantity" title="Quantité"/>
     <decimal name="baseAmount" title="Montant base"/>
@@ -37,7 +36,7 @@
       ref="com.axelor.apps.openauction.db.LotValueEntry"/>
     <boolean name="replaced" title="Remplacé"/>
     <integer name="auctionType" title="Type enchère"
-      selection="openauction.auctionType.select.lotvaluejournal" />
+      selection="openauction.auctionType.select.lotvaluejournal"/>
     <decimal name="falseBidDifference" title="Ecart folle enchère"/>
     <many-to-one name="leasingContractNo" title="N° contrat leasing"
       ref="com.axelor.apps.openauction.db.LeasingContract"/>
@@ -54,30 +53,30 @@
         <![CDATA[
 
           //openauction.entryType.select
-          public static final String ENTRYTYPE_ESTIMATE0 = "Estimate0";
-            public static final String ENTRYTYPE_SELLERESTIMATE1 = "SellerEstimate1";
-            public static final String ENTRYTYPE_APPRAISAL2 = "Appraisal2";
-            public static final String ENTRYTYPE_BIDPRICE3 = "BidPrice3";
-            public static final String ENTRYTYPE_INVENTORY4 = "Inventory4";
-            public static final String ENTRYTYPE_RESERVEPRICE5 = "ReservePrice5";
-            public static final String ENTRYTYPE_AUCTION6 = "Auction6";
-            public static final String ENTRYTYPE_ACQUISITION7 = "Acquisition7";
-            public static final String ENTRYTYPE_QUOTATION8 = "Quotation8";
-            public static final String ENTRYTYPE_GUARANTEEDPRICE9 = "GuaranteedPrice9";
-            public static final String ENTRYTYPE_AUCTIONESTIMATE10 = "AuctionEstimate10";
+          public static final Integer ENTRYTYPE_ESTIMATE0 = 0;
+            public static final Integer ENTRYTYPE_SELLERESTIMATE1 = 1;
+            public static final Integer ENTRYTYPE_APPRAISAL2 = 2;
+            public static final Integer ENTRYTYPE_BIDPRICE3 = 3;
+            public static final Integer ENTRYTYPE_INVENTORY4 = 4;
+            public static final Integer ENTRYTYPE_RESERVEPRICE5 = 5;
+            public static final Integer ENTRYTYPE_AUCTION6 = 6;
+            public static final Integer ENTRYTYPE_ACQUISITION7 = 7;
+            public static final Integer ENTRYTYPE_QUOTATION8 = 8;
+            public static final Integer ENTRYTYPE_GUARANTEEDPRICE9 = 9;
+            public static final Integer ENTRYTYPE_AUCTIONESTIMATE10 = 10;
 
 
             //openauction.sourceType.select.lotvaluejournal
-            public static final String SOURCETYPE_MISSION0 = "Mission0";
-            public static final String SOURCETYPE_AUCTION1 = "Auction1";
+            public static final Integer SOURCETYPE_MISSION0 = 0;
+            public static final Integer SOURCETYPE_AUCTION1 = 1;
 
 
             //openauction.auctionType.select.lotvaluejournal
-            public static final String AUCTIONTYPE_EMPTY0 = "Empty0";
-            public static final String AUCTIONTYPE_SELLOFFPRICE1 = "SellOffPrice";
-            public static final String AUCTIONTYPE_ABSENTEE_BID2 = "AbsenteeBid";
-            public static final String AUCTIONTYPE_MAXIMUM_BID3 = "MaximumBid";
-            public static final String AUCTIONTYPE_RETIREDPRICE = "RetiredPrice";
+            public static final Integer AUCTIONTYPE_EMPTY0 = 0;
+            public static final Integer AUCTIONTYPE_SELLOFFPRICE1 = 1;
+            public static final Integer AUCTIONTYPE_ABSENTEE_BID2 = 2;
+            public static final Integer AUCTIONTYPE_MAXIMUM_BID3 = 3;
+            public static final Integer AUCTIONTYPE_RETIREDPRICE = 4;
         ]]>
     </extra-code>
   </entity>

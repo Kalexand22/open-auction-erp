@@ -11,7 +11,8 @@
     <integer name="documentType" title="Type document"
       selection="openauction.documentType.select.tariff"/>
     <string name="documentCode" title="Code document"/>
-    <integer name="lotType" title="Type de lot" selection="openauction.lotType.select.tariff"/>
+    <integer name="lotType" title="Type de lot"
+      selection="openauction.lotType.select.tariff"/>
     <integer name="contactType" title="Type contact"
       selection="openauction.contactType.select.tariff"/>
     <many-to-one name="currencyCode" title="Code devise"
@@ -47,35 +48,35 @@
     <extra-code>
       <![CDATA[
       //openauction.transactionType.select.tariff
-      public static final String TRANSACTION_TYPE_MISSION = "Mission0";
-      public static final String TRANSACTION_TYPE_AUCTION = "Auction1";
-      public static final String TRANSACTION_TYPE_SEGMENT = "Segment2";
+      public static final Integer TRANSACTION_TYPE_MISSION = 0;
+      public static final Integer TRANSACTION_TYPE_AUCTION = 1;
+      public static final Integer TRANSACTION_TYPE_SEGMENT = 2;
 
       //openauction.documentType.select.tariff
-      public static final String DOCUMENT_TYPE_ALL = "All0";
-      public static final String DOCUMENT_TYPE_TEMPLATE = "Template1";
-      public static final String DOCUMENT_TYPE_NO = "No2";
+      public static final Integer DOCUMENT_TYPE_ALL = 0;
+      public static final Integer DOCUMENT_TYPE_TEMPLATE = 1;
+      public static final Integer DOCUMENT_TYPE_NO = 2;
 
       //openauction.lotType.select.tariff
-      public static final String LOT_TYPE_ALL_LOT = "AllLot0";
-      public static final String LOT_TYPE_LOT_PRICE_GROUP = "LotPriceGroup1";
-      public static final String LOT_TYPE_LOT = "Lot2";
+      public static final Integer LOT_TYPE_ALL_LOT = 0;
+      public static final Integer LOT_TYPE_LOT_PRICE_GROUP = 1;
+      public static final Integer LOT_TYPE_LOT = 2;
 
       //openauction.contactType.select.tariff
-      public static final String CONTACT_TYPE_ALL_CONTACT = "AllContact0";
-      public static final String CONTACT_TYPE_CONTACT_PRICE_GROUP = "ContactPriceGroup1";
-      public static final String CONTACT_TYPE_CONTACT = "Contact2";
+      public static final Integer CONTACT_TYPE_ALL_CONTACT = 0;
+      public static final Integer CONTACT_TYPE_CONTACT_PRICE_GROUP = 1;
+      public static final Integer CONTACT_TYPE_CONTACT = 2;
 
       //openauction.calculationType.select.tariff
-      public static final String CALCULATION_TYPE_UNIT_PRICE = "UnitPrice0";
-      public static final String CALCULATION_TYPE_SERVICE = "Service1";
-      public static final String CALCULATION_TYPE_COMMISSION_SCALE = "CommissionScale2";
+      public static final Integer CALCULATION_TYPE_UNIT_PRICE = 0;
+      public static final Integer CALCULATION_TYPE_SERVICE = 1;
+      public static final Integer CALCULATION_TYPE_COMMISSION_SCALE = 2;
 
       //openauction.commBaseCalc.select.tariff
-      public static final String COMM_BASE_CALC_EMPTY = "Empty0";
-      public static final String COMM_BASE_CALC_RESERVE_PRICE = "ReservePrice1";
-      public static final String COMM_BASE_CALC_ESTIMATED_VALUE_MIN = "EstimatedValueMin2";
-      public static final String COMM_BASE_CALC_ESTIMATED_VALUE_MAX = "EstimatedValueMax3";
+      public static final Integer COMM_BASE_CALC_EMPTY = 0;
+      public static final Integer COMM_BASE_CALC_RESERVE_PRICE = 1;
+      public static final Integer COMM_BASE_CALC_ESTIMATED_VALUE_MIN = 2;
+      public static final Integer COMM_BASE_CALC_ESTIMATED_VALUE_MAX = 3;
 
       ]]>
     </extra-code>

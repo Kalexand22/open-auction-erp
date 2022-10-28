@@ -9,15 +9,15 @@
     <many-to-one name="childLotNo" title="N° lot enfant"
       ref="com.axelor.apps.openauction.db.Lot"/>
     <integer name="processType" title="Type transaction"
-      selection="openauction.processType.select.lotbomhistory" />
+      selection="openauction.processType.select.lotbomhistory"/>
     <boolean name="cancelled" title="Annulé"/>
     <extra-code>
         <![CDATA[
           //openauction.processType.select.lotbomhistory
-          public static final String PROCESSTYPE_MEETING = "Meeting";
-            public static final String PROCESSTYPE_GROUP = "Group";
-            public static final String PROCESSTYPE_UNGROUP = "Ungroup";
-            public static final String PROCESSTYPE_DUPLICATE = "Duplicate";
+          public static final Integer PROCESSTYPE_MEETING = 0;
+            public static final Integer PROCESSTYPE_GROUP = 1;
+            public static final Integer PROCESSTYPE_UNGROUP = 2;
+            public static final StIntegerring PROCESSTYPE_DUPLICATE = 3;
         ]]>
 
     </extra-code>

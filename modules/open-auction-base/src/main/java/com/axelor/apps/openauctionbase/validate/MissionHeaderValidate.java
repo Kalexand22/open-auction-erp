@@ -39,7 +39,7 @@ public class MissionHeaderValidate {
   // IF "Sorting Method" <> xRec."Sorting Method" THEN BEGIN
   //  MissionLineMgt.SortMissionLine(Rec);
   // END;//
-  public MissionHeader validateSortingMethod(MissionHeader missionHeader, String sortingMethod) {
+  public MissionHeader validateSortingMethod(MissionHeader missionHeader, Integer sortingMethod) {
     if (missionHeader.getSortingMethod() != sortingMethod) {
       MissionLineManagement missionLineManagement = Beans.get(MissionLineManagement.class);
       missionLineManagement.sortMissionLine(missionHeader);

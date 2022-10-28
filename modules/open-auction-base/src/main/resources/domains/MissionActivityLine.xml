@@ -32,9 +32,9 @@
 
 
         //openauction.type.select.missionactivityline
-        public static final String TYPE_TODO = "Todo";
-        public static final String TYPE_SERVICE = "Service";
-        public static final String TYPE_INTERACTION = "Interaction";
+        public static final Integer TYPE_TODO = 0;
+        public static final Integer TYPE_SERVICE = 1;
+        public static final Integer TYPE_INTERACTION = 2;
         ]]>
     </extra-code>
   </entity>

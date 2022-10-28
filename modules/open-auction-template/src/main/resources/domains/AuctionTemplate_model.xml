@@ -9,7 +9,8 @@
     <many-to-one name="auctionRoom" title="Salle de vente"
       ref="com.axelor.apps.openauction.db.AuctionRoom"/>
     <string name="auctionnerCode" title="Commissaire-priseur"/>
-    <integer name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
+    <integer name="auctionType" title="Type vente"
+      selection="openauction.auctionType.select"/>
     <string name="salespersonCode" title="Code intervenant"/>
     <many-to-one name="activityCodeToHeader" title="Code activité pour en-tête"
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>

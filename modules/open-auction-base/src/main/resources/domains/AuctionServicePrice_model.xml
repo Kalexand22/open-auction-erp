@@ -5,7 +5,8 @@
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="AuctionServicePrice">
     <many-to-one name="itemNo" title="N° article" ref="com.axelor.apps.base.db.Product"/>
-    <integer name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
+    <integer name="auctionType" title="Type vente"
+      selection="openauction.auctionType.select"/>
     <integer name="lotType" title="Type de lot" selection="openauction.lotType.select"/>
     <integer name="contactType" title="Type contact"
       selection="openauction.contactType.select"/>

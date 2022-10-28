@@ -24,10 +24,10 @@
       */
 
       //openauction.entryType.select.missionvalueentry
-      public static final String ENTRYTYPE_MAINAMOUNT = "MainAmount";
-      public static final String ENTRYTYPE_AMOUNTADJUSTEMENT = "AmountAdjustement";
-      public static final String ENTRYTYPE_CORRESPONDENTFEE = "CorrespondentFee";
-      public static final String ENTRYTYPE_CORRESPONDENTPREPAYMENT = "CorrespondentPrepayment";
+      public static final Integer ENTRYTYPE_MAINAMOUNT = 0;
+      public static final Integer ENTRYTYPE_AMOUNTADJUSTEMENT = 1;
+      public static final Integer ENTRYTYPE_CORRESPONDENTFEE = 2;
+      public static final Integer ENTRYTYPE_CORRESPONDENTPREPAYMENT = 3;
       ]]>
 
     </extra-code>

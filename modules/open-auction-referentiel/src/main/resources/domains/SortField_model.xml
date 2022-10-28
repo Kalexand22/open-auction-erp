@@ -15,6 +15,7 @@
     <boolean name="footer" title="Total"/>
     <integer name="sortDirection" title="Ordre Tri"
       selection="openauction.sortDirection.select"/>
-    <integer name="periodicity" title="Périodicité" selection="openauction.periodicity.select"/>
+    <integer name="periodicity" title="Périodicité"
+      selection="openauction.periodicity.select"/>
   </entity>
 </domain-models>

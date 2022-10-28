@@ -21,7 +21,8 @@
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>
     <many-to-one name="activityLineNo" title="N° ligne activité"
       ref="com.axelor.apps.openauction.db.ActivityLine"/>
-    <integer name="sourceType" title="Type origine" selection="openauction.sourceType.select"/>
+    <integer name="sourceType" title="Type origine"
+      selection="openauction.sourceType.select"/>
     <decimal name="unitPrice" title="Prix unitaire"/>
     <decimal name="quantity" title="Quantité"/>
     <decimal name="baseAmount" title="Montant base"/>

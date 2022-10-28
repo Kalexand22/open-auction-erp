@@ -224,7 +224,7 @@ public class LotStatusMgtImpl implements LotStatusMgt {
      //>><AP04.ST
      END;
     */
-    String lGeneralStatus = pLot.getLotGeneralStatus();
+    Integer lGeneralStatus = pLot.getLotGeneralStatus();
     switch (pLot.getAuctionStatus()) {
       case LotRepository.AUCTIONSTATUS_INITIAL:
       case LotRepository.AUCTIONSTATUS_TOSIGN:

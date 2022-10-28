@@ -60,7 +60,7 @@ public class ActivityManagementImpl implements ActivityManagement {
     for (ActivityLine line : pActivityHeader.getActivityLineList()) {
       lLineToTreat = false;
       if (line.getTodoCondition() == null || !line.getTodoCondition().equals("")) {
-        log.debug(pActivityHeader.getApplicableOn());
+        // log.debug(pActivityHeader.getApplicableOn());
         if (pActivityHeader
             .getApplicableOn()
             .equals(ActivityHeaderRepository.APPLICABLEON_HEADER)) {

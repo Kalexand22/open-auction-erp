@@ -26,7 +26,7 @@
     <many-to-one name="missionNo" title="N° mission"
       ref="com.axelor.apps.openauction.db.MissionHeader"/>
     <integer name="auctionStatus" title="Statut vente"
-      selection="openauction.auctionStatus.select" />
+      selection="openauction.auctionStatus.select"/>
     <string name="salespersonCode" title="Code intervenant"/>
     <many-to-one name="activityCodeToHeader" title="Code activité pour en-tête"
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>

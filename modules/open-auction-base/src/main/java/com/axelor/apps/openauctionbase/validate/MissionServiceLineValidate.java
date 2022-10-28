@@ -420,7 +420,7 @@ public class MissionServiceLineValidate {
   }
 
   private MissionServiceLine validateServiceType(
-      MissionServiceLine missionServiceLine, String servicetypeSelectAuctionbid) {
+      MissionServiceLine missionServiceLine, Integer servicetypeSelectAuctionbid) {
     return missionServiceLine;
   }
 
@@ -779,7 +779,7 @@ public class MissionServiceLineValidate {
   //IF NewContactNo <> "Chargeable Contact No." THEN
   //  VALIDATE("Chargeable Contact No.", NewContactNo);// */
   public MissionServiceLine validateContactImputationType(
-      MissionServiceLine missionServiceLine, String contactImputationType) throws AxelorException {
+      MissionServiceLine missionServiceLine, Integer contactImputationType) throws AxelorException {
     missionServiceLine.setContactImputationType(contactImputationType);
     if (contactImputationType == null) {
       return missionServiceLine;
@@ -1240,13 +1240,13 @@ public class MissionServiceLineValidate {
     return lMissionServiceLine;
   }
 
-  public MissionServiceLine validateType(MissionServiceLine lMissionServiceLine, String type) {
+  public MissionServiceLine validateType(MissionServiceLine lMissionServiceLine, Integer type) {
     lMissionServiceLine.setType(type);
     return lMissionServiceLine;
   }
 
   public MissionServiceLine validateTransactionType(
-      MissionServiceLine lMissionServiceLine, String transactiontypeMission) {
+      MissionServiceLine lMissionServiceLine, Integer transactiontypeMission) {
     lMissionServiceLine.setTransactionType(transactiontypeMission);
     return lMissionServiceLine;
   }

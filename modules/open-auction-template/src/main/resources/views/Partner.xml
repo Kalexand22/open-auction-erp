@@ -46,7 +46,7 @@
           <field name="isCentralizedVendor"/>
           <field name="defaultCompanyBankAccount"/>
           <field name="isConsolidation"/>
-        </panel> 
+        </panel>
         <panel colSpan="12" title="Ventes">
           <panel-related field="auctionBiddingPaddleList" colSpan="12" editable="true">
             <field name="auctionNo"/>
