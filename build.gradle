@@ -18,13 +18,13 @@ buildscript {
   }
   ext.openPlatformVersion = '5.4.15'
   ext.appVersion = '0.0.1'
-  ext.aosVersion = '6.3.2'
+  ext.aosVersion = '6.3.0-beta'
+  
   repositories repos
   dependencies {
     classpath "com.axelor:axelor-gradle:${openPlatformVersion}"
   }
 }
-
 allprojects { repositories repos }
 
 apply plugin: 'idea'
