@@ -12,6 +12,5 @@
     <integer name="auctionType" title="Type vente"
       selection="openauction.auctionType.select"/>
     <string name="comment1" title="Commentaire"/>
-
   </entity>
 </domain-models>

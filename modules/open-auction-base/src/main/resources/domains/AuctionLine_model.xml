@@ -118,7 +118,7 @@
     <string name="sellerInvoiceNo" title="N° facture vendeur"/>
     <integer name="sellerDocumentType" title="Type document vendeur"
       selection="openauction.sellerDocumentType.select"/>
-    <many-to-one name="vehicleMake" title="Marque"
+    <many-to-one name="vehiclesMake" title="Marque"
       ref="com.axelor.apps.openauction.db.VehiclesMake"/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
       ref="com.axelor.apps.base.db.TradingName"/>

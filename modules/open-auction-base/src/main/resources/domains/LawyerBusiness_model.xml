@@ -8,20 +8,20 @@
     <string name="description" title="Titre affaire"/>
     <many-to-one name="contactNo" title="Mandataire"
       ref="com.axelor.apps.base.db.Partner"/>
-    <many-to-one name="thirdOriginContactNo" title="&quot;De la part de : &quot;"
+    <many-to-one name="thirdOriginContactNo" title="De la part de : "
       ref="com.axelor.apps.base.db.Partner"/>
-    <many-to-one name="thirdDestContactNo" title="&quot;Pour le compte de : &quot;"
+    <many-to-one name="thirdDestContactNo" title="Pour le compte de : "
       ref="com.axelor.apps.base.db.Partner"/>
     <string name="resourceInCharge" title="Responsable dossier"/>
     <integer name="lawyerBusStatus" title="Statut"
       selection="openauction.lawyerBusStatus.select"/>
-    <date name="documentDate" title="&quot;Date document &quot;"/>
+    <date name="documentDate" title="Date document"/>
     <date name="postingDate" title="Date comptabilisation"/>
     <integer name="processType" title="Type procédure"
       selection="openauction.processType.select"/>
     <many-to-one name="debtorContactNo" title="Débiteur"
       ref="com.axelor.apps.base.db.Partner"/>
-    <string name="salespersonNo" title="&quot;Commercial &quot;"/>
+    <string name="salespersonNo" title="Commercial"/>
     <string name="resourceNo" title="Ressource"/>
     <string name="noSeries" title="Souches de n°"/>
     <date name="starringStartingDate" title="Date début observation"/>

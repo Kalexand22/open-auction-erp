@@ -6,6 +6,7 @@
     model="com.axelor.apps.openauction.db.MissionHeader">
     <toolbar>
       <button name="newMission" title="Créer une mission" onClick="mission.template.wizard"/>
+      <button name="printCarbone" title="Imprimer une mission" onClick="action-carbone-print"/>
     </toolbar>
     <field name="no"/>
     <field name="description"/>
@@ -207,6 +208,7 @@
     <view-param name="show-confirm" value="false"/>
     <view-param name="popup-save" value="false"/>
     <view-param name="popup" value="reload"/>
+    <context name="_isJudicialMission" expr="eval: _isJudicialMission"/>
   </action-view>
 
   <action-method name="mission.create.auction.mission">
@@ -214,4 +216,27 @@
       method="createAuctionMission"/>
   </action-method>
 
+
+
+  <grid id="product-grid-test" name="product-grid" title="Products"
+    model="com.axelor.apps.base.db.Product" orderBy="code,name" edit-icon="true">
+    <toolbar>
+      <button name="catalogBtn" title="Catalog" icon="fa-book"
+        onClick="action-print-product-catalog"/>
+      <button name="checkDuplicateBtn" title="Check Duplicate"
+        onClick="action-general-check-duplicate-records"/>
+      <button name="printCarbone" title="Imprimer" onClick="action-carbone-print"/>
+    </toolbar>
+    <field name="picture" widget="Image"/>
+    <field name="code" width="120" x-bind="{{code|unaccent|uppercase}}"/>
+    <field name="name" width="300"/>
+    <field name="productCategory" form-view="product-category-form"
+      grid-view="product-category-grid"/>
+    <field name="productFamily" form-view="product-family-form"
+      grid-view="product-family-grid"/>
+    <field name="productTypeSelect" width="100"/>
+    <field name="internalDescription" width="400" widget="html"/>
+    <button name="sendByEmailBtn" title="Send Email" icon="fa-envelope"
+      onClick="action-send-by-email-with-template"/>
+  </grid>
 </object-views>

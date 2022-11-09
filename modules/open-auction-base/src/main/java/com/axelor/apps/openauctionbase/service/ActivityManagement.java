@@ -1,6 +1,5 @@
 package com.axelor.apps.openauctionbase.service;
 
-import com.axelor.apps.base.db.Partner;
 import com.axelor.apps.openauction.db.ActivityHeader;
 import com.axelor.apps.openauction.db.AuctionHeader;
 import com.axelor.apps.openauction.db.Lot;
@@ -28,15 +27,16 @@ public interface ActivityManagement {
       Lot pLotNo,
       Integer pTransactionMineNo);
 
-  public void createTodo(
-      ActivityHeader pActivityHeader,
-      AuctionHeader pAuctionHeader,
-      MissionHeader pMissionHeader,
-      Lot pLotNo,
-      Integer pTransactionMineNo,
-      Partner pContact,
-      Partner pSalesPerson);
-
+  /*
+    public void createTodo(
+        ActivityHeader pActivityHeader,
+        AuctionHeader pAuctionHeader,
+        MissionHeader pMissionHeader,
+        Lot pLotNo,
+        Integer pTransactionMineNo,
+        Partner pContact,
+        Partner pSalesPerson);
+  */
   public void createActivityLineFromMission(
       ActivityHeader pActivityHeader,
       MissionHeader pMissionHeader,

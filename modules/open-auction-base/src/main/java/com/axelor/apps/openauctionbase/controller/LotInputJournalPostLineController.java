@@ -12,6 +12,7 @@ public class LotInputJournalPostLineController {
   public void validate(ActionRequest request, ActionResponse response) {
 
     try {
+
       MissionHeader missionHeader = request.getContext().asType(MissionHeader.class);
 
       MissionHeaderRepository missionHeaderRepo = Beans.get(MissionHeaderRepository.class);

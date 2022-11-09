@@ -10,13 +10,13 @@
     <string name="description" title="Titre mission" namecolumn="true"/>
     <string name="descriptionDetaille" title="Description détaillée"/>
     <many-to-one name="auctionnerCode" title="Commissaire-priseur"
-      ref="com.axelor.auth.db.User"/>
+      ref="com.axelor.apps.hr.db.Employee"/>
     <many-to-one name="salespersonCode" title="Intervenant"
-      ref="com.axelor.auth.db.User"/>
+      ref="com.axelor.apps.hr.db.Employee"/>
     <many-to-one name="missionManagerCode" title="Responsable mission"
-      ref="com.axelor.auth.db.User"/>
+      ref="com.axelor.apps.hr.db.Employee"/>
     <many-to-one name="managerEntryCode" title="Responsable de saisie"
-      ref="com.axelor.auth.db.User"/>
+      ref="com.axelor.apps.hr.db.Employee"/>
     <integer name="sortingMethod" title="Méthode de tri"
       selection="openauction.sortingMethod.select"/>
     <boolean name="auctionMission" title="Mission de vente"/>

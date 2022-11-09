@@ -14,7 +14,7 @@
       ref="com.axelor.apps.openauction.db.BiddingPaddleSet"/>
 
     <many-to-one name="auctionnerCode" title="Commissaire-priseur"
-      ref="com.axelor.auth.db.User"/>
+      ref="com.axelor.apps.hr.db.Employee"/>
     <string name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
     <many-to-one name="currencyCode" title="Code devise"
       ref="com.axelor.apps.base.db.Currency"/>

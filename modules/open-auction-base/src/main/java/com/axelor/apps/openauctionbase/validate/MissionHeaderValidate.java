@@ -2,6 +2,7 @@ package com.axelor.apps.openauctionbase.validate;
 
 import com.axelor.apps.base.db.Partner;
 import com.axelor.apps.base.db.TradingName;
+import com.axelor.apps.hr.db.Employee;
 import com.axelor.apps.openauction.db.ActivityHeader;
 import com.axelor.apps.openauction.db.MissionHeader;
 import com.axelor.apps.openauction.db.repo.MissionHeaderRepository;
@@ -9,7 +10,6 @@ import com.axelor.apps.openauctionbase.service.MissionLineManagement;
 import com.axelor.apps.openauctionbase.service.MissionManagement;
 import com.axelor.apps.openauctionbase.service.MissionStatusManagement;
 import com.axelor.apps.openauctionbase.service.ToolsMissionChange;
-import com.axelor.auth.db.User;
 import com.axelor.exception.AxelorException;
 import com.axelor.exception.db.repo.TraceBackRepository;
 import com.axelor.inject.Beans;
@@ -26,7 +26,8 @@ public class MissionHeaderValidate {
   //  "Salesperson Code" := "Auctioneer Code";
   // END;
   ////
-  public MissionHeader validateAuctioneerCode(MissionHeader missionHeader, User auctioneerCode) {
+  public MissionHeader validateAuctioneerCode(
+      MissionHeader missionHeader, Employee auctioneerCode) {
     missionHeader.setAuctionnerCode(auctioneerCode);
     if (missionHeader.getAuctionnerCode() != null) {
       missionHeader.setSalespersonCode(missionHeader.getAuctionnerCode());

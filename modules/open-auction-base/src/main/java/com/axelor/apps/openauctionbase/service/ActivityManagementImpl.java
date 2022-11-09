@@ -113,6 +113,7 @@ public class ActivityManagementImpl implements ActivityManagement {
     // TODO Auto-generated method stub
   }
 
+  /*
   @Override
   @Transactional
   public void createTodo(
@@ -125,7 +126,7 @@ public class ActivityManagementImpl implements ActivityManagement {
       Partner pSalesPerson) {
     // TODO Auto-generated method stub
 
-  }
+  }*/
 
   @Override
   public void createActivityLineFromMission(

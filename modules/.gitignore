@@ -1,5 +1,7 @@
 bin
 build
+carbone-main
+data-init
 .gradle
 .project
 .classpath
