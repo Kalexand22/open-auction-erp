@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<csv-inputs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://axelor.com/xml/ns/data-import http://axelor.com/xml/ns/data-import/data-import_5.4.xsd">
+  <input file="TodoGroup.csv" type="com.axelor.apps.openauction.db.TodoGroup" separator=";"/>
+  <input file="BiddingPaddleSet.csv" type="com.axelor.apps.openauction.db.BiddingPaddleSet"
+    separator=";"/>
+
+
+  <input file="Classification.csv" type="com.axelor.apps.openauction.db.Classification"
+    separator=";"/>
+  <input file="ClassificationMembers.csv"
+    type="com.axelor.apps.openauction.db.ClassificationMembers" separator=";">
+    <bind search="self.code = :classificationCode" to="classificationCode"
+      if-empty="eval: null"/>
+  </input>
+  <input file="ActivitySetup.csv" type="com.axelor.apps.openauction.db.ActivitySetup"
+    separator=";"/>
+  <input file="ServiceTemplate.csv" type="com.axelor.apps.openauction.db.ServiceTemplate"
+    separator=";">
+  </input>
+
+  <input file="MissionLotPriceGroup.csv"
+    type="com.axelor.apps.openauction.db.MissionLotPriceGroup" separator=";"/>
+  <input file="MissionContactPriceGroup.csv"
+    type="com.axelor.apps.openauction.db.MissionContactPriceGroup" separator=";"/>
+  <input file="AuctionLotPriceGroup.csv"
+    type="com.axelor.apps.openauction.db.AuctionLotPriceGroup" separator=";"/>
+  <input file="AuctionContactPriceGroup.csv"
+    type="com.axelor.apps.openauction.db.AuctionContactPriceGroup" separator=";"/>
+  <input file="TariffScale.csv" type="com.axelor.apps.openauction.db.TariffScale"
+    separator=";"/>
+  <input file="EquipmentBrand.csv" type="com.axelor.apps.openauction.db.EquipmentBrand"
+    separator=";"/>
+  <input file="MergeGroup.csv" type="com.axelor.apps.openauction.db.MergeGroup" separator=";"/>
+  <input file="LotStatusSetup.csv" type="com.axelor.apps.openauction.db.LotStatusSetup"
+    separator=";"/>
+
+  <input file="VehicleOption.csv" type="com.axelor.apps.openauction.db.VehicleOption"
+    separator=";"/>
+  <input file="VehicleColor.csv" type="com.axelor.apps.openauction.db.VehicleColor"
+    separator=";"/>
+  <input file="VehicleBody.csv" type="com.axelor.apps.openauction.db.VehicleBody"
+    separator=";"/>
+  <input file="FreeReason.csv" type="com.axelor.apps.openauction.db.FreeReason" separator=";"/>
+  <input file="Sector.csv" type="com.axelor.apps.openauction.db.Sector" separator=";">
+    <bind search="self.code = :lotClassification1" to="lotClassification1"
+      if-empty="eval: null"/>
+    <bind search="self.code = :lotClassification2" to="lotClassification2"
+      if-empty="eval: null"/>
+    <bind search="self.code = :lotClassification3" to="lotClassification3"
+      if-empty="eval: null"/>
+    <bind search="self.code = :lotClassification4" to="lotClassification4"
+      if-empty="eval: null"/>
+  </input>
+  <input file="Specializing.csv" type="com.axelor.apps.openauction.db.Specializing"
+    separator=";">
+    <bind search="self.code = :sectorCode" to="sectorCode" if-empty="eval: null"/>
+  </input>
+  <input file="LotNature.csv" type="com.axelor.apps.openauction.db.LotNature" separator=";">
+    <bind search="self.sector = :sectorCode" to="sectorCode" if-empty="eval: null"/>
+    <bind search="self.specializing = :specializingCode" to="specializingCode"
+      if-empty="eval: null"/>
+  </input>
+  <input file="ContactTemplate.csv" type="com.axelor.apps.openauction.db.ContactTemplate"
+    separator=";">
+    <bind search="self.code = :contactMissionPriceGroup" to="contactMissionPriceGroup"
+      if-empty="eval: null"/>
+    <bind search="self.code = :contactAuctionPriceGroup" to="contactAuctionPriceGroup"
+      if-empty="eval: null"/>
+    <bind search="self.code = :freeReasonCode" to="freeReasonCode" if-empty="eval: null"/>
+  </input>
+  <input file="TariffScaleLevels.csv" type="com.axelor.apps.openauction.db.TariffScaleLevels"
+    separator=";">
+    <bind search="self.code = :code" to="code" if-empty="eval: null"/>
+  </input>
+
+  <input file="VendorTemplate.csv" type="com.axelor.apps.openauction.db.VendorTemplate"
+    separator=";">
+  </input>
+
+  <input file="ServiceTemplateLine.csv"
+    type="com.axelor.apps.openauction.db.ServiceTemplateLine" separator=";">
+    <bind search="self.code = :serviceTemplateCode" to="serviceTemplateCode"
+      if-empty="eval: null"/>
+  </input>
+
+  <input file="BiddingPaddle.csv" type="com.axelor.apps.openauction.db.BiddingPaddle"
+    separator=";">
+    <bind search="self.code = :biddingPaddleSetCode" to="biddingPaddleSetCode"
+      if-empty="eval: null"/>
+    <bind search="self.partnerSeq = :contactNo" to="contactNo" if-empty="eval: null"/>
+  </input>
+
+
+
+
+  <input file="Product.csv" separator=";" type="com.axelor.apps.base.db.Product">
+    <bind to="startDate" eval="call:com.axelor.csv.script.ImportDateTime:importDate(TODAY[1d])"/>
+    <bind to="createdOn" eval="call:com.axelor.csv.script.ImportDateTime:importDate(TODAY[1d])"/>
+    <bind to="code" column="no"/>
+    <bind to="name" column="description"/>
+    <bind to="description" column="description"/>
+    <bind to="internalDescription" column="description"/>
+    <bind to="procurementMethodSelect" eval="buyAndProduce"/>
+    <bind to="productTypeSelect" eval="service"/>
+  </input>
+
+  <input file="Contact.csv" separator=";" type="com.axelor.apps.base.db.Country" search="self.alpha3Code = :countryRegionCode" >
+		<bind to="name" column="countryRegionCode"/>
+		<bind to="alpha3Code" column="countryRegionCode"/>
+	</input>
+	
+	<input file="Contact.csv" separator=";" type="com.axelor.apps.base.db.City" search="self.name = :city1" >
+		<bind to="name" column="city1"/>
+		<bind to="zip" column="postCode"/>
+		<bind to="country" search="self.name = :countryRegionCode" if="countryRegionCode">	   
+		</bind>
+	</input>
+	
+	<input file="Contact.csv" separator=";" type="com.axelor.apps.base.db.Street" search="self.name = :address1" >
+		<bind to="name" column="address1"></bind>
+		<bind to="city" search="self.name = :city1" />
+	</input>
+	
+	<input file="Contact.csv" separator=";" type="com.axelor.apps.base.db.Address" search="self.addressL4 = :address1" call="com.axelor.csv.script.ImportAddress:importAddress" >
+		<bind to="addressL4" column="address1"></bind>
+		<bind to="street" search="self.name = :address1 "></bind>
+		<bind to="addressL2" column="address2"></bind>		
+		<bind to="city" search="self.name = :city1" />
+		<bind to="zip" search="postCode" />
+		<bind to="addressL6" column="city1"></bind>	
+		<bind to="addressL7Country" search="self.name = :countryRegionCode" if="countryRegionCode">	   
+		</bind>
+	</input>
+	
+	<input file="Contact.csv" separator=";" type="com.axelor.apps.base.db.Partner" search="self.partnerSeq = :no"  call="com.axelor.csv.script.ImportPartner:importPartner">
+      <bind to="partnerSeq" column="no"/>
+      <bind to="name" column="surname" if="surname &amp;&amp; surname.trim() != ''"/>
+	  <bind to="name" column="name1" if="surname.trim() == ''"/>
+	  <bind to="firstName" column="firstName"/>  
+      <bind to="emailAddress" if="eMail &amp;&amp; eMail.trim() != ''" >
+         <bind to="address" column="eMail"/>
+       </bind>
+
+	<bind to="partnerAddressList" search="self.address.addressL4 = :address1"
+      if="address1 != null">
+      <bind to="address" search="self.addressL4 = :address1" update="true"/>
+      <bind to="isInvoicingAddr" eval="true"/>
+      <bind to="isDeliveryAddr" eval="true"/>
+      <bind to="isDefaultAddr" eval="true"/>
+    </bind>
+	
+      <bind to="mainAddress" search="self.addressL4 = :address1"
+         if="address1 != null" >         
+      </bind>
+      <bind to="contactMissionPriceGroup" search="self.code = :contactMissionPriceGroup"/>
+      <bind to="contactAuctionPriceGroup" search="self.code = :contactAuctionPriceGroup"/>
+      <bind to="freeReasonCode" search="self.code = :freeReasonCode"/>
+      <bind to="contactTemplateCode" search="self.code = :contactTemplateCode"/>      
+      <bind to="fixedPhone" column="phoneNo"/>
+      <bind to="mobilePhone" column="mobilePhoneNo"/>
+      <bind to="fax" column="telexNo"/>
+      <bind to="isContact" eval="true"></bind>
+   </input>
+
+
+   <input file="Customer.csv" separator=";" type="com.axelor.apps.base.db.Partner" search="self.partnerSeq = :no"  call="com.axelor.csv.script.ImportPartner:importPartner">
+    <bind to="partnerSeq" column="no"/>
+    
+    <bind to="name" column="name1" />    
+    <bind to="emailAddress" if="eMail &amp;&amp; eMail.trim() != ''" >
+      <bind to="address" column="eMail"/>
+    </bind>
+
+    <bind to="fixedPhone" column="phoneNo"/>
+    <bind to="fax" column="telexNo"/>
+    <bind to="isCustomer" eval="true"></bind>
+ </input>
+
+ <input file="Vendor.csv" separator=";" type="com.axelor.apps.base.db.Partner" search="self.partnerSeq = :no"  call="com.axelor.csv.script.ImportPartner:importPartner">
+  <bind to="partnerSeq" column="no"/>
+  
+  <bind to="name" column="name1" />    
+  <bind to="emailAddress" if="eMail &amp;&amp; eMail.trim() != ''" >
+    <bind to="address" column="eMail"/>
+  </bind>
+
+  <bind to="fixedPhone" column="phoneNo"/>
+  <bind to="fax" column="telexNo"/>
+  <bind to="isSupplier" eval="true"></bind>
+</input>
+   
+
+</csv-inputs>
