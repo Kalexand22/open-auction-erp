@@ -26,8 +26,7 @@
     <decimal name="maximumChargeAmount" title="Montant maximum"/>
     <boolean name="storageTimeUsage" title="Utiliser délai de stockage"/>
     <boolean name="resaleRights" title="Droits de suite"/>
-    <many-to-one name="affiliatedGeneralAccount" title="Compte général affilié"
-      ref="com.axelor.apps.account.db.Account"/>
+    <string name="affiliatedGeneralAccount2" title="Compte général affilié"/>
     <decimal name="servicePercent" title="% prestation"/>
     <boolean name="valueAddedItem" title="Plus-value"/>
     <many-to-one name="tariffScale" title="Code barème"

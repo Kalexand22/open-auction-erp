@@ -9,7 +9,7 @@ import com.axelor.apps.openauction.db.MissionLine;
 import com.axelor.exception.AxelorException;
 
 public interface ActivityManagement {
-  public void createActivityLines(
+  public void createActivityLines2(
       ActivityHeader pActivityHeader,
       AuctionHeader pAuctionHeader,
       MissionHeader pMissionHeader,

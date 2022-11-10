@@ -17,8 +17,7 @@
       ref="com.axelor.apps.account.db.PaymentMode"/>
     <many-to-one name="shipmentMethodCode" title="Code condition livraison"
       ref="com.axelor.apps.stock.db.ShipmentMode"/>
-    <many-to-one name="invoiceDiscCode" title="Code remise facture"
-      ref="com.axelor.apps.base.db.Partner"/>
+    <string name="invoiceDiscCode" title="Code remise facture"/>
     <string name="countryRegionCode" title="Code pays/région"/>
     <many-to-one name="paymentMethodCode" title="Code mode de règlement"
       ref="com.axelor.apps.account.db.PaymentMode"/>

@@ -40,7 +40,7 @@ public class ActivityManagementImpl implements ActivityManagement {
   }
 
   @Override
-  public void createActivityLines(
+  public void createActivityLines2(
       ActivityHeader pActivityHeader,
       AuctionHeader pAuctionHeader,
       MissionHeader pMissionHeader,
@@ -137,7 +137,7 @@ public class ActivityManagementImpl implements ActivityManagement {
       throws AxelorException {
     Lot lLot = pMissionLine.getNoLot();
     LotTemplate lLotTemplate = lLot == null ? null : lLot.getLotTemplateCode();
-    createActivityLines(
+    createActivityLines2(
         pActivityHeader,
         null,
         pMissionHeader,
