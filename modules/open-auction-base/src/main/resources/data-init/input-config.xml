@@ -79,11 +79,6 @@
     separator=";">
   </input>
 
-  <input file="ServiceTemplateLine.csv"
-    type="com.axelor.apps.openauction.db.ServiceTemplateLine" separator=";">
-    <bind search="self.code = :serviceTemplateCode" to="serviceTemplateCode"
-      if-empty="eval: null"/>
-  </input>
 
   <input file="BiddingPaddle.csv" type="com.axelor.apps.openauction.db.BiddingPaddle"
     separator=";">
@@ -190,6 +185,19 @@
   <bind to="fax" column="telexNo"/>
   <bind to="isSupplier" eval="true"></bind>
 </input>
+
+
+<input file="ServiceTemplateLine.csv" type="com.axelor.apps.openauction.db.ServiceTemplateLine" separator=";">
+  <bind search="self.code = :serviceTemplateCode" to="serviceTemplateCode" />
+  <bind search="self.code = :no" to="product" />
+</input>
    
 
+  <input file="ActivityLine.csv" type="com.axelor.apps.openauction.db.ActivityLine" separator=";">
+    <bind search="self.code = :activityCode" to="activityCode" />
+    <bind search="self.code = :lotTemplateFilter" to="lotTemplateFilter" />
+    <bind search="self.code = :serviceTemplateCode" to="serviceTemplateCode" />
+    <bind search="self.name = :responsibilityCenter" to="responsibilityCenter" />
+    <bind search="self.code = :activityCondition" to="activityCondition" />
+  </input>
 </csv-inputs>
