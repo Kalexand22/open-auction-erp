@@ -16,7 +16,7 @@
     <string name="address" title="Adresse"/>
     <string name="address2" title="Adresse (2ème ligne)"/>
     <string name="county" title="Région"/>
-    <many-to-one name="postCode" title="Code postal" ref="com.axelor.apps.base.db.City"/>
+    <string name="postCode" title="Code postal"/>
     <string name="city" title="Ville"/>
     <string name="phoneNo" title="N° téléphone"/>
     <string name="countryRegionCode" title="Code pays/région"/>

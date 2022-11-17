@@ -44,7 +44,6 @@
     <string name="sourceCode" title="Code journal"/>
     <many-to-one name="masterContactNo" title="N° contact principal"
       ref="com.axelor.apps.base.db.Partner"/>
-
     <boolean name="globalConsAgreemAccepted" title="Mandat vente global accepté"/>
     <boolean name="globalConsAgreemRefused" title="Mandat vente global refusé"/>
     <datetime name="globalConsAgreemModDate"
@@ -94,20 +93,7 @@
     <decimal name="profitLossOverStandCost" title="Bonus/Malus debours cout std."/>
     <boolean name="buyerComment" title="Commentaire acheteur"/>
     <string name="noSeries" title="Souches de n°"/>
-    <string name="masterContactName" title="Nom"/>
-    <string name="masterContactName2" title="Nom 2"/>
-    <string name="masterContactAddress" title="Adresse"/>
-    <string name="masterContactAddress2" title="Adresse (2ème ligne)"/>
-    <string name="masterContactCity" title="Ville"/>
-    <many-to-one name="masterContactPostCode" title="Code postal"
-      ref="com.axelor.apps.base.db.City"/>
-    <string name="masterContactCounty" title="Région"/>
-    <string name="masterContCountryRegCode" title="Code pays/région facturation"/>
-    <string name="masterContactPhoneNo" title="N° téléphone"/>
-    <string name="masterContactMobileNo" title="N° mobile"/>
-    <string name="masterContactTelexNo" title="N° Téléphone 2"/>
-    <integer name="phoneNoPrefix" title="Indicatif n° téléphone"/>
-    <integer name="telexNoPrefix" title="Indicatif n° téléphone 2"/>
+    
     <integer name="masterContPriorityPhone" title="Téléphone prioritaire"
       selection="openauction.masterContPriorityPhone.select"/>
     <integer name="docNoOccurrence" title="Occurrence n° doc."/>
@@ -215,8 +201,6 @@
     public static final int PROCESSTYPE_VERIFICATION = 9;
     public static final int PROCESSTYPE_SIMPLELJ = 10;
     public static final int PROCESSTYPE_ADDITIONALINVENTORY = 11;
-
-
 
     ]]>
     </extra-code>

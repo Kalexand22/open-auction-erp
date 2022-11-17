@@ -191,7 +191,7 @@ public class MissionTemplateManagementImpl implements MissionTemplateManagement 
     missionHeaderRepository.save(pMissionHeader);
 
     if (!SkipActivity) {
-      this.createActivity(pMissionHeader, pMissionHeader.getActivityCodeToHeader());
+      this.createActivity2(pMissionHeader, pMissionHeader.getActivityCodeToHeader());
     }
 
     return pMissionHeader;
@@ -218,7 +218,7 @@ public class MissionTemplateManagementImpl implements MissionTemplateManagement 
 
   @Override
   @Transactional
-  public void createActivity(MissionHeader pMissionHeader, ActivityHeader pActivityCodeToHeader)
+  public void createActivity2(MissionHeader pMissionHeader, ActivityHeader pActivityCodeToHeader)
       throws AxelorException {
     MissionLine lMissionLine = new MissionLine();
     ActivityManagement activityManagement = Beans.get(ActivityManagement.class);

@@ -22,6 +22,6 @@ public interface MissionTemplateManagement {
 
   public void setSkipActivityCreation(Boolean pSkipActivity);
 
-  public void createActivity(MissionHeader pMissionHeader, ActivityHeader pActivityCodeToHeader)
+  public void createActivity2(MissionHeader pMissionHeader, ActivityHeader pActivityCodeToHeader)
       throws AxelorException;
 }

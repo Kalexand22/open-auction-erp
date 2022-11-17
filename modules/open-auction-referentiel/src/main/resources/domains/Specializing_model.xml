@@ -6,8 +6,8 @@
   <entity name="Specializing">
     <many-to-one name="sectorCode" title="Code secteur"
       ref="com.axelor.apps.openauction.db.Sector"/>
-    <string name="specializingCode" title="Code spécialité"/>
-    <string name="description" title="Désignation"/>
+    <string name="specializingCode" title="Code spécialité" unique="true"/>
+    <string name="description" title="Désignation" namecolumn="true"/>
     <boolean name="active" title="Actif"/>
   </entity>
 </domain-models>
