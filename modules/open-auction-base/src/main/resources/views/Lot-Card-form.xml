@@ -4,8 +4,9 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 
   <grid name="lot-grid" title="liste des Véhicules" model="com.axelor.apps.openauction.db.Lot">
+    <field name="no"/>
     <field name="currentMissionNo"/>
-    <field name="description" width="300"/>
+    <field name="description" width="400"/>
     <field title="N° vendeur" name="currentMissionNo.masterContactNo"/>
     <field name="currentAuctionNo"/>
     <field title="No ordre" name="currentPassingOrderNo"/>
