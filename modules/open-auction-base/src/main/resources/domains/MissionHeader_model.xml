@@ -93,7 +93,7 @@
     <decimal name="profitLossOverStandCost" title="Bonus/Malus debours cout std."/>
     <boolean name="buyerComment" title="Commentaire acheteur"/>
     <string name="noSeries" title="Souches de n°"/>
-    
+
     <integer name="masterContPriorityPhone" title="Téléphone prioritaire"
       selection="openauction.masterContPriorityPhone.select"/>
     <integer name="docNoOccurrence" title="Occurrence n° doc."/>
