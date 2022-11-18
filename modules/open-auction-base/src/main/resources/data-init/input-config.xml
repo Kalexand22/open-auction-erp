@@ -469,6 +469,10 @@
       column="lotVATProdPostingGroup" if="false"/>
   </input>
 
+  <input file="PictureWarehouseMainPicture.csv" type="com.axelor.apps.openauction.db.Lot"
+    separator=";" search="self.no = :sourceID" update="true"
+    call="com.axelor.apps.openauctionbase.csv.ImportPicture:importMainPicture">>
 
+  </input>
 
 </csv-inputs>
