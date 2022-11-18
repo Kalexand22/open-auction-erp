@@ -207,7 +207,7 @@
 
     <many-to-one name="mainPicture" ref="com.axelor.meta.db.MetaFile" initParam="true"/>
     <one-to-many name="pictureList"
-      ref="com.axelor.apps.openauction.db.PictureAttachement"/>
+      ref="com.axelor.apps.openauction.db.PictureAttachement" mappedBy="sourceLotNo"/>
     <one-to-one name="missionLine" title="Ligne de mission"
       ref="com.axelor.apps.openauction.db.MissionLine"/>
     <one-to-one name="auctionLine" title="Ligne de vente"

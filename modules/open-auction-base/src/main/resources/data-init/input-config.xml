@@ -3,11 +3,9 @@
   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns="http://axelor.com/xml/ns/data-import http://axelor.com/xml/ns/data-import/data-import_5.4.xsd">
 
-  <input file="TradingName.csv" type="com.axelor.apps.base.db.TradingName"
-  
-    separator=";">
-	<bind to="name" column="code"/>
-	</input>
+  <input file="TradingName.csv" type="com.axelor.apps.base.db.TradingName" separator=";">
+    <bind to="name" column="code"/>
+  </input>
 
   <input file="TodoGroup.csv" type="com.axelor.apps.openauction.db.TodoGroup" separator=";"/>
   <input file="BiddingPaddleSet.csv" type="com.axelor.apps.openauction.db.BiddingPaddleSet"
@@ -66,31 +64,45 @@
       column="sectorCode" if="sectorCode != null &amp;&amp; sectorCode != '' "/>
   </input>
   <input file="LotNature.csv" type="com.axelor.apps.openauction.db.LotNature" separator=";">
-    <bind search="self.code = :sectorCode" to="sectorCode" if="sectorCode != null &amp;&amp; sectorCode != '' "
-      column="sectorCode"/>
+    <bind search="self.code = :sectorCode" to="sectorCode"
+      if="sectorCode != null &amp;&amp; sectorCode != '' " column="sectorCode"/>
     <bind search="self.specializingCode = :specializingCode" to="specializingCode"
-    if="specializingCode != null &amp;&amp; specializingCode != '' " column="specializingCode"/>
+      if="specializingCode != null &amp;&amp; specializingCode != '' " column="specializingCode"/>
   </input>
 
-  <input file="LotTemplate.csv" type="com.axelor.apps.openauction.db.LotTemplate" separator=";">
-		<bind search="self.code = :sectorCode" to="sectorCode" column="sectorCode" if="sectorCode != null &amp;&amp; sectorCode != '' "/>
-		<bind search="self.specializingCode = :specializingCode" to="specializingCode" column="specializingCode" if="specializingCode != null &amp;&amp; specializingCode != '' "/>
-		<bind search="self.lotNature = :lotNatureCode" to="lotNatureCode" column="lotNatureCode" if="lotNatureCode != null &amp;&amp; lotNatureCode != '' "/>
-		<bind search="self.memberCode = :lotCategorie1Code" to="lotCategorie1Code" column="lotCategorie1Code" if="lotCategorie1Code != null &amp;&amp; lotCategorie1Code != '' "/>
-		<bind search="self.memberCode = :lotCategorie2Code" to="lotCategorie2Code" column="lotCategorie2Code" if="lotCategorie2Code != null &amp;&amp; lotCategorie2Code != '' "/>
-		<bind search="self.memberCode = :lotCategorie3Code" to="lotCategorie3Code" column="lotCategorie3Code" if="lotCategorie3Code != null &amp;&amp; lotCategorie3Code != '' "/>
-		<bind search="self.memberCode = :lotCategorie4Code" to="lotCategorie4Code" column="lotCategorie4Code" if="lotCategorie4Code != null &amp;&amp; lotCategorie4Code != '' "/>
-		<bind search="self.code = :lotMissionPriceGroup" to="lotMissionPriceGroup" column="lotMissionPriceGroup" if="lotMissionPriceGroup != null &amp;&amp; lotMissionPriceGroup != '' "/>
-		<bind search="self.code = :lotAuctionPriceGroup" to="lotAuctionPriceGroup" column="lotAuctionPriceGroup" if="lotAuctionPriceGroup != null &amp;&amp; lotAuctionPriceGroup != '' "/>
-	</input>
+  <input file="LotTemplate.csv" type="com.axelor.apps.openauction.db.LotTemplate"
+    separator=";">
+    <bind search="self.code = :sectorCode" to="sectorCode" column="sectorCode"
+      if="sectorCode != null &amp;&amp; sectorCode != '' "/>
+    <bind search="self.specializingCode = :specializingCode" to="specializingCode"
+      column="specializingCode" if="specializingCode != null &amp;&amp; specializingCode != '' "/>
+    <bind search="self.lotNature = :lotNatureCode" to="lotNatureCode" column="lotNatureCode"
+      if="lotNatureCode != null &amp;&amp; lotNatureCode != '' "/>
+    <bind search="self.memberCode = :lotCategorie1Code" to="lotCategorie1Code"
+      column="lotCategorie1Code" if="lotCategorie1Code != null &amp;&amp; lotCategorie1Code != '' "/>
+    <bind search="self.memberCode = :lotCategorie2Code" to="lotCategorie2Code"
+      column="lotCategorie2Code" if="lotCategorie2Code != null &amp;&amp; lotCategorie2Code != '' "/>
+    <bind search="self.memberCode = :lotCategorie3Code" to="lotCategorie3Code"
+      column="lotCategorie3Code" if="lotCategorie3Code != null &amp;&amp; lotCategorie3Code != '' "/>
+    <bind search="self.memberCode = :lotCategorie4Code" to="lotCategorie4Code"
+      column="lotCategorie4Code" if="lotCategorie4Code != null &amp;&amp; lotCategorie4Code != '' "/>
+    <bind search="self.code = :lotMissionPriceGroup" to="lotMissionPriceGroup"
+      column="lotMissionPriceGroup"
+      if="lotMissionPriceGroup != null &amp;&amp; lotMissionPriceGroup != '' "/>
+    <bind search="self.code = :lotAuctionPriceGroup" to="lotAuctionPriceGroup"
+      column="lotAuctionPriceGroup"
+      if="lotAuctionPriceGroup != null &amp;&amp; lotAuctionPriceGroup != '' "/>
+  </input>
   <input file="ContactTemplate.csv" type="com.axelor.apps.openauction.db.ContactTemplate"
     separator=";">
     <bind search="self.code = :contactMissionPriceGroup" to="contactMissionPriceGroup"
-      if-empty="eval: null" column="contactMissionPriceGroup" if="contactMissionPriceGroup != null &amp;&amp; contactMissionPriceGroup != '' "/>
+      if-empty="eval: null" column="contactMissionPriceGroup"
+      if="contactMissionPriceGroup != null &amp;&amp; contactMissionPriceGroup != '' "/>
     <bind search="self.code = :contactAuctionPriceGroup" to="contactAuctionPriceGroup"
-      if-empty="eval: null" column="contactAuctionPriceGroup" if="contactAuctionPriceGroup != null &amp;&amp; contactAuctionPriceGroup != '' "/>
-    <bind search="self.code = :freeReasonCode" to="freeReasonCode" if="freeReasonCode != null &amp;&amp; freeReasonCode != '' "
-      column="freeReasonCode"/>
+      if-empty="eval: null" column="contactAuctionPriceGroup"
+      if="contactAuctionPriceGroup != null &amp;&amp; contactAuctionPriceGroup != '' "/>
+    <bind search="self.code = :freeReasonCode" to="freeReasonCode"
+      if="freeReasonCode != null &amp;&amp; freeReasonCode != '' " column="freeReasonCode"/>
   </input>
   <input file="TariffScaleLevels.csv" type="com.axelor.apps.openauction.db.TariffScaleLevels"
     separator=";">
@@ -195,7 +207,8 @@
   <input file="ActivityHeader.csv" type="com.axelor.apps.openauction.db.ActivityHeader"
     separator=";">
     <bind search="self.name = :responsibilityCenter" to="responsibilityCenter"
-      column="responsibilityCenter" if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
+      column="responsibilityCenter"
+      if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
   </input>
   <input file="ActivityLine.csv" type="com.axelor.apps.openauction.db.ActivityLine"
     separator=";">
@@ -204,21 +217,34 @@
       column="lotTemplateFilter" if="lotTemplateFilter != null &amp;&amp; lotTemplateFilter != '' "/>
   </input>
 
-  <input file="MissionTemplate.csv" type="com.axelor.apps.openauction.db.MissionTemplate" separator=";">
-    <bind search="self.code = :activityCodeToHeader" to="activityCodeToHeader" column="activityCodeToHeader" if="activityCodeToHeader != null &amp;&amp; activityCodeToHeader != '' "/>
-    <bind search="self.code = :activityCodeToLines" to="activityCodeToLines" column="activityCodeToLines" if="activityCodeToLines != null &amp;&amp; activityCodeToLines != '' "/>
-    <bind search="self.lotNature = :lotNatureFilter" to="lotNatureFilter" column="lotNatureFilter" if="lotNatureFilter != null &amp;&amp; lotNatureFilter != '' "/>
-    <bind search="self.code = :contactTemplateFilter" to="contactTemplateFilter" column="contactTemplateFilter" if="contactTemplateFilter != null &amp;&amp; contactTemplateFilter != '' "/>
-    <bind search="self.name = :responsibilityCenter" to="responsibilityCenter" column="responsibilityCenter" if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
+  <input file="MissionTemplate.csv" type="com.axelor.apps.openauction.db.MissionTemplate"
+    separator=";">
+    <bind search="self.code = :activityCodeToHeader" to="activityCodeToHeader"
+      column="activityCodeToHeader"
+      if="activityCodeToHeader != null &amp;&amp; activityCodeToHeader != '' "/>
+    <bind search="self.code = :activityCodeToLines" to="activityCodeToLines"
+      column="activityCodeToLines"
+      if="activityCodeToLines != null &amp;&amp; activityCodeToLines != '' "/>
+    <bind search="self.lotNature = :lotNatureFilter" to="lotNatureFilter"
+      column="lotNatureFilter" if="lotNatureFilter != null &amp;&amp; lotNatureFilter != '' "/>
+    <bind search="self.code = :contactTemplateFilter" to="contactTemplateFilter"
+      column="contactTemplateFilter"
+      if="contactTemplateFilter != null &amp;&amp; contactTemplateFilter != '' "/>
+    <bind search="self.name = :responsibilityCenter" to="responsibilityCenter"
+      column="responsibilityCenter"
+      if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
   </input>
 
   <input file="AuctionTemplate.csv" type="com.axelor.apps.openauction.db.AuctionTemplate"
     separator=";">
-    <bind search="self.code = :auctionRoom" to="auctionRoom" column="auctionRoom" if="auctionRoom != null &amp;&amp; auctionRoom != '' "/>
+    <bind search="self.code = :auctionRoom" to="auctionRoom" column="auctionRoom"
+      if="auctionRoom != null &amp;&amp; auctionRoom != '' "/>
     <bind search="self.code = :activityCodeToHeader" to="activityCodeToHeader"
-      column="activityCodeToHeader" if="activityCodeToHeader != null &amp;&amp; activityCodeToHeader != '' "/>
+      column="activityCodeToHeader"
+      if="activityCodeToHeader != null &amp;&amp; activityCodeToHeader != '' "/>
     <bind search="self.code = :activityCodeToLines" to="activityCodeToLines"
-      column="activityCodeToLines" if="activityCodeToLines != null &amp;&amp; activityCodeToLines != '' "/>
+      column="activityCodeToLines"
+      if="activityCodeToLines != null &amp;&amp; activityCodeToLines != '' "/>
     <bind search="self.code = :bidPaddleSetCode" to="bidPaddleSetCode"
       column="bidPaddleSetCode" if="bidPaddleSetCode != null &amp;&amp; bidPaddleSetCode != '' "/>
   </input>
@@ -227,110 +253,222 @@
     separator=";"/>
 
 
-    <input file="AuctionHeader.csv" type="com.axelor.apps.openauction.db.AuctionHeader" separator=";">
-      <bind search="self.code = :auctionRoom" to="auctionRoom" column="auctionRoom" if="auctionRoom != null &amp;&amp; auctionRoom != '' "/>
-      <bind search="self.no = :missionNo" to="missionNo" column="missionNo" if="missionNo != null &amp;&amp; missionNo != '' "/>
-      <bind search="self.code = :activityCodeToHeader" to="activityCodeToHeader" column="activityCodeToHeader" if="activityCodeToHeader != null &amp;&amp; activityCodeToHeader != '' "/>
-      <bind search="self.code = :activityCodeToLines" to="activityCodeToLines" column="activityCodeToLines" if="activityCodeToLines != null &amp;&amp; activityCodeToLines != '' "/>
-      <bind search="self.code = :biddingPaddleSetCode" to="biddingPaddleSetCode" column="biddingPaddleSetCode" if="biddingPaddleSetCode != null &amp;&amp; biddingPaddleSetCode != '' "/>
-      <bind search="self.partnerSeq = :centralizedCustomerNo" to="centralizedCustomerNo" column="centralizedCustomerNo" if="centralizedCustomerNo != null &amp;&amp; centralizedCustomerNo != '' "/>
-      <bind search="self.partnerSeq = :centralizedVendorNo" to="centralizedVendorNo" column="centralizedVendorNo" if="centralizedVendorNo != null &amp;&amp; centralizedVendorNo != '' "/>
-      <bind search="self.code = :reasonCode" to="reasonCode" column="reasonCode" if="centralizedVendorNo != null &amp;&amp; centralizedVendorNo != '' "/>
-      <bind search="self.code = :auctionTemplateCode" to="auctionTemplate" column="auctionTemplateCode" if="auctionTemplateCode != null &amp;&amp; auctionTemplateCode != '' "/>
-      <bind search="self.code = :defaultBuyerContactTemplate" to="defaultBuyerContactTemplate" column="defaultBuyerContactTemplate" if="defaultBuyerContactTemplate != null &amp;&amp; defaultBuyerContactTemplate != '' "/>
-      <bind search="self.name = :responsibilityCenter" to="responsibilityCenter" column="responsibilityCenter" if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
-    </input>
+  <input file="AuctionHeader.csv" type="com.axelor.apps.openauction.db.AuctionHeader"
+    separator=";">
+    <bind search="self.code = :auctionRoom" to="auctionRoom" column="auctionRoom"
+      if="auctionRoom != null &amp;&amp; auctionRoom != '' "/>
+    <bind search="self.no = :missionNo" to="missionNo" column="missionNo"
+      if="missionNo != null &amp;&amp; missionNo != '' "/>
+    <bind search="self.code = :activityCodeToHeader" to="activityCodeToHeader"
+      column="activityCodeToHeader"
+      if="activityCodeToHeader != null &amp;&amp; activityCodeToHeader != '' "/>
+    <bind search="self.code = :activityCodeToLines" to="activityCodeToLines"
+      column="activityCodeToLines"
+      if="activityCodeToLines != null &amp;&amp; activityCodeToLines != '' "/>
+    <bind search="self.code = :biddingPaddleSetCode" to="biddingPaddleSetCode"
+      column="biddingPaddleSetCode"
+      if="biddingPaddleSetCode != null &amp;&amp; biddingPaddleSetCode != '' "/>
+    <bind search="self.partnerSeq = :centralizedCustomerNo" to="centralizedCustomerNo"
+      column="centralizedCustomerNo"
+      if="centralizedCustomerNo != null &amp;&amp; centralizedCustomerNo != '' "/>
+    <bind search="self.partnerSeq = :centralizedVendorNo" to="centralizedVendorNo"
+      column="centralizedVendorNo"
+      if="centralizedVendorNo != null &amp;&amp; centralizedVendorNo != '' "/>
+    <bind search="self.code = :reasonCode" to="reasonCode" column="reasonCode"
+      if="centralizedVendorNo != null &amp;&amp; centralizedVendorNo != '' "/>
+    <bind search="self.code = :auctionTemplateCode" to="auctionTemplate"
+      column="auctionTemplateCode"
+      if="auctionTemplateCode != null &amp;&amp; auctionTemplateCode != '' "/>
+    <bind search="self.code = :defaultBuyerContactTemplate" to="defaultBuyerContactTemplate"
+      column="defaultBuyerContactTemplate"
+      if="defaultBuyerContactTemplate != null &amp;&amp; defaultBuyerContactTemplate != '' "/>
+    <bind search="self.name = :responsibilityCenter" to="responsibilityCenter"
+      column="responsibilityCenter"
+      if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
+  </input>
 
-    <input file="MissionHeader.csv" type="com.axelor.apps.openauction.db.MissionHeader" separator=";">
-      <bind search="self.code = :missionTemplateCode" to="missionTemplateCode" column="missionTemplateCode" if="missionTemplateCode != null &amp;&amp; missionTemplateCode != '' "/>
-      <bind search="self.code = :activityCodeToHeader" to="activityCodeToHeader" column="activityCodeToHeader" if="activityCodeToHeader != null &amp;&amp; activityCodeToHeader != '' "/>
-      <bind search="self.code = :activityCodeToLines" to="activityCodeToLines" column="activityCodeToLines" if="activityCodeToLines != null &amp;&amp; activityCodeToLines != '' "/>
-      <bind search="self.code = :reasonCode" to="reasonCode" column="reasonCode" if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
-      <bind search="self.partnerSeq = :masterContactNo" to="masterContactNo" column="masterContactNo" if="masterContactNo != null &amp;&amp; masterContactNo != '' "/>
-      <bind search="self.memberCode = :lotCategorie1Filter" to="lotCategorie1Filter" column="lotCategorie1Filter" if="lotCategorie1Filter != null &amp;&amp; lotCategorie1Filter != '' "/>
-      <bind search="self.code = :missionComContactGroup" to="missionComContactGroup" column="missionComContactGroup" if="missionComContactGroup != null &amp;&amp; missionComContactGroup != '' "/>
-      <bind search="self.name = :responsibilityCenter" to="responsibilityCenter" column="responsibilityCenter" if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
-      <bind search="self.code = :defaultLotTemplate" to="defaultLotTemplate" column="defaultLotTemplate" if="defaultLotTemplate != null &amp;&amp; defaultLotTemplate != '' "/>
-      <bind to="lotNo" column="lotNo" if="false"/>
-    </input>
+  <input file="MissionHeader.csv" type="com.axelor.apps.openauction.db.MissionHeader"
+    separator=";">
+    <bind search="self.code = :missionTemplateCode" to="missionTemplateCode"
+      column="missionTemplateCode"
+      if="missionTemplateCode != null &amp;&amp; missionTemplateCode != '' "/>
+    <bind search="self.code = :activityCodeToHeader" to="activityCodeToHeader"
+      column="activityCodeToHeader"
+      if="activityCodeToHeader != null &amp;&amp; activityCodeToHeader != '' "/>
+    <bind search="self.code = :activityCodeToLines" to="activityCodeToLines"
+      column="activityCodeToLines"
+      if="activityCodeToLines != null &amp;&amp; activityCodeToLines != '' "/>
+    <bind search="self.code = :reasonCode" to="reasonCode" column="reasonCode"
+      if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
+    <bind search="self.partnerSeq = :masterContactNo" to="masterContactNo"
+      column="masterContactNo" if="masterContactNo != null &amp;&amp; masterContactNo != '' "/>
+    <bind search="self.memberCode = :lotCategorie1Filter" to="lotCategorie1Filter"
+      column="lotCategorie1Filter"
+      if="lotCategorie1Filter != null &amp;&amp; lotCategorie1Filter != '' "/>
+    <bind search="self.code = :missionComContactGroup" to="missionComContactGroup"
+      column="missionComContactGroup"
+      if="missionComContactGroup != null &amp;&amp; missionComContactGroup != '' "/>
+    <bind search="self.name = :responsibilityCenter" to="responsibilityCenter"
+      column="responsibilityCenter"
+      if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
+    <bind search="self.code = :defaultLotTemplate" to="defaultLotTemplate"
+      column="defaultLotTemplate"
+      if="defaultLotTemplate != null &amp;&amp; defaultLotTemplate != '' "/>
+    <bind to="lotNo" column="lotNo" if="false"/>
+  </input>
 
 
-    <input file="Lot.csv" type="com.axelor.apps.openauction.db.Lot" separator=";">
-      <bind search="self.code = :sectorCode" to="sectorCode" column="sectorCode" if="sectorCode != null &amp;&amp; sectorCode != '' "/>
-      <bind search="self.specializingCode = :specializingCode" to="specializingCode" column="specializingCode" if="specializingCode != null &amp;&amp; specializingCode != '' "/>
-      <bind search="self.lotNature = :lotNatureCode" to="lotNatureCode" column="lotNatureCode" if="lotNatureCode != null &amp;&amp; lotNatureCode != '' "/>
-      <bind search="self.memberCode = :lotCategorie1Code" to="lotCategorie1Code" column="lotCategorie1Code" if="lotCategorie1Code != null &amp;&amp; lotCategorie1Code != '' "/>
-      <bind search="self.memberCode = :lotCategorie2Code" to="lotCategorie2Code" column="lotCategorie2Code" if="lotCategorie2Code != null &amp;&amp; lotCategorie2Code != '' "/>
-      <bind search="self.memberCode = :lotCategorie3Code" to="lotCategorie3Code" column="lotCategorie3Code" if="lotCategorie3Code != null &amp;&amp; lotCategorie3Code != '' "/>
-      <bind search="self.memberCode = :lotCategorie4Code" to="lotCategorie4Code" column="lotCategorie4Code" if="lotCategorie4Code != null &amp;&amp; lotCategorie4Code != '' "/>
-      <bind search="self.code = :lotMissionPriceGroup" to="lotMissionPriceGroup" column="lotMissionPriceGroup" if="lotMissionPriceGroup != null &amp;&amp; lotMissionPriceGroup != '' "/>
-      <bind search="self.code = :lotAuctionPriceGroup" to="lotAuctionPriceGroup" column="lotAuctionPriceGroup" if="lotAuctionPriceGroup != null &amp;&amp; lotAuctionPriceGroup != '' "/>
-      <bind search="self.code = :freeReasonCode" to="freeReasonCode" column="freeReasonCode" if="freeReasonCode != null &amp;&amp; freeReasonCode != '' "/>
-      <bind search="self.code = :lotConditionCode" to="lotConditionCode" column="lotConditionCode" if="lotConditionCode != null &amp;&amp; lotConditionCode != '' "/>
-      <bind search="self.code = :lotTemplateCode" to="lotTemplateCode" column="lotTemplateCode" if="lotTemplateCode != null &amp;&amp; lotTemplateCode != '' "/>
-      <bind search="self.no = :currentAuctionNo" to="currentAuctionNo" column="currentAuctionNo" if="currentAuctionNo != null &amp;&amp; currentAuctionNo != '' "/>
-      <bind search="self.no = :currentMissionNo" to="currentMissionNo" column="currentMissionNo" if="currentMissionNo != null &amp;&amp; currentMissionNo != '' "/>
-      <bind search="self.no = :missionContactNo" to="missionContactNo" column="missionContactNo" if="missionContactNo != null &amp;&amp; missionContactNo != '' "/>
-      <bind search="self.name = :responsibilityCenter" to="responsibilityCenter" column="responsibilityCenter" if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
-      <bind to="missionLine" column="missionLine" if="false"/>
-      <bind search="self.no = :missionNo" to="missionNo" column="missionNo" if="missionNo != null &amp;&amp; missionNo != '' "/>
-      <bind to="currentMissionLineNo" column="currentMissionLineNo" if="false"/>
-      <bind to="currentMissionLineNo" column="currentMissionLineNo" if="false"/>
-      <bind to="invMissionNo" column="invMissionNo" if="false"/>
-    </input>
+  <input file="Lot.csv" type="com.axelor.apps.openauction.db.Lot" separator=";">
+    <bind search="self.code = :sectorCode" to="sectorCode" column="sectorCode"
+      if="sectorCode != null &amp;&amp; sectorCode != '' "/>
+    <bind search="self.specializingCode = :specializingCode" to="specializingCode"
+      column="specializingCode" if="specializingCode != null &amp;&amp; specializingCode != '' "/>
+    <bind search="self.lotNature = :lotNatureCode" to="lotNatureCode" column="lotNatureCode"
+      if="lotNatureCode != null &amp;&amp; lotNatureCode != '' "/>
+    <bind search="self.memberCode = :lotCategorie1Code" to="lotCategorie1Code"
+      column="lotCategorie1Code" if="lotCategorie1Code != null &amp;&amp; lotCategorie1Code != '' "/>
+    <bind search="self.memberCode = :lotCategorie2Code" to="lotCategorie2Code"
+      column="lotCategorie2Code" if="lotCategorie2Code != null &amp;&amp; lotCategorie2Code != '' "/>
+    <bind search="self.memberCode = :lotCategorie3Code" to="lotCategorie3Code"
+      column="lotCategorie3Code" if="lotCategorie3Code != null &amp;&amp; lotCategorie3Code != '' "/>
+    <bind search="self.memberCode = :lotCategorie4Code" to="lotCategorie4Code"
+      column="lotCategorie4Code" if="lotCategorie4Code != null &amp;&amp; lotCategorie4Code != '' "/>
+    <bind search="self.code = :lotMissionPriceGroup" to="lotMissionPriceGroup"
+      column="lotMissionPriceGroup"
+      if="lotMissionPriceGroup != null &amp;&amp; lotMissionPriceGroup != '' "/>
+    <bind search="self.code = :lotAuctionPriceGroup" to="lotAuctionPriceGroup"
+      column="lotAuctionPriceGroup"
+      if="lotAuctionPriceGroup != null &amp;&amp; lotAuctionPriceGroup != '' "/>
+    <bind search="self.code = :freeReasonCode" to="freeReasonCode" column="freeReasonCode"
+      if="freeReasonCode != null &amp;&amp; freeReasonCode != '' "/>
+    <bind search="self.code = :lotConditionCode" to="lotConditionCode"
+      column="lotConditionCode" if="lotConditionCode != null &amp;&amp; lotConditionCode != '' "/>
+    <bind search="self.code = :lotTemplateCode" to="lotTemplateCode" column="lotTemplateCode"
+      if="lotTemplateCode != null &amp;&amp; lotTemplateCode != '' "/>
+    <bind search="self.no = :currentAuctionNo" to="currentAuctionNo" column="currentAuctionNo"
+      if="currentAuctionNo != null &amp;&amp; currentAuctionNo != '' "/>
+    <bind search="self.no = :currentMissionNo" to="currentMissionNo" column="currentMissionNo"
+      if="currentMissionNo != null &amp;&amp; currentMissionNo != '' "/>
+    <bind search="self.no = :missionContactNo" to="missionContactNo" column="missionContactNo"
+      if="missionContactNo != null &amp;&amp; missionContactNo != '' "/>
+    <bind search="self.name = :responsibilityCenter" to="responsibilityCenter"
+      column="responsibilityCenter"
+      if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
+    <bind to="missionLine" column="missionLine" if="false"/>
+    <bind search="self.no = :missionNo" to="missionNo" column="missionNo"
+      if="missionNo != null &amp;&amp; missionNo != '' "/>
+    <bind to="currentMissionLineNo" column="currentMissionLineNo" if="false"/>
+    <bind to="currentMissionLineNo" column="currentMissionLineNo" if="false"/>
+    <bind to="invMissionNo" column="invMissionNo" if="false"/>
+  </input>
 
-    <input file="MissionLine.csv" type="com.axelor.apps.openauction.db.MissionLine" separator=";">
-      <bind search="self.no = :missionNo" to="missionNo" column="missionNo" if="missionNo != null &amp;&amp; missionNo != '' "/>
-      <bind search="self.partnerSeq = :contactNo" to="contactNo" column="contactNo" if="contactNo != null &amp;&amp; contactNo != '' "/>
-      <bind search="self.code = :lotCondition" to="lotCondition" column="lotCondition" if="lotCondition != null &amp;&amp; lotCondition != '' "/>
-      <bind search="self.code = :lotTemplateCode" to="lotTemplateCode" column="lotTemplateCode" if="lotTemplateCode != null &amp;&amp; lotTemplateCode != '' "/>
-      <bind search="self.lotNature = :lotNatureCode" to="lotNatureCode" column="lotNatureCode" if="lotNatureCode != null &amp;&amp; lotNatureCode != '' "/>
-      <bind search="self.code = :activityCode" to="activityCode" column="activityCode" if="activityCode != null &amp;&amp; activityCode != '' "/>
-      <bind search="self.no = :auctionMissionNo" to="auctionMissionNo" column="auctionMissionNo" if="auctionMissionNo != null &amp;&amp; auctionMissionNo != '' "/>
-      <bind search="self.no = :originalMissionNo" to="originalMissionNo" column="originalMissionNo" if="originalMissionNo != null &amp;&amp; originalMissionNo != '' "/>
-      <bind search="self.code = :auctionRoomCode" to="auctionRoomCode" column="auctionRoomCode" if="auctionRoomCode != null &amp;&amp; auctionRoomCode != '' "/>
-      <bind search="self.memberCode = :lotCategorie1Code" to="lotCategorie1Code" column="lotCategorie1Code" if="lotCategorie1Code != null &amp;&amp; lotCategorie1Code != '' "/>
-      <bind search="self.memberCode = :lotCategorie2Code" to="lotCategorie2Code" column="lotCategorie2Code" if="lotCategorie2Code != null &amp;&amp; lotCategorie2Code != '' "/>
-      <bind search="self.memberCode = :lotCategorie3Code" to="lotCategorie3Code" column="lotCategorie3Code" if="lotCategorie3Code != null &amp;&amp; lotCategorie3Code != '' "/>
-      <bind search="self.memberCode = :lotCategorie4Code" to="lotCategorie4Code" column="lotCategorie4Code" if="lotCategorie4Code != null &amp;&amp; lotCategorie4Code != '' "/>
-      <bind search="self.code = :missionComLotGroup" to="missionComLotGroup" column="missionComLotGroup" if="missionComLotGroup != null &amp;&amp; missionComLotGroup != '' "/>
-      <bind search="self.no = :currentAuctionNo" to="currentAuctionNo" column="currentAuctionNo" if="currentAuctionNo != null &amp;&amp; currentAuctionNo != '' "/>
-      <bind search="self.code = :templateMissionCode" to="templateMissionCode" column="templateMissionCode" if="templateMissionCode != null &amp;&amp; templateMissionCode != '' "/>
-      <bind search="self.name = :responsibilityCenter" to="responsibilityCenter" column="responsibilityCenter" if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
-      <bind search="self.memberCode = :inventoryClassification" to="inventoryClassification" column="inventoryClassification" if="inventoryClassification != null &amp;&amp; inventoryClassification != '' "/>
-      <bind search="self.memberCode = :parentInvClassification" to="parentInvClassification" column="parentInvClassification" if="parentInvClassification != null &amp;&amp; parentInvClassification != '' "/>
-      <bind search="self.no = :no" to="noLot" column="no" />
-    </input>
+  <input file="MissionLine.csv" type="com.axelor.apps.openauction.db.MissionLine"
+    separator=";">
+    <bind search="self.no = :missionNo" to="missionNo" column="missionNo"
+      if="missionNo != null &amp;&amp; missionNo != '' "/>
+    <bind search="self.partnerSeq = :contactNo" to="contactNo" column="contactNo"
+      if="contactNo != null &amp;&amp; contactNo != '' "/>
+    <bind search="self.code = :lotCondition" to="lotCondition" column="lotCondition"
+      if="lotCondition != null &amp;&amp; lotCondition != '' "/>
+    <bind search="self.code = :lotTemplateCode" to="lotTemplateCode" column="lotTemplateCode"
+      if="lotTemplateCode != null &amp;&amp; lotTemplateCode != '' "/>
+    <bind search="self.lotNature = :lotNatureCode" to="lotNatureCode" column="lotNatureCode"
+      if="lotNatureCode != null &amp;&amp; lotNatureCode != '' "/>
+    <bind search="self.code = :activityCode" to="activityCode" column="activityCode"
+      if="activityCode != null &amp;&amp; activityCode != '' "/>
+    <bind search="self.no = :auctionMissionNo" to="auctionMissionNo" column="auctionMissionNo"
+      if="auctionMissionNo != null &amp;&amp; auctionMissionNo != '' "/>
+    <bind search="self.no = :originalMissionNo" to="originalMissionNo"
+      column="originalMissionNo" if="originalMissionNo != null &amp;&amp; originalMissionNo != '' "/>
+    <bind search="self.code = :auctionRoomCode" to="auctionRoomCode" column="auctionRoomCode"
+      if="auctionRoomCode != null &amp;&amp; auctionRoomCode != '' "/>
+    <bind search="self.memberCode = :lotCategorie1Code" to="lotCategorie1Code"
+      column="lotCategorie1Code" if="lotCategorie1Code != null &amp;&amp; lotCategorie1Code != '' "/>
+    <bind search="self.memberCode = :lotCategorie2Code" to="lotCategorie2Code"
+      column="lotCategorie2Code" if="lotCategorie2Code != null &amp;&amp; lotCategorie2Code != '' "/>
+    <bind search="self.memberCode = :lotCategorie3Code" to="lotCategorie3Code"
+      column="lotCategorie3Code" if="lotCategorie3Code != null &amp;&amp; lotCategorie3Code != '' "/>
+    <bind search="self.memberCode = :lotCategorie4Code" to="lotCategorie4Code"
+      column="lotCategorie4Code" if="lotCategorie4Code != null &amp;&amp; lotCategorie4Code != '' "/>
+    <bind search="self.code = :missionComLotGroup" to="missionComLotGroup"
+      column="missionComLotGroup"
+      if="missionComLotGroup != null &amp;&amp; missionComLotGroup != '' "/>
+    <bind search="self.no = :currentAuctionNo" to="currentAuctionNo" column="currentAuctionNo"
+      if="currentAuctionNo != null &amp;&amp; currentAuctionNo != '' "/>
+    <bind search="self.code = :templateMissionCode" to="templateMissionCode"
+      column="templateMissionCode"
+      if="templateMissionCode != null &amp;&amp; templateMissionCode != '' "/>
+    <bind search="self.name = :responsibilityCenter" to="responsibilityCenter"
+      column="responsibilityCenter"
+      if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
+    <bind search="self.memberCode = :inventoryClassification" to="inventoryClassification"
+      column="inventoryClassification"
+      if="inventoryClassification != null &amp;&amp; inventoryClassification != '' "/>
+    <bind search="self.memberCode = :parentInvClassification" to="parentInvClassification"
+      column="parentInvClassification"
+      if="parentInvClassification != null &amp;&amp; parentInvClassification != '' "/>
+    <bind search="self.no = :no" to="noLot" column="no"/>
+  </input>
 
-    <input file="AuctionLine.csv" type="com.axelor.apps.openauction.db.AuctionLine" separator=";">
-      <bind search="self.no = :auctionNo" to="auctionNo" column="auctionNo" if="auctionNo != null &amp;&amp; auctionNo != '' "/>
-      <bind search="self.no = :missionNo" to="missionNo" column="missionNo" if="missionNo != null &amp;&amp; missionNo != '' "/>
-      <bind search="self.no = :missionLineNo" to="missionLineNo" column="missionLineNo" if="false"/>
-      <bind search="self.code = :biddingPaddleSetNo" to="biddingPaddleSetNo" column="biddingPaddleSetNo" if="false"/>
-      <bind search="self.biddingPaddleCode = :biddingPaddleNo" to="biddingPaddleNo" column="biddingPaddleNo" if="false"/>
-      <bind search="self.partnerSeq = :sellerContactNo" to="sellerContactNo" column="sellerContactNo" if="sellerContactNo != null &amp;&amp; sellerContactNo != '' " />
-      <bind search="self.partnerSeq = :buyerContactNo" to="buyerContactNo" column="buyerContactNo" if="buyerContactNo != null &amp;&amp; buyerContactNo != '' "/>
-      <bind search="self.partnerSeq = :expertContactNo" to="expertContactNo" column="expertContactNo"  if="false"/>
-      <bind search="self.partnerSeq = :previousBuyerContactNo" to="previousBuyerContactNo" column="previousBuyerContactNo" if="false" />
-      <bind search="self.partnerSeq = :buyerCustomerNo" to="buyerCustomerNo" column="buyerCustomerNo" if="false" />
-      <bind search="self.no = :sourceLotNo" to="sourceLotNo" column="sourceLotNo" if="sourceLotNo != null &amp;&amp; sourceLotNo != '' "/>
-      <bind search="self.partnerSeq = :preemptingContactNo" to="preemptingContactNo" column="preemptingContactNo" if="false"/>
-      <bind search="self.partnerSeq = :defaultingBidContactNo" to="defaultingBidContactNo" column="defaultingBidContactNo" if="false"/>
-      <bind search="self.code = :retirementReason" to="retirementReason" column="retirementReason" if="retirementReason != null &amp;&amp; retirementReason != '' " />
-      <bind search="self.code = :sectorCode" to="sectorCode" column="sectorCode" if="missionNo != null &amp;&amp; missionNo != '' "/>
-      <bind search="self.memberCode = :lotCategorie1Code" to="lotCategorie1Code" column="lotCategorie1Code" if="lotCategorie1Code != null &amp;&amp; lotCategorie1Code != '' "/>
-      <bind search="self.code = :lotTemplateCode" to="lotTemplateCode" column="lotTemplateCode" if="lotTemplateCode != null &amp;&amp; lotTemplateCode != '' "/>
-      <bind search="self.code = :auctionTemplateCode" to="auctionTemplateCode" column="auctionTemplateCode" if="auctionTemplateCode != null &amp;&amp; auctionTemplateCode != '' " />
-      <bind search="self.code = :lotCondition" to="lotCondition" column="lotCondition" if="lotCondition != null &amp;&amp; lotCondition != '' "/>
-      <bind search="self.code = :vehicleMake" to="vehicleMake" column="vehicleMake" if="vehicleMake != null &amp;&amp; vehicleMake != '' "/>
-      <bind search="self.name = :responsibilityCenter" to="responsibilityCenter" column="responsibilityCenter" if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
-    
-      <bind search="self.code = :bondPaymentMethod" to="bondPaymentMethod" column="bondPaymentMethod" if="false"/>
-      <bind search="self.code = :sellerVATBusPostingGroup" to="sellerVATBusPostingGroup" column="sellerVATBusPostingGroup" if="false"/>
-      <bind search="self.code = :buyerVATBusPostingGroup" to="buyerVATBusPostingGroup" column="buyerVATBusPostingGroup" if="false"/>
-      <bind search="self.code = :lotProdPostingGroup" to="lotProdPostingGroup" column="lotProdPostingGroup" if="false"/>
-      <bind search="self.code = :lotVATProdPostingGroup" to="lotVATProdPostingGroup" column="lotVATProdPostingGroup" if="false"/>
-    </input>
-  
+  <input file="AuctionLine.csv" type="com.axelor.apps.openauction.db.AuctionLine"
+    separator=";">
+    <bind search="self.no = :auctionNo" to="auctionNo" column="auctionNo"
+      if="auctionNo != null &amp;&amp; auctionNo != '' "/>
+    <bind search="self.no = :missionNo" to="missionNo" column="missionNo"
+      if="missionNo != null &amp;&amp; missionNo != '' "/>
+    <bind search="self.no = :missionLineNo" to="missionLineNo" column="missionLineNo"
+      if="false"/>
+    <bind search="self.code = :biddingPaddleSetNo" to="biddingPaddleSetNo"
+      column="biddingPaddleSetNo" if="false"/>
+    <bind search="self.biddingPaddleCode = :biddingPaddleNo" to="biddingPaddleNo"
+      column="biddingPaddleNo" if="false"/>
+    <bind search="self.partnerSeq = :sellerContactNo" to="sellerContactNo"
+      column="sellerContactNo" if="sellerContactNo != null &amp;&amp; sellerContactNo != '' "/>
+    <bind search="self.partnerSeq = :buyerContactNo" to="buyerContactNo"
+      column="buyerContactNo" if="buyerContactNo != null &amp;&amp; buyerContactNo != '' "/>
+    <bind search="self.partnerSeq = :expertContactNo" to="expertContactNo"
+      column="expertContactNo" if="false"/>
+    <bind search="self.partnerSeq = :previousBuyerContactNo" to="previousBuyerContactNo"
+      column="previousBuyerContactNo" if="false"/>
+    <bind search="self.partnerSeq = :buyerCustomerNo" to="buyerCustomerNo"
+      column="buyerCustomerNo" if="false"/>
+    <bind search="self.no = :sourceLotNo" to="sourceLotNo" column="sourceLotNo"
+      if="sourceLotNo != null &amp;&amp; sourceLotNo != '' "/>
+    <bind search="self.partnerSeq = :preemptingContactNo" to="preemptingContactNo"
+      column="preemptingContactNo" if="false"/>
+    <bind search="self.partnerSeq = :defaultingBidContactNo" to="defaultingBidContactNo"
+      column="defaultingBidContactNo" if="false"/>
+    <bind search="self.code = :retirementReason" to="retirementReason"
+      column="retirementReason" if="retirementReason != null &amp;&amp; retirementReason != '' "/>
+    <bind search="self.code = :sectorCode" to="sectorCode" column="sectorCode"
+      if="missionNo != null &amp;&amp; missionNo != '' "/>
+    <bind search="self.memberCode = :lotCategorie1Code" to="lotCategorie1Code"
+      column="lotCategorie1Code" if="lotCategorie1Code != null &amp;&amp; lotCategorie1Code != '' "/>
+    <bind search="self.code = :lotTemplateCode" to="lotTemplateCode" column="lotTemplateCode"
+      if="lotTemplateCode != null &amp;&amp; lotTemplateCode != '' "/>
+    <bind search="self.code = :auctionTemplateCode" to="auctionTemplateCode"
+      column="auctionTemplateCode"
+      if="auctionTemplateCode != null &amp;&amp; auctionTemplateCode != '' "/>
+    <bind search="self.code = :lotCondition" to="lotCondition" column="lotCondition"
+      if="lotCondition != null &amp;&amp; lotCondition != '' "/>
+    <bind search="self.code = :vehicleMake" to="vehicleMake" column="vehicleMake"
+      if="vehicleMake != null &amp;&amp; vehicleMake != '' "/>
+    <bind search="self.name = :responsibilityCenter" to="responsibilityCenter"
+      column="responsibilityCenter"
+      if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
+
+    <bind search="self.code = :bondPaymentMethod" to="bondPaymentMethod"
+      column="bondPaymentMethod" if="false"/>
+    <bind search="self.code = :sellerVATBusPostingGroup" to="sellerVATBusPostingGroup"
+      column="sellerVATBusPostingGroup" if="false"/>
+    <bind search="self.code = :buyerVATBusPostingGroup" to="buyerVATBusPostingGroup"
+      column="buyerVATBusPostingGroup" if="false"/>
+    <bind search="self.code = :lotProdPostingGroup" to="lotProdPostingGroup"
+      column="lotProdPostingGroup" if="false"/>
+    <bind search="self.code = :lotVATProdPostingGroup" to="lotVATProdPostingGroup"
+      column="lotVATProdPostingGroup" if="false"/>
+  </input>
+
+
 
 </csv-inputs>
