@@ -117,7 +117,7 @@
     <decimal name="outstandingQuantity" title="Quantité restante"/>
     <string name="equipmentSerialNo" title="N° série"/>
     <string name="originCountryCode" title="Code pays provenance"/>
-    <many-to-one name="currentAuctionNo" title="N° vente actuelle"
+    <many-to-one name="currentAuctionNo" title="Vente actuelle"
       ref="com.axelor.apps.openauction.db.AuctionHeader"/>
     <many-to-one name="currentAuctionLineNo" title="N° ligne vente actuelle"
       ref="com.axelor.apps.openauction.db.AuctionLine"/>

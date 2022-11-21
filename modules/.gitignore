@@ -2,6 +2,8 @@ bin
 build
 carbone-main
 input
+input-prod
+input-dev
 .gradle
 .project
 .classpath

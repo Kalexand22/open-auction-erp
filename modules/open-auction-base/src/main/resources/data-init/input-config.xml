@@ -218,7 +218,7 @@
   </input>
 
   <input file="MissionTemplate.csv" type="com.axelor.apps.openauction.db.MissionTemplate"
-    separator=";">
+    separator=";" call="com.axelor.apps.openauctionbase.csv.ImportMissionTemplate:importMissionTemplate">
     <bind search="self.code = :activityCodeToHeader" to="activityCodeToHeader"
       column="activityCodeToHeader"
       if="activityCodeToHeader != null &amp;&amp; activityCodeToHeader != '' "/>
@@ -318,7 +318,8 @@
   </input>
 
 
-  <input file="Lot.csv" type="com.axelor.apps.openauction.db.Lot" separator=";">
+  <input file="Lot.csv" type="com.axelor.apps.openauction.db.Lot" separator=";" 
+      call="com.axelor.apps.openauctionbase.csv.ImportLot:importLot">
     <bind search="self.code = :sectorCode" to="sectorCode" column="sectorCode"
       if="sectorCode != null &amp;&amp; sectorCode != '' "/>
     <bind search="self.specializingCode = :specializingCode" to="specializingCode"
@@ -472,7 +473,14 @@
   <input file="PictureWarehouseMainPicture.csv" type="com.axelor.apps.openauction.db.Lot"
     separator=";" search="self.no = :sourceID" update="true"
     call="com.axelor.apps.openauctionbase.csv.ImportPicture:importMainPicture">>
+  </input>
 
+  <input file="PictureWarehouse.csv" type="com.axelor.apps.openauction.db.PictureAttachement" separator=";"     
+    call="com.axelor.apps.openauctionbase.csv.ImportPicture:importPicture">>
+    <bind search="self.no = :sourceID" to="sourceLotNo" column="sourceID"/>
+    <bind  to="createDate" column="createDate" if="false"/>
+    <bind  to="createdBy" column="createdBy" if="false"/>
+    <bind  to="modifiedBy" column="modifiedBy" if="false"/>
   </input>
 
 </csv-inputs>

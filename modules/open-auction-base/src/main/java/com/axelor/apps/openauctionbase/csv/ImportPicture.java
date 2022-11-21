@@ -1,6 +1,7 @@
 package com.axelor.apps.openauctionbase.csv;
 
 import com.axelor.apps.openauction.db.Lot;
+import com.axelor.apps.openauction.db.PictureAttachement;
 import com.axelor.meta.MetaFiles;
 import com.axelor.meta.db.MetaFile;
 import com.google.common.base.Strings;
@@ -37,5 +38,27 @@ public class ImportPicture {
     }
 
     return lot;
+  }
+
+  public Object importPicture(Object bean, Map<String, Object> values) {
+
+    PictureAttachement pictureAttachement = (PictureAttachement) bean;
+
+    final Path path = (Path) values.get("__path__");
+    String fileName = (String) values.get("filePath");
+
+    if (!Strings.isNullOrEmpty(fileName)) {
+      try {
+        final File image = path.resolve("img" + File.separator + fileName).toFile();
+        if (image.exists()) {
+          final MetaFile metaFile = metaFiles.upload(image);
+          pictureAttachement.setPicture(metaFile);
+        }
+      } catch (Exception e) {
+        LOG.warn("Can't load image {} for app {}", fileName,pictureAttachement.getSourceLotNo());
+      }
+    }
+
+    return pictureAttachement;
   }
 }

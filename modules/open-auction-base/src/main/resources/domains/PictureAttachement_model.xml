@@ -10,6 +10,6 @@
     <boolean name="main" title="Principal"/>
     <string name="filePath" title="Chemin d'accès fichier"/>
     <string name="fileNameImported" title="Nom du fichier importé"/>
-    <many-to-one name="mainPicture" ref="com.axelor.meta.db.MetaFile" initParam="true"/>
+    <many-to-one name="picture" ref="com.axelor.meta.db.MetaFile" initParam="true"/>
   </entity>
 </domain-models>
