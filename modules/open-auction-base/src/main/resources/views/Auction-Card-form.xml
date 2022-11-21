@@ -366,14 +366,14 @@
     model="com.axelor.apps.openauction.db.AuctionLine">
 
     <field name="passingOrderNo"/>
-    <field name="sourceLotNo.responsibilityCenter"/>
-    <field name="sourceLotNo.currentMissionNo" title="Mission"/>
-    <field name="sourceLotNo" width="300"/>
+    <field name="lotNo.responsibilityCenter"/>
+    <field name="lotNo.currentMissionNo" title="Mission"/>
+    <field name="lotNo" width="300"/>
     <field name="bidPrice"/>
     <field name="lineStatus"/>
     <field name="retirementReason"/>
-    <field name="sourceLotNo.minAuctionEstimValue"/>
-    <field name="sourceLotNo.maxAuctionEstimValue"/>
+    <field name="lotNo.minAuctionEstimValue"/>
+    <field name="lotNo.maxAuctionEstimValue"/>
     <field name="startPrice"/>
     <field name="colTTC" title="TTC"/>
     <field name="judicial"/>

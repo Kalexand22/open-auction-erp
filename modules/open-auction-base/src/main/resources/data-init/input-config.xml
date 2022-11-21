@@ -215,6 +215,8 @@
     <bind search="self.code = :activityCode" to="activityCode" column="activityCode"/>
     <bind search="self.code = :lotTemplateFilter" to="lotTemplateFilter"
       column="lotTemplateFilter" if="lotTemplateFilter != null &amp;&amp; lotTemplateFilter != '' "/>
+    <bind search="self.code = :serviceTemplateCode" to="serviceTemplateCode"
+      column="serviceTemplateCode" if="serviceTemplateCode != null &amp;&amp; serviceTemplateCode != '' "/>
   </input>
 
   <input file="MissionTemplate.csv" type="com.axelor.apps.openauction.db.MissionTemplate"
@@ -236,7 +238,7 @@
   </input>
 
   <input file="AuctionTemplate.csv" type="com.axelor.apps.openauction.db.AuctionTemplate"
-    separator=";">
+    separator=";" call="com.axelor.apps.openauctionbase.csv.ImportAuctionTemplate:importAuctionTemplate">
     <bind search="self.code = :auctionRoom" to="auctionRoom" column="auctionRoom"
       if="auctionRoom != null &amp;&amp; auctionRoom != '' "/>
     <bind search="self.code = :activityCodeToHeader" to="activityCodeToHeader"
@@ -364,7 +366,7 @@
   </input>
 
   <input file="MissionLine.csv" type="com.axelor.apps.openauction.db.MissionLine"
-    separator=";">
+    separator=";" call="com.axelor.apps.openauctionbase.csv.ImportMissionLine:importMissionLine">
     <bind search="self.no = :missionNo" to="missionNo" column="missionNo"
       if="missionNo != null &amp;&amp; missionNo != '' "/>
     <bind search="self.partnerSeq = :contactNo" to="contactNo" column="contactNo"
@@ -408,13 +410,19 @@
     <bind search="self.memberCode = :parentInvClassification" to="parentInvClassification"
       column="parentInvClassification"
       if="parentInvClassification != null &amp;&amp; parentInvClassification != '' "/>
-    <bind search="self.no = :no" to="noLot" column="no"/>
+    <bind search="self.no = :no" to="noLot" column="no" if="no != null &amp;&amp; no != '' "/>
+    <bind to="originRepDuplMissionNo" column="originRepDuplMissionNo" if="false"/>
+    <bind to="rcptRepDuplMissionNo" column="rcptRepDuplMissionNo" if="false"/>
+    <bind to="auctionMissionNo" column="auctionMissionNo" if="false"/>
+    <bind to="originalMissionNo" column="originalMissionNo" if="false"/>
   </input>
 
   <input file="AuctionLine.csv" type="com.axelor.apps.openauction.db.AuctionLine"
     separator=";">
     <bind search="self.no = :auctionNo" to="auctionNo" column="auctionNo"
       if="auctionNo != null &amp;&amp; auctionNo != '' "/>
+    <bind search="self.no = :lotNo" to="lotNo" column="lotNo"
+      if="lotNo != null &amp;&amp; lotNo != '' "/>
     <bind search="self.no = :missionNo" to="missionNo" column="missionNo"
       if="missionNo != null &amp;&amp; missionNo != '' "/>
     <bind search="self.no = :missionLineNo" to="missionLineNo" column="missionLineNo"
@@ -433,8 +441,8 @@
       column="previousBuyerContactNo" if="false"/>
     <bind search="self.partnerSeq = :buyerCustomerNo" to="buyerCustomerNo"
       column="buyerCustomerNo" if="false"/>
-    <bind search="self.no = :sourceLotNo" to="sourceLotNo" column="sourceLotNo"
-      if="sourceLotNo != null &amp;&amp; sourceLotNo != '' "/>
+    <bind search="self.no = :lotNo" to="sourceLotNo" column="sourceLotNo"
+      if="false"/>
     <bind search="self.partnerSeq = :preemptingContactNo" to="preemptingContactNo"
       column="preemptingContactNo" if="false"/>
     <bind search="self.partnerSeq = :defaultingBidContactNo" to="defaultingBidContactNo"
