@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+  <grid title="Photos" name="photo-grid"
+    model="com.axelor.apps.openauction.db.PictureAttachement" canNew="false" canDelete="false"
+    canEdit="false">
+    <field name="picture" widget="image"/>
+    <field name="pictureType"/>
+    <field name="id"/>
+    <field name="picture.id"/>
+  </grid>
+  <form title="Mettre une photo en ligne" name="photo-form"
+    model="com.axelor.apps.openauction.db.PictureAttachement">
+    <panel name="mainPanel" colSpan="12">
+      <field name="picture" widget="image" colSpan="12"/>
+      <panel-dashlet name="imageEditor" colSpan="12" action="action-photo-show-editor"
+        height="700" showIf="id &amp;&amp; !$readonly()"/>
+    </panel>
+  </form>
+
+  <action-view name="action-photo-show-editor" title="Editeur d'image">
+    <view type="html"
+      name="editor?id={{id}}&amp;domain=com.axelor.apps.openauction.db.PictureAttachement&amp;projectName=open-auction-erp"/>
+      <view-param name="popup" value="reload"/>
+      <view-param name="popup.maximized" value="true"/>
+      <view-param name="forceEdit" value="true"/>
+  </action-view>
+
+</object-views>

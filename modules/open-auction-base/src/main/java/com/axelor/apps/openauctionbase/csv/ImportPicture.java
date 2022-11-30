@@ -55,7 +55,7 @@ public class ImportPicture {
           pictureAttachement.setPicture(metaFile);
         }
       } catch (Exception e) {
-        LOG.warn("Can't load image {} for app {}", fileName,pictureAttachement.getSourceLotNo());
+        LOG.warn("Can't load image {} for app {}", fileName, pictureAttachement.getSourceLotNo());
       }
     }
 

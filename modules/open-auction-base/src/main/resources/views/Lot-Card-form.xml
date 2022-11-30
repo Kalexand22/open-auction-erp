@@ -20,8 +20,7 @@
     <field name="lotCategorie3Code1"/>
   </grid>
 
-  <form name="lot-form" title="Lot" model="com.axelor.apps.openauction.db.Lot"
-    width="large">
+  <form name="lot-form" title="Lot" model="com.axelor.apps.openauction.db.Lot" width="large">
 
     <menubar>
       <menu title="Lot">
@@ -446,6 +445,13 @@
         </field>
       </panel>
       <panel-include view="picture-form"/>
+      <panel name="picture-react" title="Photos" colSpan="12">
+        <field name="pictureList" colSpan="12" form-view="photo-form" grid-view="photo-grid"/>
+        <panel-dashlet name="albumPhotosPanel" colSpan="12"
+          action="action-album-show-photos" height="650"
+          showIf="id &amp;&amp; photoList.length &gt; 0"/>
+      </panel>
+
       <panel name="fraisavancesAcomptes" title="Frais avancés/Acomptes"/>
       <panel name="actions" title="Actions"/>
       <panel name="ventes" title="Ventes" itemSpan="4">
@@ -581,11 +587,12 @@
     </panel-mail>
   </form>
 
-  <cards name="lot-cards" model="com.axelor.apps.openauction.db.Lot" title="Lot"  css="rect-image"  >
+  <cards name="lot-cards" model="com.axelor.apps.openauction.db.Lot" title="Lot"
+    css="rect-image">
     <field name="no"/>
     <field name="description"/>
     <field name="catalogDescription"/>
-    <field name="mainPicture"/>    
+    <field name="mainPicture"/>
     <field name="currentAuctionNo"/>
     <field name="netReservePrice"/>
     <template><![CDATA[
@@ -596,11 +603,11 @@
 			  <div class="span4 card-image" style="width: 128px; height: 64px;">
                 <img ng-show="mainPicture" ng-src="{{$image('mainPicture', 'content')}}" style="width: 100%; height: 100%; object-fit: contain;"/>
                 <img ng-show="!mainPicture" src="img/company-default.jpg" />
-                
+
 			  </div>
 			  <div class="span8">
-			  			  	
-			  	{{no}}<br/> 	
+
+			  	{{no}}<br/>
 			    {{currentAuctionNo.description}} <br/>
 			    {{netReservePrice}}<br/>
 			  </div>
@@ -610,23 +617,30 @@
   </cards>
 
   <form name="picture-form" title="Photos" model="com.axelor.apps.openauction.db.Lot">
- 
+
     <panel name="pictureList" title="Photos" colSpan="12">
-      <field name="pictureList" title="Photos" colSpan="2" showTitle="false" onSelect="" canSelect="true">
-        <editor colSpan="12" x-viewer="true" x-show-on-new="false" >
-          <field name="picture" colSpan="12" widget="Image" showTitle="false" >
+      <field name="pictureList" title="Photos" colSpan="2" showTitle="false" onSelect=""
+        canSelect="true">
+        <editor colSpan="12" x-viewer="true" x-show-on-new="false">
+          <field name="picture" colSpan="12" widget="Image" showTitle="false">
           </field>
         </editor>
+
       </field>
-      <field name="pictureList" title="Photos" colSpan="10" showTitle="false" readonly="true" >
+
+      <field name="pictureList" title="Photos" colSpan="10" showTitle="false" readonly="true">
         <viewer>
           <![CDATA[
-          <img ng-show="record.picture" ng-src="{{$image('picture', 'content')}}" />          
+          <img ng-show="record.picture" ng-src="{{$image('picture', 'content')}}" />
             ]]>
-          </viewer>   
+        </viewer>
       </field>
     </panel>
   </form>
+
+  <action-view name="action-picture-show-picture" title="React App">
+    <view type="html" name="meteo/predictions?apiRequestId={{id}}"/>
+  </action-view>
 
   <form name="vehicle-option-form" title="Equipements"
     model="com.axelor.apps.openauction.db.Lot">
@@ -675,4 +689,8 @@
     <call class="com.axelor.apps.openauction.controller.LotInputJournalController"
       method="onSave"/>
   </action-method>
+
+  <action-view name="action-album-show-photos" title="Carousel de photos">
+    <view type="html" name="carousel?albumId={{id}}"/>
+  </action-view>
 </object-views>

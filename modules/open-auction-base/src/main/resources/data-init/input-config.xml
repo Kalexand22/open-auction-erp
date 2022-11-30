@@ -216,11 +216,13 @@
     <bind search="self.code = :lotTemplateFilter" to="lotTemplateFilter"
       column="lotTemplateFilter" if="lotTemplateFilter != null &amp;&amp; lotTemplateFilter != '' "/>
     <bind search="self.code = :serviceTemplateCode" to="serviceTemplateCode"
-      column="serviceTemplateCode" if="serviceTemplateCode != null &amp;&amp; serviceTemplateCode != '' "/>
+      column="serviceTemplateCode"
+      if="serviceTemplateCode != null &amp;&amp; serviceTemplateCode != '' "/>
   </input>
 
   <input file="MissionTemplate.csv" type="com.axelor.apps.openauction.db.MissionTemplate"
-    separator=";" call="com.axelor.apps.openauctionbase.csv.ImportMissionTemplate:importMissionTemplate">
+    separator=";"
+    call="com.axelor.apps.openauctionbase.csv.ImportMissionTemplate:importMissionTemplate">
     <bind search="self.code = :activityCodeToHeader" to="activityCodeToHeader"
       column="activityCodeToHeader"
       if="activityCodeToHeader != null &amp;&amp; activityCodeToHeader != '' "/>
@@ -238,7 +240,8 @@
   </input>
 
   <input file="AuctionTemplate.csv" type="com.axelor.apps.openauction.db.AuctionTemplate"
-    separator=";" call="com.axelor.apps.openauctionbase.csv.ImportAuctionTemplate:importAuctionTemplate">
+    separator=";"
+    call="com.axelor.apps.openauctionbase.csv.ImportAuctionTemplate:importAuctionTemplate">
     <bind search="self.code = :auctionRoom" to="auctionRoom" column="auctionRoom"
       if="auctionRoom != null &amp;&amp; auctionRoom != '' "/>
     <bind search="self.code = :activityCodeToHeader" to="activityCodeToHeader"
@@ -320,8 +323,8 @@
   </input>
 
 
-  <input file="Lot.csv" type="com.axelor.apps.openauction.db.Lot" separator=";" 
-      call="com.axelor.apps.openauctionbase.csv.ImportLot:importLot">
+  <input file="Lot.csv" type="com.axelor.apps.openauction.db.Lot" separator=";"
+    call="com.axelor.apps.openauctionbase.csv.ImportLot:importLot">
     <bind search="self.code = :sectorCode" to="sectorCode" column="sectorCode"
       if="sectorCode != null &amp;&amp; sectorCode != '' "/>
     <bind search="self.specializingCode = :specializingCode" to="specializingCode"
@@ -441,8 +444,7 @@
       column="previousBuyerContactNo" if="false"/>
     <bind search="self.partnerSeq = :buyerCustomerNo" to="buyerCustomerNo"
       column="buyerCustomerNo" if="false"/>
-    <bind search="self.no = :lotNo" to="sourceLotNo" column="sourceLotNo"
-      if="false"/>
+    <bind search="self.no = :lotNo" to="sourceLotNo" column="sourceLotNo" if="false"/>
     <bind search="self.partnerSeq = :preemptingContactNo" to="preemptingContactNo"
       column="preemptingContactNo" if="false"/>
     <bind search="self.partnerSeq = :defaultingBidContactNo" to="defaultingBidContactNo"
@@ -483,12 +485,13 @@
     call="com.axelor.apps.openauctionbase.csv.ImportPicture:importMainPicture">>
   </input>
 
-  <input file="PictureWarehouse.csv" type="com.axelor.apps.openauction.db.PictureAttachement" separator=";"     
-    call="com.axelor.apps.openauctionbase.csv.ImportPicture:importPicture">>
+  <input file="PictureWarehouse.csv" type="com.axelor.apps.openauction.db.PictureAttachement"
+    separator=";" call="com.axelor.apps.openauctionbase.csv.ImportPicture:importPicture">
+    >
     <bind search="self.no = :sourceID" to="sourceLotNo" column="sourceID"/>
-    <bind  to="createDate" column="createDate" if="false"/>
-    <bind  to="createdBy" column="createdBy" if="false"/>
-    <bind  to="modifiedBy" column="modifiedBy" if="false"/>
+    <bind to="createDate" column="createDate" if="false"/>
+    <bind to="createdBy" column="createdBy" if="false"/>
+    <bind to="modifiedBy" column="modifiedBy" if="false"/>
   </input>
 
 </csv-inputs>
