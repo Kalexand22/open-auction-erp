@@ -54,18 +54,23 @@
             && maxAmount.compareTo(java.math.BigDecimal.ZERO) == 0) {
             return null;
         }
+        java.text.DecimalFormat df = new java.text.DecimalFormat();
+        df.setMaximumFractionDigits(2);
+        df.setMinimumFractionDigits(0);
+        df.setGroupingUsed(false);
+
         if ( minAmount.compareTo(java.math.BigDecimal.ZERO) != 0
             && maxAmount.compareTo(java.math.BigDecimal.ZERO) != 0) {
-          return "" + minAmount.stripTrailingZeros() + " - " + maxAmount.stripTrailingZeros();
+          return "" + df.format(minAmount) + " - " + df.format(maxAmount);
         }
         if ( baseAmount.compareTo(java.math.BigDecimal.ZERO) != 0
         && amount.compareTo(java.math.BigDecimal.ZERO) != 0) {
-          return "" + baseAmount.stripTrailingZeros() + " - " + amount.stripTrailingZeros();
+          return "" + df.format(baseAmount) + " - " + df.format(amount);
         }
         if( minAmount.compareTo(java.math.BigDecimal.ZERO) != 0) {
-          return "" + minAmount.stripTrailingZeros();
+          return "" + df.format(minAmount);
         }
-        return ""+amount.stripTrailingZeros();
+        return ""+df.format(amount);
         ]]></string>
   </entity>
 </domain-models>

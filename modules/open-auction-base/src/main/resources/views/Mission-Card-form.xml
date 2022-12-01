@@ -62,24 +62,24 @@
         <field name="noLot.description"/>
         <field name="priority"/>
         <field name="lotStatus"/>
-        <field name="noLot.minimumValue" title="Estimation basse"/>
-        <field name="noLot.maximumValue" title="Estimation haute"/>
+        <field name="noLot.estimationValueEntry"/>
+        <field name="noLot.reserveValueEntry"/>
         <field name="noLot.auctionNo"/>
         <field name="canceled"/>
         <field name="canceledReason"/>
 
       </panel-related>
       <panel-related title="Liste des lignes des prestations"
-        field="missionServiceLineList" editable="false" canNew="false">
+        field="missionServiceLineList" editable="false" canNew="false" canView="false">
         <field name="lotNo"/>
+        <field name="productNo"/>
         <field name="transactionType"/>
         <field name="type"/>
         <field name="priceDate"/>
         <field name="invoicingType"/>
         <field name="unitPrice"/>
         <field name="amount"/>
-        <field name="servicePercent"/>
-        <field name="productNo"/>
+        <field name="servicePercent"/>        
       </panel-related>
       <panel-related title="Liste des actions" field="taskList" onNew="team.tasks.all"/>
       <panel name="general" title="Général" itemSpan="4">

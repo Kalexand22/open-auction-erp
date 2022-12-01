@@ -624,9 +624,11 @@
     <bind search="self.no = :missionNo" to="missionNo" column="missionNo"
       if="missionNo != null &amp;&amp; missionNo != '' "/>
     <bind search="self.no = :auctionNo" to="auctionNo" column="auctionNo"
-      if="auctionNo != null &amp;&amp; auctionNo != '' "/>
+      if="false"/>
     <bind search="self.no = :lotNo" to="lotNo" column="lotNo"
       if="lotNo != null &amp;&amp; lotNo != '' "/>
+    <bind search="self.code = :no" to="productNo" column="no"
+      if="no != null &amp;&amp; no != '' "/>
     <bind search="self.code = :unitofMeasureCode" to="unitofMeasureCode"
       column="unitofMeasureCode" if="false"/>
     <bind search="self.code = :genProdPostingGroup" to="genProdPostingGroup"
@@ -637,8 +639,10 @@
     <bind search="self.name = :responsibilityCenter" to="responsibilityCenter"
       column="responsibilityCenter"
       if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
-    <bind search="self.contact = :organizationContact" to="organizationContact"
+    <bind search="self.partnerSeq = :organizationContact" to="organizationContact"
       column="organizationContact" if="false"/>
+    <bind search="self.partnerSeq = :chargeableContactNo" to="chargeableContactNo"
+      column="chargeableContactNo" if="false"/>
   </input>
 
   <input file="LotValueEntry.csv" type="com.axelor.apps.openauction.db.LotValueEntry"

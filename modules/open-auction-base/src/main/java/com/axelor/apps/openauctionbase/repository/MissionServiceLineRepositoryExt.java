@@ -23,11 +23,11 @@ public class MissionServiceLineRepositoryExt extends MissionServiceLineRepositor
           entity.setTransactionType(MissionServiceLineRepository.TRANSACTIONTYPE_MISSION);
         }
       }
-      if (entity.getDocumentNo() == null || entity.getDocumentNo() == 0) {
+      if (entity.getDocumentNo() == null || entity.getDocumentNo().isEmpty()) {
         entity.setDocumentNo(
             entity.getTransactionType() == MissionServiceLineRepository.TRANSACTIONTYPE_VENTE
-                ? entity.getAuctionNo().getId()
-                : entity.getMissionNo().getId());
+                ? entity.getAuctionNo().getId().toString()
+                : entity.getMissionNo().getId().toString());
       }
       if (entity.getEntryNo() == null || entity.getEntryNo() == 0) {
         /*

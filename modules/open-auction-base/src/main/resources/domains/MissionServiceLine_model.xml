@@ -10,7 +10,7 @@
     <many-to-one name="auctionNo" title="N° vente"
       ref="com.axelor.apps.openauction.db.AuctionHeader"/>
     <many-to-one name="lotNo" title="N° lot" ref="com.axelor.apps.openauction.db.Lot"/>
-    <many-to-one name="productNo" title="N° lot" ref="com.axelor.apps.base.db.Product"/>
+    <many-to-one name="productNo" title="Article" ref="com.axelor.apps.base.db.Product"/>
     <integer name="transactionType" title="Type de transaction"
       selection="openauction.transactionType.select"/>
     <string name="documentNo" title="N° de document"/>
