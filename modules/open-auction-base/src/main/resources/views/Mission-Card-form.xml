@@ -79,7 +79,7 @@
         <field name="invoicingType"/>
         <field name="unitPrice"/>
         <field name="amount"/>
-        <field name="servicePercent"/>        
+        <field name="servicePercent"/>
       </panel-related>
       <panel-related title="Liste des actions" field="taskList" onNew="team.tasks.all"/>
       <panel name="general" title="Général" itemSpan="4">

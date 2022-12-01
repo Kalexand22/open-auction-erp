@@ -167,7 +167,8 @@
         <field name="debtorInterlocutorNo"/>
       </panel>
       <panel title="Contacts" name="contacts">
-        <field name="contactByLawyerBusinessList" grid-view="contact-by-lawyer-business-grid" colSpan="12"/>
+        <field name="contactByLawyerBusinessList" grid-view="contact-by-lawyer-business-grid"
+          colSpan="12"/>
       </panel>
       <panel title="Ventes" name="ventes"/>
       <panel title="Divers" name="divers">

@@ -623,8 +623,7 @@
     type="com.axelor.apps.openauction.db.MissionServiceLine" separator=";">
     <bind search="self.no = :missionNo" to="missionNo" column="missionNo"
       if="missionNo != null &amp;&amp; missionNo != '' "/>
-    <bind search="self.no = :auctionNo" to="auctionNo" column="auctionNo"
-      if="false"/>
+    <bind search="self.no = :auctionNo" to="auctionNo" column="auctionNo" if="false"/>
     <bind search="self.no = :lotNo" to="lotNo" column="lotNo"
       if="lotNo != null &amp;&amp; lotNo != '' "/>
     <bind search="self.code = :no" to="productNo" column="no"
