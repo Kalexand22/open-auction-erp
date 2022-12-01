@@ -21,6 +21,8 @@
       selection="openauction.processType.select"/>
     <many-to-one name="debtorContactNo" title="Débiteur"
       ref="com.axelor.apps.base.db.Partner"/>
+    <many-to-one name="mainInterlocutor" title="Débiteur"
+      ref="com.axelor.apps.base.db.Partner"/>
     <string name="salespersonNo" title="Commercial"/>
     <string name="resourceNo" title="Ressource"/>
     <string name="noSeries" title="Souches de n°"/>
@@ -69,5 +71,13 @@
     <date name="dateofStocktaking" title="Date de recolement"/>
     <many-to-one name="originalLawyerBusNo" title="N° affaire origine"
       ref="com.axelor.apps.openauction.db.LawyerBusiness"/>
+    <one-to-many ref="com.axelor.apps.openauction.db.MissionHeader"
+      name="missionHeaderList" mappedBy="lawyerBusNo"/>
+    <one-to-many ref="com.axelor.apps.openauction.db.LawyerBusAddress"
+      name="lawyerBusAddressList" mappedBy="lawyerBusNo"/>
+    <one-to-many ref="com.axelor.apps.openauction.db.ContactbyLawyerBusiness"
+      name="contactByLawyerBusinessList" mappedBy="lawyerBusNo"/>
+    <many-to-one name="mainLocation" title="Site principal"
+      ref="com.axelor.apps.openauction.db.LawyerBusAddress"/>
   </entity>
 </domain-models>

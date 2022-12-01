@@ -5,7 +5,7 @@
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="LawyerBusinessTemplate">
     <string name="code" title="Code"/>
-    <string name="description" title="Désignation"/>
+    <string name="description" title="Désignation" namecolumn="true"/>
     <many-to-one name="activityCodeToHeader" title="Code activité pour en-tête"
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>
     <many-to-one name="activityCodeToLines" title="Code activité pour lignes"

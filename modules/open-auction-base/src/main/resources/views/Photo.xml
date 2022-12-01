@@ -13,18 +13,19 @@
   <form title="Mettre une photo en ligne" name="photo-form"
     model="com.axelor.apps.openauction.db.PictureAttachement">
     <panel name="mainPanel" colSpan="12">
-      <field name="picture" widget="image" colSpan="12"/>
+
       <panel-dashlet name="imageEditor" colSpan="12" action="action-photo-show-editor"
         height="700" showIf="id &amp;&amp; !$readonly()"/>
+      <field name="picture" widget="image" colSpan="12"/>
     </panel>
   </form>
 
   <action-view name="action-photo-show-editor" title="Editeur d'image">
     <view type="html"
       name="editor?id={{id}}&amp;domain=com.axelor.apps.openauction.db.PictureAttachement&amp;projectName=open-auction-erp"/>
-      <view-param name="popup" value="reload"/>
-      <view-param name="popup.maximized" value="true"/>
-      <view-param name="forceEdit" value="true"/>
+    <view-param name="popup" value="reload"/>
+    <view-param name="popup.maximized" value="true"/>
+    <view-param name="forceEdit" value="true"/>
   </action-view>
 
 </object-views>

@@ -102,4 +102,14 @@
     <view type="form" name="mission-service-price-form"/>
   </action-view>
 
+
+  <menuitem name="menu-affaires-all" parent="menu-affaire" title="Liste des affaires"
+    action="affaire.all"/>
+  <action-view name="affaire.all" title="Liste des affaires"
+    model="com.axelor.apps.openauction.db.LawyerBusiness">
+    <view type="grid" name="lawyer-business-grid"/>
+    <view type="form" name="lawyer-business-form"/>
+
+  </action-view>
+
 </object-views>

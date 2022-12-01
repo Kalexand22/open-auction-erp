@@ -46,5 +46,26 @@
       ref="com.axelor.apps.base.db.TradingName"/>
     <many-to-one name="contactNo" title="N° contact"
       ref="com.axelor.apps.base.db.Partner"/>
+    <string name="value" namecolumn="true" search="baseAmount,amount,minAmount,maxAmount">
+        <![CDATA[
+        if (baseAmount.compareTo(java.math.BigDecimal.ZERO) == 0
+            && amount.compareTo(java.math.BigDecimal.ZERO) == 0
+            && minAmount.compareTo(java.math.BigDecimal.ZERO) == 0
+            && maxAmount.compareTo(java.math.BigDecimal.ZERO) == 0) {
+            return null;
+        }
+        if ( minAmount.compareTo(java.math.BigDecimal.ZERO) != 0
+            && maxAmount.compareTo(java.math.BigDecimal.ZERO) != 0) {
+          return "" + minAmount.stripTrailingZeros() + " - " + maxAmount.stripTrailingZeros();
+        }
+        if ( baseAmount.compareTo(java.math.BigDecimal.ZERO) != 0
+        && amount.compareTo(java.math.BigDecimal.ZERO) != 0) {
+          return "" + baseAmount.stripTrailingZeros() + " - " + amount.stripTrailingZeros();
+        }
+        if( minAmount.compareTo(java.math.BigDecimal.ZERO) != 0) {
+          return "" + minAmount.stripTrailingZeros();
+        }
+        return ""+amount.stripTrailingZeros();
+        ]]></string>
   </entity>
 </domain-models>

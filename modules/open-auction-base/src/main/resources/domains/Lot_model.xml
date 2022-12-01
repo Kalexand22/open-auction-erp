@@ -355,6 +355,30 @@
     <boolean name="reproduction" title="Reproduction"/>
     <many-to-one name="inventLocation" title="Lieu de dépôt"
       ref="com.axelor.apps.stock.db.StockLocation"/>
+
+    <one-to-one name="estimationValueEntry" title="Estimation"
+      ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+    <one-to-one name="estimationSellerValueEntry" title="Estimation vendeur"
+      ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+    <one-to-one name="expertiseValueEntry" title="Expertise"
+      ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+    <one-to-one name="adjudicationValueEntry" title="Adjudication"
+      ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+    <one-to-one name="inventoryValueEntry" title="Inventaire"
+      ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+    <one-to-one name="reserveValueEntry" title="Réserve"
+      ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+    <one-to-one name="auctionValueEntry" title="Enchère"
+      ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+    <one-to-one name="acquisitionValueEntry" title="Acquisition"
+      ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+    <one-to-one name="valuationValueEntry" title="Cotation"
+      ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+    <one-to-one name="guaranteedPriceValueEntry" title="Prix garanti"
+      ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+    <one-to-one name="saleEstimationValueEntry" title="Estimation vente"
+      ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+
     <extra-code>
       <![CDATA[
 
