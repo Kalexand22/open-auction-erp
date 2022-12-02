@@ -5,7 +5,7 @@
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="LawyerBusiness">
     <string name="no" title="N° d'affaire"/>
-    <string name="description" title="Titre affaire"/>
+    <string name="description" title="Titre affaire" namecolumn="true"/>
     <many-to-one name="contactNo" title="Mandataire"
       ref="com.axelor.apps.base.db.Partner"/>
     <many-to-one name="thirdOriginContactNo" title="De la part de : "

@@ -5,6 +5,7 @@
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="AuctionHeader">
     <string name="no" title="N°"/>
+
     <string name="description" title="Désignation" namecolumn="true"/>
     <string name="descriptionDetaillee" title="Description détaillée" large="true"
       initParam="true" translatable="true"/>
@@ -132,7 +133,7 @@
     <decimal name="genBuyerCommission" title="Hono. acheteurs pour toutes les ventes"/>
     <decimal name="genBuyerCommissionModel" title="Hono. acheteurs pour ce modele de vente"/>
     <decimal name="genBuyerCommissionAuction" title="Hono. acheteurs pour cette vente"/>
-
+    <finder-method name="findByNo" using="no"/>
     <track on="UPDATE">
       <field name="description"/>
       <field name="no"/>

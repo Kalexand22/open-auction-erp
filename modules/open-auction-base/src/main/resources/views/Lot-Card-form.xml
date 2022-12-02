@@ -173,8 +173,9 @@
 
       </panel>
     </panel>
-    <panel-tabs name="panelTab2" title="Lot">
-      <panel name="WinePanel" title="Description" showIf="lotNatureCode.wine" colSpan="12">
+    
+    <panel-tabs name="panelTab2" title="Lot" >
+      <panel name="WinePanel" title="Description" showIf="lotNatureCode.wine" colSpan="12" canCollapse="true">
         <field name="catalogDescription" widget="html" colSpan="12"/>
         <field name="comment1"/>
         <field name="name"/>
@@ -194,7 +195,7 @@
         <field name="height" title="Hauteur"/>
         <field name="cubageUnit" title="Unit. Vol."/>
       </panel>
-      <panel name="EquipmentPanel" title="Description" showIf="lotNatureCode.equipment"
+      <panel name="EquipmentPanel" title="Description" showIf="lotNatureCode.equipment" canCollapse="true"
         colSpan="12">
         <field name="catalogDescription" title="Desc. catalogue" widget="html" colSpan="12"/>
         <field name="comment1"/>
@@ -215,7 +216,7 @@
         <field name="weightUnit" title="Unit. Pds"/>
         <field name="equipmentBrandDescription"/>
       </panel>
-      <panel name="description" title="Description" showIf="lotNatureCode.automotive"
+      <panel name="description" title="Description" showIf="lotNatureCode.automotive" canCollapse="true"
         colSpan="12">
         <panel>
           <field name="registration"/>
@@ -267,7 +268,7 @@
 
         </panel>
       </panel>
-      <panel name="ArtPanel" title="Art" showIf="lotNatureCode.artObject" colSpan="12">
+      <panel name="ArtPanel" title="Art" showIf="lotNatureCode.artObject" colSpan="12" canCollapse="true">
         <field title="Desc. catalogue" name="catalogDescription" widget="html" colSpan="12"/>
         <field name="comment1"/>
         <field name="internalComment"/>
@@ -294,7 +295,7 @@
         <field title="Unit. Vol." name="cubageUnit"/>
         <field title="Unit. Pds" name="weightUnit"/>
       </panel>
-      <panel name="vehicle-option" title="Equipements" showIf="lotNatureCode.automotive">
+      <panel name="vehicle-option" title="Equipements" showIf="lotNatureCode.automotive" canCollapse="true">
         <panel-include view="vehicle-option-form"/>
       </panel>
 
@@ -325,7 +326,8 @@
           <field name="nOxEmission"/>
         </panel>
       </panel>
-      <panel name="general" title="Général">
+      <panel name="general" title="Général" canCollapse="true">
+        
         <panel colSpan="4" itemSpan="12">
           <field name="no"/>
           <field name="currentMissionNo" showTitle="false" colSpan="12">
@@ -444,14 +446,13 @@
           </editor>
         </field>
       </panel>
-      <panel-include view="picture-form"/>
-      <panel name="picture-react" title="Photos" colSpan="12">
-        <field name="pictureList" colSpan="12" form-view="photo-form" grid-view="photo-grid"/>
-        <panel-dashlet name="albumPhotosPanel" colSpan="12"
-          action="action-album-show-photos" height="650"
-          showIf="id &amp;&amp; photoList.length &gt; 0"/>
+      <panel name="photos" title="Photos">
+        <button name="addPhoto" title="Ajouter une photo" onClick="action-add-picture" icon="fa-image" colSpan="2"/> 
+        <panel-dashlet name="photosCard" colSpan="12"
+        action="action-album-show-photos" />
       </panel>
-
+      
+      
       <panel name="fraisavancesAcomptes" title="Frais avancés/Acomptes"/>
       <panel name="actions" title="Actions"/>
       <panel name="ventes" title="Ventes" itemSpan="4">
@@ -581,6 +582,7 @@
       </panel-related>
 
     </panel-tabs>
+  
     <panel-mail name="mailPanel">
       <mail-messages limit="5"/>
       <mail-followers/>
@@ -690,7 +692,35 @@
       method="onSave"/>
   </action-method>
 
-  <action-view name="action-album-show-photos" title="Carousel de photos">
-    <view type="html" name="carousel?albumId={{id}}"/>
+
+  <action-view name="action-album-show-photos" title="Photos"
+    model="com.axelor.apps.openauction.db.PictureAttachement">
+    <view type="cards" name="picture-attachement-cards"/>
+    <view type="form" name="picture-attachement-form"/>
+    
+    <view-param name="popup" value="reload"/>
+    <view-param name="forceEdit" value="true"/>
+    <view-param name="show-confirm" value="false"/>
+    <view-param name="show-toolbar" value="false"/>
+    <view-param name="popup.maximized" value="true"/>
   </action-view>
+
+  <cards name="picture-attachement-cards" model="com.axelor.apps.openauction.db.PictureAttachement" title="Photos" canNew="true" canDelete="true"
+    css="rect-image" width="300px">
+    
+    <field name="picture"/>
+    <template><![CDATA[			
+			  <div class="span4 card-image" style="width: 256px; height: 128px;">
+                <img ng-src="{{$image('picture', 'content')}}" style="width: 100%; height: 100%; object-fit: contain;"/>
+             
+			  </div>			  
+		]]>
+    </template>
+  </cards>
+
+  <action-method name="action-add-picture">
+    <call class="com.axelor.apps.openauction.controller.LotController"
+      method="addPicture"/>
+  </action-method>
+
 </object-views>

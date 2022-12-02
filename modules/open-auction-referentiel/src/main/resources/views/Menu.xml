@@ -34,4 +34,20 @@
     <view type="form" name="lot-setup-form"/>
   </action-view>
 
+  <menuitem name="menu-contact-lawyer-view" parent="menu-administration"
+    title="Contact Affaire" action="action-contact-lawyer-view"/>
+  <action-view name="action-contact-lawyer-view" title="Contact Affaire"
+    model="com.axelor.apps.openauction.db.ContactbyLawyerBusiness">
+    <view type="grid" name="contact-by-lawyer-business-grid"/>
+    <view type="form" name="contact-by-lawyer-business-form"/>
+  </action-view>
+
+  <menuitem name="menu-address-lawyer-view" parent="menu-administration"
+    title="Address Affaire" action="action-address-lawyer-view"/>
+  <action-view name="action-address-lawyer-view" title="Address Affaire"
+    model="com.axelor.apps.openauction.db.LawyerBusAddress">
+    <view type="grid" name="lawyer-bus-address-grid"/>
+    <view type="form" name="lawyer-bus-address-form"/>
+  </action-view>
+
 </object-views>

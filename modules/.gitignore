@@ -4,6 +4,7 @@ carbone-main
 input
 input-prod
 input-dev
+demo
 .gradle
 .project
 .classpath

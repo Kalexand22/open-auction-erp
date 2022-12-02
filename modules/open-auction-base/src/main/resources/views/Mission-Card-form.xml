@@ -56,7 +56,7 @@
     </panel>
     <panel-tabs name="panelTab1">
 
-      <panel-related title="Liste des lignes de missions" field="missionLineList"
+      <panel-related title="Lots" field="missionLineList"
         editable="true" canNew="false">
         <field name="lotNoMission"/>
         <field name="noLot.description"/>
@@ -69,10 +69,10 @@
         <field name="canceledReason"/>
 
       </panel-related>
-      <panel-related title="Liste des lignes des prestations"
-        field="missionServiceLineList" editable="false" canNew="false" canView="false">
-        <field name="lotNo"/>
-        <field name="productNo"/>
+      <panel-related title="Prestations"
+        field="missionServiceLineList" editable="true" canNew="false" canRemove="false">
+        
+        <field name="productNo" />
         <field name="transactionType"/>
         <field name="type"/>
         <field name="priceDate"/>
@@ -81,7 +81,7 @@
         <field name="amount"/>
         <field name="servicePercent"/>
       </panel-related>
-      <panel-related title="Liste des actions" field="taskList" onNew="team.tasks.all"/>
+      <panel-related title="Actions" field="taskList" onNew="team.tasks.all"/>
       <panel name="general" title="Général" itemSpan="4">
         <panel itemSpan="12">
           <field name="no"/>

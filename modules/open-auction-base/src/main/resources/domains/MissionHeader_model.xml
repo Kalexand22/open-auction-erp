@@ -171,6 +171,8 @@
     <decimal name="adjustedDebt" title="Dette réactualisée" transient="true" readonly="true"></decimal>
     <decimal name="adjustmentAmount" title="Actualisation" transient="true" readonly="true"></decimal>
     <decimal name="mainDebt" title="Dette principale" transient="true" readonly="true"></decimal>
+
+    <finder-method name="findByNo" using="no"/>
     <extra-code>
     <![CDATA[
 

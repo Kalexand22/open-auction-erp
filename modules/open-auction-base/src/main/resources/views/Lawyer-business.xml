@@ -188,7 +188,7 @@
     </panel-tabs>
     <panel-tabs name="panelTab2">
       <panel title="Missions" name="missions">
-        <field name="missionHeaderList" colSpan="12"/>
+        <field name="missionHeaderList" colSpan="12" title="Missions"/>
       </panel>
       <panel title="Leasing" name="leasing"/>
       <panel title="Location" name="location"/>

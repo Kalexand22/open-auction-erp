@@ -22,6 +22,7 @@ public class LotInputJournalPostLineController {
       lotInputJournalPostLine.runMissionHeader(missionHeader);
 
       response.setCanClose(true);
+
     } catch (Exception e) {
       TraceBackService.trace(response, e);
     }

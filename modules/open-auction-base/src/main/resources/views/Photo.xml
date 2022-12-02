@@ -2,7 +2,7 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-  <grid title="Photos" name="photo-grid"
+  <grid title="Photos" name="picture-attachement-grid"
     model="com.axelor.apps.openauction.db.PictureAttachement" canNew="false" canDelete="false"
     canEdit="false">
     <field name="picture" widget="image"/>
@@ -10,8 +10,8 @@
     <field name="id"/>
     <field name="picture.id"/>
   </grid>
-  <form title="Mettre une photo en ligne" name="photo-form"
-    model="com.axelor.apps.openauction.db.PictureAttachement">
+  <form title="Mettre une photo en ligne" name="picture-attachement-form"
+    model="com.axelor.apps.openauction.db.PictureAttachement" >
     <panel name="mainPanel" colSpan="12">
 
       <panel-dashlet name="imageEditor" colSpan="12" action="action-photo-show-editor"
@@ -27,5 +27,6 @@
     <view-param name="popup.maximized" value="true"/>
     <view-param name="forceEdit" value="true"/>
   </action-view>
+
 
 </object-views>

@@ -2,7 +2,7 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-  <grid name="lot-template-list-grid" title="Liste des modèles de lot"
+  <grid name="lot-template-grid" title="Liste des modèles de lot"
     model="com.axelor.apps.openauction.db.LotTemplate">
     <field name="code"/>
     <field name="description"/>
@@ -10,7 +10,7 @@
     <field name="lotNatureCode"/>
   </grid>
 
-  <form name="lot-template-card-form" title="Modèle de lot" width="large"
+  <form name="lot-template-form" title="Modèle de lot" width="large"
     model="com.axelor.apps.openauction.db.LotTemplate">
     <panel name="MainPanel"/>
     <panel-tabs name="panelTab1">

@@ -25,8 +25,16 @@
     action="model.lot.all"/>
   <action-view name="model.lot.all" title="Liste des modèles de lot"
     model="com.axelor.apps.openauction.db.LotTemplate">
-    <view type="grid" name="lot-template-list-grid"/>
-    <view type="form" name="lot-template-card-form"/>
+    <view type="grid" name="lot-template-grid"/>
+    <view type="form" name="lot-template-form"/>
+  </action-view>
+
+  <menuitem name="menu-template-lawyer" parent="menu-modele" title="Modèles d'affaire"
+    action="lawyer.business.template.all"/>
+  <action-view name="lawyer.business.template.all" title="Liste des modèles d'affaire"
+    model="com.axelor.apps.openauction.db.LawyerBusinessTemplate">
+    <view type="grid" name="lawyer-business-template-grid"/>
+    <view type="form" name="lawyer-business-template-form"/>
   </action-view>
 
   <menuitem name="menu-template-vente-all" parent="menu-modele"

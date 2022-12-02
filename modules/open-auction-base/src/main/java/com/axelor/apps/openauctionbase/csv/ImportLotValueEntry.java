@@ -1,26 +1,50 @@
 package com.axelor.apps.openauctionbase.csv;
 
+import com.axelor.apps.base.db.repo.ProductRepository;
 import com.axelor.apps.openauction.db.Lot;
 import com.axelor.apps.openauction.db.LotValueEntry;
 import com.axelor.apps.openauction.db.repo.AuctionHeaderRepository;
 import com.axelor.apps.openauction.db.repo.LotRepository;
+import com.axelor.apps.openauction.db.repo.MissionHeaderRepository;
 import com.google.inject.Inject;
 import java.util.Map;
 
 public class ImportLotValueEntry {
   AuctionHeaderRepository auctionHeaderRepository;
   LotRepository lotRepository;
+  ProductRepository productRepository;
+  MissionHeaderRepository missionHeaderRepository;
 
   @Inject
-  public ImportLotValueEntry(LotRepository lotRepository) {
+  public ImportLotValueEntry(
+      LotRepository lotRepository,
+      ProductRepository productRepository,
+      AuctionHeaderRepository auctionHeaderRepository,
+      MissionHeaderRepository missionHeaderRepository) {
 
     this.lotRepository = lotRepository;
+    this.productRepository = productRepository;
+    this.auctionHeaderRepository = auctionHeaderRepository;
+    this.missionHeaderRepository = missionHeaderRepository;
   }
 
   public Object importLotValueEntry(Object bean, Map<String, Object> values) {
 
     LotValueEntry lotValueEntry = (LotValueEntry) bean;
     Lot lot;
+
+    String productNo = (String) values.get("productNo");
+    if (!productNo.isEmpty() && productRepository.findByCode(productNo) == null) {
+      return null;
+    }
+    String auctionNo = (String) values.get("auctionNo");
+    if (!auctionNo.isEmpty() && auctionHeaderRepository.findByNo(productNo) == null) {
+      return null;
+    }
+    String lotNo = (String) values.get("lotNo");
+    if (!lotNo.isEmpty() && lotRepository.findByNo(lotNo) == null) {
+      return null;
+    }
 
     if (lotValueEntry.getLotNo() != null) {
       lot = lotValueEntry.getLotNo();

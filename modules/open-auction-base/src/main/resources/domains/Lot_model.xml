@@ -378,6 +378,7 @@
       ref="com.axelor.apps.openauction.db.LotValueEntry"/>
     <one-to-one name="saleEstimationValueEntry" title="Estimation vente"
       ref="com.axelor.apps.openauction.db.LotValueEntry"/>
+    <finder-method name="findByNo" using="no"/>
 
     <extra-code>
       <![CDATA[
