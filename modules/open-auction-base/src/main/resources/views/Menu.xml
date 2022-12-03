@@ -104,6 +104,7 @@
   </action-view>
 
 
+   <!-- AFFAIRES -->
   <menuitem name="menu-affaires-volontaire-all" parent="menu-affaire" title="Liste des affaires volontaires"
     action="view.affaire.volontaire.all"/>
   <action-view name="view.affaire.volontaire.all" title="Liste des affaires volontaires"
@@ -124,6 +125,7 @@
   </action-view>
 
 
+ 
   <menuitem name="menu-affaire-missions"  parent="menu-affaire" title="Missions judiciaires attachés aux affaires" order="6"/>
 
   <menuitem name="menu-mission-procedure-rj" parent="menu-affaire-missions" title="Procédures RJ"
@@ -187,6 +189,46 @@
     <view type="grid" name="mission-header-grid"/>
     <view type="form" name="mission-header-form"/>
     <domain>self.judicial = true and self.lawyerBusNo.id IS NOT NULL </domain>
+  </action-view>
+
+
+  <!-- RECOUVREMENT -->
+
+  <menuitem name="menu-recouvrement-affaires-volontaire-all" parent="menu-recouvrement" title="Liste des affaires de recouvrement volontaires"
+  action="view.affaire.recouvrement.volontaire.all"/>
+<action-view name="view.affaire.recouvrement.volontaire.all" title="Liste des affaires volontaires"
+  model="com.axelor.apps.openauction.db.LawyerBusiness">
+  <view type="grid" name="lawyer-business-grid"/>
+  <view type="form" name="lawyer-business-form"/>
+  <domain>self.judicial = false AND self.processType = 3</domain>
+</action-view>
+
+
+<menuitem name="menu-affaires--recouvrement-judiciaires-all" parent="menu-recouvrement" title="Liste des affaires de recouvrement judiciaires"
+  action="view.affaire.recouvrement.judiciaires.all"/>
+<action-view name="view.affaire.recouvrement.judiciaires.all" title="Liste des affaires de recouvrement judiciaires"
+  model="com.axelor.apps.openauction.db.LawyerBusiness">
+  <view type="grid" name="lawyer-business-grid"/>
+  <view type="form" name="lawyer-business-form"/>
+  <domain>self.judicial = true AND self.processType = 3</domain>
+</action-view>
+
+  <menuitem name="menu-mission-recouvrement-volontaire" parent="menu-recouvrement" title="Recouvrements volontaires"
+    action="view.mission.recouvrement.volontaire"/>
+  <action-view name="view.mission.recouvrement.volontaire" title="Recouvrements volontaires"
+    model="com.axelor.apps.openauction.db.MissionHeader">
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
+    <domain>self.processType = 3 AND self.judicial = false </domain>
+  </action-view>
+
+  <menuitem name="menu-mission-recouvrement-judicaire" parent="menu-recouvrement" title="Recouvrements judiciaires"
+    action="view.mission.recouvrement.judicaire"/>
+  <action-view name="view.mission.recouvrement.judicaire" title="Recouvrements judiciaires"
+    model="com.axelor.apps.openauction.db.MissionHeader"> 
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
+    <domain>self.processType = 3 AND self.judicial = true </domain>
   </action-view>
 
 </object-views>
