@@ -100,9 +100,7 @@
       <panel colSpan="2" itemSpan="12">
         <field name="mainPicture" showTitle="false" colSpan="12" widget="Image">
           <viewer><![CDATA[
-
- 		<img ng-show="record.mainPicture" ng-src="{{$image('mainPicture', 'content')}}" />
-    				<img ng-show="!record.mainPicture" src="img/product-default.png" />
+ 		<img  ng-src="{{$image('mainPicture', 'content')}}" />    			
 
     ]]></viewer>
         </field>
@@ -140,9 +138,7 @@
       <panel colSpan="2" itemSpan="12">
         <field name="mainPicture" showTitle="false" colSpan="12" widget="Image">
           <viewer><![CDATA[
-
- 		<img ng-show="record.mainPicture" ng-src="{{$image('picture', 'content')}}" />
-    				<img ng-show="!record.picture" src="img/product-default.png" />
+ 		<img  ng-src="{{$image('mainPicture', 'content')}}" />    				
 
     ]]></viewer>
         </field>
@@ -448,8 +444,8 @@
       </panel>
       <panel name="photos" title="Photos">
         <button name="addPhoto" title="Ajouter une photo" onClick="action-add-picture" icon="fa-image" colSpan="2"/> 
-        <panel-dashlet name="photosCard" colSpan="12"
-        action="action-album-show-photos" />
+        <panel-dashlet name="photosCard" colSpan="12" field="pictureList"
+        action="action-album-show-photos" height="600"/>
       </panel>
       
       
@@ -618,31 +614,6 @@
     </template>
   </cards>
 
-  <form name="picture-form" title="Photos" model="com.axelor.apps.openauction.db.Lot">
-
-    <panel name="pictureList" title="Photos" colSpan="12">
-      <field name="pictureList" title="Photos" colSpan="2" showTitle="false" onSelect=""
-        canSelect="true">
-        <editor colSpan="12" x-viewer="true" x-show-on-new="false">
-          <field name="picture" colSpan="12" widget="Image" showTitle="false">
-          </field>
-        </editor>
-
-      </field>
-
-      <field name="pictureList" title="Photos" colSpan="10" showTitle="false" readonly="true">
-        <viewer>
-          <![CDATA[
-          <img ng-show="record.picture" ng-src="{{$image('picture', 'content')}}" />
-            ]]>
-        </viewer>
-      </field>
-    </panel>
-  </form>
-
-  <action-view name="action-picture-show-picture" title="React App">
-    <view type="html" name="meteo/predictions?apiRequestId={{id}}"/>
-  </action-view>
 
   <form name="vehicle-option-form" title="Equipements"
     model="com.axelor.apps.openauction.db.Lot">
@@ -661,66 +632,8 @@
     </panel>
   </form>
 
-  <form name="lot-accreditation-form" title="lotAccreditation"
-    model="com.axelor.apps.openauction.db.Lot">
-    <panel name="lot-accreditation" title="Accréditations" colSpan="12">
-      <field name="accreditationsList" title="Accréditations" colSpan="12" showTitle="false">
-        <editor colSpan="12" x-viewer="true" x-show-on-new="false">
-          <field name="accreditation" colSpan="4" canNew="true" showTitle="false">
-          </field>
-          <field name="comment1" colSpan="4" showTitle="false"/>
-          <field name="file1" widget="binary-link" title="Fichier" colSpan="4"
-            showTitle="false"/>
-        </editor>
-      </field>
-    </panel>
-  </form>
 
-  <form name="accreditation-form" title="Accreditation"
-    model="com.axelor.apps.openauction.db.Accreditation">
-    <panel title="Overview">
-      <field name="code"/>
-      <field name="description"/>
-      <field name="comment1"/>
-      <field name="file1" widget="binary-link"/>
-      <field name="typeaccreditation"/>
-    </panel>
-  </form>
-
-  <action-method name="method-lot-save">
-    <call class="com.axelor.apps.openauction.controller.LotInputJournalController"
-      method="onSave"/>
-  </action-method>
-
-
-  <action-view name="action-album-show-photos" title="Photos"
-    model="com.axelor.apps.openauction.db.PictureAttachement">
-    <view type="cards" name="picture-attachement-cards"/>
-    <view type="form" name="picture-attachement-form"/>
-    
-    <view-param name="popup" value="reload"/>
-    <view-param name="forceEdit" value="true"/>
-    <view-param name="show-confirm" value="false"/>
-    <view-param name="show-toolbar" value="false"/>
-    <view-param name="popup.maximized" value="true"/>
-  </action-view>
-
-  <cards name="picture-attachement-cards" model="com.axelor.apps.openauction.db.PictureAttachement" title="Photos" canNew="true" canDelete="true"
-    css="rect-image" width="300px">
-    
-    <field name="picture"/>
-    <template><![CDATA[			
-			  <div class="span4 card-image" style="width: 256px; height: 128px;">
-                <img ng-src="{{$image('picture', 'content')}}" style="width: 100%; height: 100%; object-fit: contain;"/>
-             
-			  </div>			  
-		]]>
-    </template>
-  </cards>
-
-  <action-method name="action-add-picture">
-    <call class="com.axelor.apps.openauction.controller.LotController"
-      method="addPicture"/>
-  </action-method>
+  
+  
 
 </object-views>

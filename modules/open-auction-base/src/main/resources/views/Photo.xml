@@ -11,22 +11,64 @@
     <field name="picture.id"/>
   </grid>
   <form title="Mettre une photo en ligne" name="picture-attachement-form"
-    model="com.axelor.apps.openauction.db.PictureAttachement" >
+    model="com.axelor.apps.openauction.db.PictureAttachement" onSave="picture-attachement-change-lot-main-picture" 
+    onLoad="picture-attachement-set-lot" > 
     <panel name="mainPanel" colSpan="12">
-
+      <field name="main" />
       <panel-dashlet name="imageEditor" colSpan="12" action="action-photo-show-editor"
-        height="700" showIf="id &amp;&amp; !$readonly()"/>
-      <field name="picture" widget="image" colSpan="12"/>
+        height="700" showIf="id &amp;&amp; !$readonly()"/>      
     </panel>
   </form>
 
   <action-view name="action-photo-show-editor" title="Editeur d'image">
     <view type="html"
-      name="editor?id={{id}}&amp;domain=com.axelor.apps.openauction.db.PictureAttachement&amp;projectName=open-auction-erp"/>
+      name="image-editor?id={{id}}&amp;model=com.axelor.apps.openauction.db.PictureAttachement&amp;metaFileField=picture&amp;projectName=open-auction-erp&amp;language={{_language}}"/>
     <view-param name="popup" value="reload"/>
     <view-param name="popup.maximized" value="true"/>
     <view-param name="forceEdit" value="true"/>
+    <context name="_language" expr="eval: 'fr'"/>
   </action-view>
+
+  
+
+  <cards name="picture-attachement-cards" model="com.axelor.apps.openauction.db.PictureAttachement" title="Photos" canNew="true" canDelete="true"
+    css="rect-image" width="280px" orderBy="-main, id">
+    
+    <field name="picture"/>
+    <template><![CDATA[			
+			  <div class="span4 card-image" style="width: 256px; height: 128px;">
+                <img ng-src="{{$image('picture', 'content')}}" style="width: 100%; height: 100%; object-fit: contain;"/>             
+			  </div>			  
+		]]>
+    </template>
+  </cards>
+
+  <action-method name="action-add-picture">
+    <call class="com.axelor.apps.openauctionbase.controller.LotController"
+      method="addPicture"/>
+  </action-method>
+
+  <action-method name="picture-attachement-change-lot-main-picture">
+    <call class="com.axelor.apps.openauctionbase.controller.LotController" method="changeLotMainPicture"/>
+  </action-method>
+
+  <action-view name="action-album-show-photos" title="Photos"
+    model="com.axelor.apps.openauction.db.PictureAttachement">
+    <view type="cards" name="picture-attachement-cards"/>
+    <view type="form" name="picture-attachement-form"/>
+    
+    <view-param name="popup" value="reload"/>
+    <view-param name="forceEdit" value="true"/>
+    <view-param name="show-confirm" value="false"/>
+    <view-param name="show-toolbar" value="false"/>
+    <view-param name="popup.maximized" value="true"/>
+    <domain>self.sourceLotNo.id = :id</domain>
+    <context name="_lot" expr="eval: __this__"/>
+  </action-view>
+
+  <action-record model="com.axelor.apps.openauction.db.PictureAttachement" name="picture-attachement-set-lot">
+    <field name="sourceLotNo" expr="eval: _lot"/>
+  </action-record>
 
 
 </object-views>

@@ -17,7 +17,7 @@ public class LotController {
       Lot lot = request.getContext().asType(Lot.class);
 
       LotService lotService = Beans.get(LotService.class);
-      PictureAttachement pictureAttachement = lotService.addPicture(lot);
+      PictureAttachement pictureAttachement = lotService.addPicture(lot);     
 
       response.setView(
           ActionView.define("Ajouter une photo")
@@ -29,7 +29,25 @@ public class LotController {
               .param("forceEdit", "true")
               .param("popup.maximized", "true")
               .context("_showRecord", pictureAttachement.getId())
+              .context("_lot", lot)
               .map());
+
+    } catch (Exception e) {
+      TraceBackService.trace(response, e);
+    }
+  }
+
+  public void changeLotMainPicture(ActionRequest request, ActionResponse response) {
+
+    try {
+
+      LotService lotService = Beans.get(LotService.class);
+      PictureAttachement pictureAttachement = request.getContext().asType(PictureAttachement.class);
+      
+      if (pictureAttachement != null && pictureAttachement.getMain()) {
+        Lot lot = pictureAttachement.getSourceLotNo();
+        lotService.changeLotMainPicture(lot, pictureAttachement);
+      }
 
     } catch (Exception e) {
       TraceBackService.trace(response, e);

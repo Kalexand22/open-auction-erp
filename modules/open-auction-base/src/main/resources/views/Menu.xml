@@ -4,14 +4,15 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views
   http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 
-  <menuitem name="menu-lot" title="Lots" order="4"/>
-  <menuitem name="menu-vente" title="Ventes" order="5"/>
-  <menuitem name="menu-affaire" title="Affaires" order="6"/>
-  <menuitem name="menu-recouvrement" title="Recouvrement" order="7"/>
-  <menuitem name="menu-mission" title="Missions" order="8"/>
-  <menuitem name="menu-equipment" title="Matériels" order="9"/>
-  <menuitem name="menu-vehicle" title="Véhicules" order="10"/>
-  <menuitem name="menu-logistique" title="Logistique" order="11"/>
+  <menuitem name="menu-contacts" title="Contacts" order="4" icon="fa-address-book" />
+  <menuitem name="menu-affaire" title="Affaires" order="5" icon="fa-gavel" icon-background="#31b4a9"/>
+  <menuitem name="menu-mission" title="Missions" order="6" icon="fa-tasks" icon-background="#3f6bb9"/>
+  <menuitem name="menu-recouvrement" title="Recouvrement" order="7" icon="fa-comments" icon-background="blue"/>
+  <menuitem name="menu-equipment" title="Matériels" order="8" icon="fa-truck" icon-background="#93aba9" />
+  <menuitem name="menu-vehicle" title="Véhicules" order="9" icon="fa-car" icon-background="#ff9800"/>
+  <menuitem name="menu-lot" title="Lots" order="10" icon="fa-cubes"/>  
+  <menuitem name="menu-logistique" title="Logistique" order="11" icon="fa-truck" icon-background="#84429f"/>
+  <menuitem name="menu-vente" title="Ventes" order="12" icon="fa-line-chart" icon-background="#b6473f"/>
 
   <menuitem name="menu-equipment-all" parent="menu-equipment"
     title="Liste des lots matériels" action="equipment.all"/>
@@ -19,8 +20,8 @@
     model="com.axelor.apps.openauction.db.Lot">
     <view type="grid" name="lot-grid"/>
     <view type="form" name="lot-form"/>
-    <domain>self.missionLine.auctionMission = TRUE AND self.lotNatureCode.equipment
-      = TRUE</domain>
+    <view type="cards" name="lot-cards"/>
+    <domain> self.lotNatureCode.equipment = TRUE</domain>
   </action-view>
 
   <menuitem name="menu-vehicle-all" parent="menu-vehicle" title="Liste des véhicules"
@@ -29,8 +30,8 @@
     model="com.axelor.apps.openauction.db.Lot">
     <view type="grid" name="lot-grid"/>
     <view type="form" name="lot-form"/>
-    <domain>self.missionLine.auctionMission = TRUE AND self.lotNatureCode.automotive
-      = TRUE</domain>
+    <view type="cards" name="lot-cards"/>
+    <domain> self.lotNatureCode.automotive = TRUE</domain>
     <context name="_isAuctionMission" expr="eval: true"/>
   </action-view>
 
@@ -103,13 +104,89 @@
   </action-view>
 
 
-  <menuitem name="menu-affaires-all" parent="menu-affaire" title="Liste des affaires"
-    action="affaire.all"/>
-  <action-view name="affaire.all" title="Liste des affaires"
+  <menuitem name="menu-affaires-volontaire-all" parent="menu-affaire" title="Liste des affaires volontaires"
+    action="view.affaire.volontaire.all"/>
+  <action-view name="view.affaire.volontaire.all" title="Liste des affaires volontaires"
     model="com.axelor.apps.openauction.db.LawyerBusiness">
     <view type="grid" name="lawyer-business-grid"/>
     <view type="form" name="lawyer-business-form"/>
+    <domain>self.judicial = false</domain>
+  </action-view>
 
+
+  <menuitem name="menu-affaires-judiciaires-all" parent="menu-affaire" title="Liste des affaires judiciaires"
+    action="view.affaire.judiciaires.all"/>
+  <action-view name="view.affaire.judiciaires.all" title="Liste des affaires judiciaires"
+    model="com.axelor.apps.openauction.db.LawyerBusiness">
+    <view type="grid" name="lawyer-business-grid"/>
+    <view type="form" name="lawyer-business-form"/>
+    <domain>self.judicial = true</domain>
+  </action-view>
+
+
+  <menuitem name="menu-affaire-missions"  parent="menu-affaire" title="Missions judiciaires attachés aux affaires" order="6"/>
+
+  <menuitem name="menu-mission-procedure-rj" parent="menu-affaire-missions" title="Procédures RJ"
+    action="view.mission.procedure.rj"/>
+  <action-view name="view.mission.procedure.rj" title="Procédures RJ"
+    model="com.axelor.apps.openauction.db.MissionHeader">
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
+    <domain>self.processType = 1 AND self.judicial = true </domain>
+  </action-view>
+
+  <menuitem name="menu-mission-procedure-lj" parent="menu-affaire-missions" title="Procédures LJ"
+    action="view.mission.procedure.lj"/>
+  <action-view name="view.mission.procedure.lj" title="Procédures LJ"
+    model="com.axelor.apps.openauction.db.MissionHeader"> 
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
+    <domain>self.processType = 2 AND self.judicial = true </domain>
+  </action-view>
+
+  <menuitem name="menu-mission-recouvrement" parent="menu-affaire-missions" title="Recouvrement"
+    action="view.mission.recouvrement"/>
+  <action-view name="view.mission.recouvrement" title="Recouvrement"
+    model="com.axelor.apps.openauction.db.MissionHeader">
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
+    <domain>self.processType = 3 AND self.judicial = true and self.lawyerBusNo.id IS NOT NULL </domain>
+  </action-view>
+
+  <menuitem name="menu-mission-successions" parent="menu-affaire-missions" title="Successions"
+    action="view.mission.successions"/>
+  <action-view name="view.mission.successions" title="Successions"
+    model="com.axelor.apps.openauction.db.MissionHeader">
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
+    <domain>self.processType = 4 AND self.judicial = true and self.lawyerBusNo.id IS NOT NULL </domain>
+  </action-view>
+
+  <menuitem name="menu-mission-contentieux" parent="menu-affaire-missions" title="Contentieux"
+    action="view.mission.contentieux"/>
+  <action-view name="view.mission.contentieux" title="Contentieux"
+    model="com.axelor.apps.openauction.db.MissionHeader">
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
+    <domain>self.processType = 5 AND self.judicial = true and self.lawyerBusNo.id IS NOT NULL </domain>
+  </action-view>
+
+  <menuitem name="menu-mission-judicial-undefined" parent="menu-affaire-missions" title="Non défini"
+    action="view.mission.judicial.undefined"/>
+  <action-view name="view.mission.judicial.undefined" title="Non défini"
+    model="com.axelor.apps.openauction.db.MissionHeader">
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
+    <domain>self.processType = 0 AND self.judicial = true and self.lawyerBusNo.id IS NOT NULL </domain>
+  </action-view>
+
+  <menuitem name="menu-mission-judicial-all" parent="menu-affaire-missions" title="Toutes les missions"
+    action="view.mission.judicial.all"/>
+  <action-view name="view.mission.judicial.all" title="Toutes les missions"
+    model="com.axelor.apps.openauction.db.MissionHeader">
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
+    <domain>self.judicial = true and self.lawyerBusNo.id IS NOT NULL </domain>
   </action-view>
 
 </object-views>
