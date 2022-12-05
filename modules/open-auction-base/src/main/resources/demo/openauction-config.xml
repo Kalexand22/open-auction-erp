@@ -3,7 +3,7 @@
   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns="http://axelor.com/xml/ns/data-import http://axelor.com/xml/ns/data-import/data-import_5.4.xsd">
 
-  <!--
+  
   <input file="TradingName.csv" type="com.axelor.apps.base.db.TradingName" separator=";">
     <bind to="name" column="code"/>
   </input>
@@ -674,7 +674,7 @@
     <bind to="createdBy" column="createdBy" if="false"/>
     <bind to="modifiedBy" column="modifiedBy" if="false"/>
   </input>
-  
+  <!--
   <input file="MissionServiceLine.csv"
     type="com.axelor.apps.openauction.db.MissionServiceLine" separator=";" call="com.axelor.apps.openauctionbase.csv.ImportMissionServiceLine:importMissionServiceLine">
     <bind search="self.no = :missionNo" to="missionNo" column="missionNo"
@@ -704,7 +704,7 @@
     <bind search="self.partnerSeq = :chargeableContactNo" to="chargeableContactNo"
       column="chargeableContactNo" if="false"/>
   </input>
-  -->
+  
   
   <input file="LotValueEntry.csv" type="com.axelor.apps.openauction.db.LotValueEntry"
     separator=";" call="com.axelor.apps.openauctionbase.csv.ImportLotValueEntry:importLotValueEntry">
@@ -736,6 +736,6 @@
       column="responsibilityCenter"/>
     <bind search="self.partnerSeq = :contactNo" to="contactNo" column="contactNo" if="false"/>
   </input>.
-  <!--
+  
 -->
 </csv-inputs>
