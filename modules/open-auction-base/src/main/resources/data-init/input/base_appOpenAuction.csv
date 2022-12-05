@@ -1,0 +1,2 @@
+"name";"code";"installOrder";"description";"imagePath";"modules";"dependsOn";"sequence"
+"Open Auction";"openauction";99;"Open Auction";"";"open-auction-base";"";99
