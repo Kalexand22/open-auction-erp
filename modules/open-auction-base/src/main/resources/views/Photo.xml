@@ -55,8 +55,7 @@
   <action-view name="action-album-show-photos" title="Photos"
     model="com.axelor.apps.openauction.db.PictureAttachement">
     <view type="cards" name="picture-attachement-cards"/>
-    <view type="form" name="picture-attachement-form"/>
-    
+    <view type="form" name="picture-attachement-form"/>    
     <view-param name="popup" value="reload"/>
     <view-param name="forceEdit" value="true"/>
     <view-param name="show-confirm" value="false"/>

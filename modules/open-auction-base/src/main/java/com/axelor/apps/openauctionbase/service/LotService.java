@@ -11,13 +11,11 @@ import com.google.inject.persist.Transactional;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.URL;
 
 public class LotService {
   PictureAttachementRepository pictureAttachementRepo;
-  
+
   MetaFiles metaFiles;
 
   @Inject
@@ -45,20 +43,17 @@ public class LotService {
 
   // read an image base 64 and save it to a file
   public static void saveImage(String imageBase64, File destinationFile) throws IOException {
-    
+
     OutputStream os = new FileOutputStream(destinationFile);
-    byte[] b = javax.xml.bind.DatatypeConverter.parseBase64Binary(imageBase64);    
-    os.write(b);    
+    byte[] b = javax.xml.bind.DatatypeConverter.parseBase64Binary(imageBase64);
+    os.write(b);
     os.close();
   }
- 
-  
+
   @Transactional
   public void changeLotMainPicture(Lot lot, PictureAttachement pictureAttachement) {
     LotRepository lotRepo = Beans.get(LotRepository.class);
     lot.setMainPicture(pictureAttachement.getPicture());
     lotRepo.save(lot);
   }
-
-
 }

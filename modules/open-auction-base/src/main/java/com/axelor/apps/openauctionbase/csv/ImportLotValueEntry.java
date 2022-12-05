@@ -33,12 +33,12 @@ public class ImportLotValueEntry {
     LotValueEntry lotValueEntry = (LotValueEntry) bean;
     Lot lot;
 
-    String productNo = (String) values.get("productNo");
-    if (!productNo.isEmpty() && productRepository.findByCode(productNo) == null) {
+    String missionNo = (String) values.get("missionNo");
+    if (!missionNo.isEmpty() && missionHeaderRepository.findByNo(missionNo) == null) {
       return null;
     }
     String auctionNo = (String) values.get("auctionNo");
-    if (!auctionNo.isEmpty() && auctionHeaderRepository.findByNo(productNo) == null) {
+    if (!auctionNo.isEmpty() && auctionHeaderRepository.findByNo(auctionNo) == null) {
       return null;
     }
     String lotNo = (String) values.get("lotNo");

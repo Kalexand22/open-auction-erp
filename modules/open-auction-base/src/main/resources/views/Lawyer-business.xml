@@ -197,6 +197,11 @@
       <panel title="Sites" name="sites"/>
       <panel title="Documents joints" name="documentsjoints"/>
     </panel-tabs>
+
+    <panel-mail name="mailPanel">
+      <mail-messages limit="5"/>
+      <mail-followers/>
+    </panel-mail>
   </form>
 
   <grid name="contact-by-lawyer-business-grid"
@@ -213,4 +218,45 @@
     <field name="heir"/>
     <field name="contactFamilyLink"/>
   </grid>
+
+  <kanban columnBy="lawyerBusStatus" sequenceBy="lawyerBusStatus" limit="10"
+    name="lawyer-business-kanban" title="Liste des affaires" model="com.axelor.apps.openauction.db.LawyerBusiness"
+    >
+    
+    <field name="no"/>
+    <field name="description"/>
+    <field name="competentCourt"/>
+    <field name="processType"/>
+    <field name="clerkOfficeDate"/>
+    <field name="resourceInCharge"/>
+    <field name="contactNo"/>
+    <field name="debtorContactNo"/>
+    <field name="mainInterlocutorNo"/>
+    <field name="manager"/>
+    <field name="lawyerBusStatus"/>
+    <field name="mainLocation"/>
+    <field name="judgementDate"/>
+    <hilite color="danger" if="lawyerBusStatus == 0"/>
+    <hilite color="success" if="lawyerBusStatus == 3"/>
+    <hilite color="info" if="lawyerBusStatus == 2"/>
+    <hilite color="warning" if="lawyerBusStatus == 1"/>
+    <template>
+            <![CDATA[
+            <h4>{{record.no}}</h4>            
+            <div class="card-body">
+                <p ng-bind-html="record.description"></p>
+                <dl>
+                    <dt ng-show="record.contactNo.name" x-translate>Mandataire</dt><dd ng-show="record.contactNo.name">{{record.contactNo.name}}</dd>
+                    <dt ng-show="record.debtorContactNo.name" x-translate>Débiteur</dt><dd ng-show="record.debtorContactNo.name">{{record.debtorContactNo.name}}</dd>
+                    <dt ng-show="record.mainInterlocutor.name" x-translate>Gestionnaire</dt><dd ng-show="record.mainInterlocutor.name">{{record.mainInterlocutor.name}}</dd>
+                    <dt ng-show="record.manager.name" x-translate>Gérant</dt><dd ng-show="record.manager.name">{{record.manager.name}}</dd>
+                </dl>
+            </div>
+            <div class="card-footer">
+                <i class='fa fa-clock-o'></i> <span>{{$fmt('judgementDate')}}</span>
+            </div>
+						
+            ]]>
+    </template>
+  </kanban>
 </object-views>

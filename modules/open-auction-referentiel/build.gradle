@@ -15,5 +15,6 @@ dependencies {
 	api "com.axelor.apps:axelor-bank-payment:${aosVersion}"
 	api "com.axelor.apps:axelor-talent:${aosVersion}"
 	api "com.axelor.apps:axelor-human-resource:${aosVersion}"
+	api "com.axelor.apps:axelor-bpm:${aosVersion}"
 	api project(":modules:open-auction-pricing")	
 }

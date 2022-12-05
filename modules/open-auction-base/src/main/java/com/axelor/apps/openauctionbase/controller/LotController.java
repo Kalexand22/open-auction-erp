@@ -17,7 +17,7 @@ public class LotController {
       Lot lot = request.getContext().asType(Lot.class);
 
       LotService lotService = Beans.get(LotService.class);
-      PictureAttachement pictureAttachement = lotService.addPicture(lot);     
+      PictureAttachement pictureAttachement = lotService.addPicture(lot);
 
       response.setView(
           ActionView.define("Ajouter une photo")
@@ -43,7 +43,7 @@ public class LotController {
 
       LotService lotService = Beans.get(LotService.class);
       PictureAttachement pictureAttachement = request.getContext().asType(PictureAttachement.class);
-      
+
       if (pictureAttachement != null && pictureAttachement.getMain()) {
         Lot lot = pictureAttachement.getSourceLotNo();
         lotService.changeLotMainPicture(lot, pictureAttachement);

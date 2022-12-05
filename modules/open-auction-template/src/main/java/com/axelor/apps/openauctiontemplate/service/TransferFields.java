@@ -24,7 +24,11 @@ public class TransferFields {
             && !objDescriptorSource.getName().equals("updatedOn")
             && !objDescriptorSource.getName().equals("updatedBy")
             && !objDescriptorSource.getName().equals("createdBy")
-            && !objDescriptorSource.getName().equals("createdOn")) {
+            && !objDescriptorSource.getName().equals("importId")
+            && !objDescriptorSource.getName().equals("importOrigin")
+            && !objDescriptorSource.getName().equals("archived")
+            && !objDescriptorSource.getName().equals("processInstanceId")
+            && !objDescriptorSource.getName().equals("attrs")) {
           try {
             Object objValue = PropertyUtils.getProperty(pSource, objDescriptorSource.getName());
             Object objValueDest =
