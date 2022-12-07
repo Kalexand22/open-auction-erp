@@ -30,6 +30,7 @@
   <action-view name="dashlet.mission.all" title="Missions"
     model="com.axelor.apps.openauction.db.MissionHeader">
     <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-auction-form" />
   </action-view>
 
     <action-view name="mission.service.line.amount.by.product"
@@ -44,15 +45,21 @@
         <view type="chart" name="mission.service.line.amount.by.product.by.month"/>
     </action-view>
 
-    <chart name="mission.service.line.amount.by.product" title="Total prestations par article">    
-    <dataset type="sql">	  
-      SELECT base_product.name AS _productname, sum(amount) AS _amount FROM openauction_mission_service_line as serviceLine
-      join base_product on base_product.id = serviceLine.product_no
-      where amount>0
-      group by _productname	 
+    <chart name="mission.service.line.amount.by.product" title="Nombre de lot par statut de vente">    
+    <dataset type="sql">	
+      <![CDATA[ 
+      SELECT lot.auction_status, CASE WHEN lot.auction_status =0 then  'Initial'
+	  WHEN lot.auction_status =1 then 'A signer'
+	  WHEN lot.auction_status =2 then 'A préparer'
+WHEN lot.auction_status =3 then 'Prêt à vendre'
+else 'En vente'
+end as _status , count(*) as _count from openauction_lot as lot
+	  where lot.auction_status <5
+	  group by lot.auction_status 
+    ]]>  
     </dataset>
-    <category key="_productname" type="text" title="Article"/>
-    <series key="_amount" type="donut" title="Montant"/>
+    <category key="_status" type="text" title="Statut"/>
+    <series key="_count" type="donut" title="Total"/>
   </chart>
 
   <chart stacked="true"  name="mission.service.line.amount.by.product.by.month" title="Répartition des prestations par article par mois">    
@@ -60,6 +67,8 @@
       SELECT to_char(serviceLine.price_date,'yyyy-MM') AS _month, base_product.name AS _productname, sum(amount) AS _amount FROM openauction_mission_service_line as serviceLine
       join base_product on base_product.id = serviceLine.product_no
       where amount>0
+      and serviceLine.price_date > '2020-01-01'
+      
       group by _productname,_month
     </dataset>
     <category key="_month" type="month" title="Month"/>

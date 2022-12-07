@@ -22,7 +22,7 @@
 
   <action-view name="action-photo-show-editor" title="Editeur d'image">
     <view type="html"
-      name="image-editor?id={{id}}&amp;model=com.axelor.apps.openauction.db.PictureAttachement&amp;metaFileField=picture&amp;projectName=open-auction-erp&amp;language={{_language}}"/>
+      name="image-editor?id={{id}}&amp;model=com.axelor.apps.openauction.db.PictureAttachement&amp;metaFileField=picture&amp;projectName=auction-art&amp;language={{_language}}"/>
     <view-param name="popup" value="reload"/>
     <view-param name="popup.maximized" value="true"/>
     <view-param name="forceEdit" value="true"/>

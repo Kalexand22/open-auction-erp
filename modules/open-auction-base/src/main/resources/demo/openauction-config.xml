@@ -3,7 +3,7 @@
   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns="http://axelor.com/xml/ns/data-import http://axelor.com/xml/ns/data-import/data-import_5.4.xsd">
 
-  
+  <!--
   <input file="TradingName.csv" type="com.axelor.apps.base.db.TradingName" separator=";">
     <bind to="name" column="code"/>
   </input>
@@ -167,6 +167,7 @@
     <bind to="name" column="address1"></bind>
     <bind to="city" search="self.name = :city1" column="city1"/>
   </input>
+
   <input file="Contact.csv" separator=";" type="com.axelor.apps.base.db.Address"
     search="self.addressL4
     = :address1" call="com.axelor.csv.script.ImportAddress:importAddress">
@@ -180,6 +181,7 @@
       column="countryRegionCode">
     </bind>
   </input>
+
   <input file="Contact.csv" separator=";" type="com.axelor.apps.base.db.Partner"
     search="self.partnerSeq = :no" call="com.axelor.csv.script.ImportPartner:importPartner">
     <bind to="partnerSeq" column="no"/>
@@ -202,6 +204,7 @@
       if="address1 != null
     &amp;&amp; address1 != '' " column="address1">
     </bind>
+
     <bind to="contactMissionPriceGroup" search="self.code
     = :contactMissionPriceGroup"
       column="contactMissionPriceGroup"/>
@@ -216,6 +219,7 @@
     <bind to="fax" column="telexNo"/>
     <bind to="isContact" eval="true"></bind>
   </input>
+
   <input file="ContactBusinessRelation.csv" separator=";"
     type="com.axelor.apps.openauction.db.ContactBusinessRelation"
     call="com.axelor.apps.openauctionbase.csv.ImportContactBusinessRelation:importContactBusinessRelation"></input>
@@ -232,6 +236,7 @@
       column="responsibilityCenter"
       if="responsibilityCenter != null &amp;&amp; responsibilityCenter != '' "/>
   </input>
+
   <input file="ActivityLine.csv" type="com.axelor.apps.openauction.db.ActivityLine"
     separator=";">
     <bind search="self.code = :activityCode" to="activityCode" column="activityCode"/>
@@ -242,6 +247,7 @@
       if="serviceTemplateCode
     != null &amp;&amp; serviceTemplateCode != '' "/>
   </input>
+
   <input file="MissionTemplate.csv" type="com.axelor.apps.openauction.db.MissionTemplate"
     separator=";"
     call="com.axelor.apps.openauctionbase.csv.ImportMissionTemplate:importMissionTemplate">
@@ -265,6 +271,7 @@
       if="responsibilityCenter != null &amp;&amp; responsibilityCenter != ''
     "/>
   </input>
+
   <input file="AuctionTemplate.csv" type="com.axelor.apps.openauction.db.AuctionTemplate"
     separator=";"
     call="com.axelor.apps.openauctionbase.csv.ImportAuctionTemplate:importAuctionTemplate">
@@ -282,6 +289,7 @@
       column="bidPaddleSetCode" if="bidPaddleSetCode != null &amp;&amp; bidPaddleSetCode
     != '' "/>
   </input>
+
   <input file="AuctionRoom.csv" type="com.axelor.apps.openauction.db.AuctionRoom"
     separator=";"/>
   <input file="LawyerBusinessTemplate.csv"
@@ -323,6 +331,7 @@
       if="activityCodeToLinesVeh
     != null &amp;&amp; activityCodeToLinesVeh != '' "/>
   </input>
+
   <input file="LawyerBusiness.csv" type="com.axelor.apps.openauction.db.LawyerBusiness"
     search="self.no = :no" separator=";">
     <bind search="self.partnerSeq = :contactNo" to="contactNo" column="contactNo"
@@ -369,6 +378,7 @@
     <bind search="self.no = :originalLawyerBusNo" to="originalLawyerBusNo"
       column="originalLawyerBusNo" if="false"/>
   </input>
+
   <input file="ContactByLawyerBusiness.csv"
     type="com.axelor.apps.openauction.db.ContactbyLawyerBusiness" separator=";">
     <bind search="self.no =
@@ -386,6 +396,7 @@
     <bind search="self.no
     = :missionNo" to="missionNo" column="missionNo" if="false"/>
   </input>
+
   <input file="LawyerBusAddress.csv" type="com.axelor.apps.openauction.db.LawyerBusAddress"
     separator=";">
     <bind search="self.no = :lawyerBusNo" to="lawyerBusNo" column="lawyerBusNo"/>
@@ -472,6 +483,8 @@
       if="lawyerBusNo != null &amp;&amp; lawyerBusNo != '' "/>
   </input>
 
+  
+
   <input file="Lot.csv" type="com.axelor.apps.openauction.db.Lot" separator=";"
     search="self.no = :no" call="com.axelor.apps.openauctionbase.csv.ImportLot:importLot">
     <bind search="self.code = :sectorCode" to="sectorCode" column="sectorCode"
@@ -500,8 +513,7 @@
       column="lotConditionCode" if="lotConditionCode != null &amp;&amp; lotConditionCode != '' "/>
     <bind search="self.code = :lotTemplateCode" to="lotTemplateCode" column="lotTemplateCode"
       if="lotTemplateCode != null &amp;&amp; lotTemplateCode != '' "/>
-    <bind search="self.no = :currentAuctionNo" to="currentAuctionNo" column="currentAuctionNo"
-      if="currentAuctionNo != null &amp;&amp; currentAuctionNo != '' "/>
+    
     <bind search="self.no = :currentMissionNo" to="currentMissionNo" column="currentMissionNo"
       if="currentMissionNo != null &amp;&amp; currentMissionNo != '' "/>
     <bind search="self.no = :missionContactNo" to="missionContactNo" column="missionContactNo"
@@ -519,6 +531,7 @@
     <bind to="invMissionNo" column="invMissionNo" if="false"/>
     <bind search="self.no = :lawyerBusNo" to="lawyerBusNo" column="lawyerBusNo" if="false"/>
   </input>
+
   
   <input file="MissionLine.csv" type="com.axelor.apps.openauction.db.MissionLine"
     separator=";" call="com.axelor.apps.openauctionbase.csv.ImportMissionLine:importMissionLine">
@@ -526,34 +539,27 @@
     = :missionNo" to="missionNo" column="missionNo"
       if="missionNo != null &amp;&amp; missionNo != '' "/>
     <bind search="self.partnerSeq = :contactNo" to="contactNo" column="contactNo"
-      if="contactNo != null &amp;&amp;
-    contactNo != '' "/>
+      if="contactNo != null &amp;&amp;   contactNo != '' "/>
     <bind search="self.code = :lotCondition" to="lotCondition" column="lotCondition"
       if="lotCondition != null &amp;&amp; lotCondition != '' "/>
     <bind search="self.code = :lotTemplateCode" to="lotTemplateCode" column="lotTemplateCode"
-      if="lotTemplateCode != null &amp;&amp; lotTemplateCode
-    != '' "/>
+      if="lotTemplateCode != null &amp;&amp; lotTemplateCode != '' "/>
     <bind search="self.lotNature = :lotNatureCode" to="lotNatureCode" column="lotNatureCode"
-      if="lotNatureCode
-    != null &amp;&amp; lotNatureCode != '' "/>
+      if="lotNatureCode != null &amp;&amp; lotNatureCode != '' "/>
     <bind search="self.code = :activityCode" to="activityCode" column="activityCode"
       if="activityCode != null &amp;&amp; activityCode != '' "/>
-    <bind search="self.no
-    = :auctionMissionNo" to="auctionMissionNo"
+    <bind search="self.no = :auctionMissionNo" to="auctionMissionNo"
       column="auctionMissionNo" if="auctionMissionNo != null &amp;&amp;
     auctionMissionNo != '' "/>
     <bind search="self.no = :originalMissionNo" to="originalMissionNo"
       column="originalMissionNo" if="originalMissionNo != null &amp;&amp; originalMissionNo != '' "/>
     <bind search="self.code = :auctionRoomCode" to="auctionRoomCode" column="auctionRoomCode"
-      if="auctionRoomCode != null &amp;&amp; auctionRoomCode
-    != '' "/>
+      if="auctionRoomCode != null &amp;&amp; auctionRoomCode != '' "/>
     <bind search="self.memberCode = :lotCategorie1Code" to="lotCategorie1Code"
       column="lotCategorie1Code" if="lotCategorie1Code != null &amp;&amp; lotCategorie1Code != '' "/>
-    <bind search="self.memberCode =
-    :lotCategorie2Code" to="lotCategorie2Code"
+    <bind search="self.memberCode = :lotCategorie2Code" to="lotCategorie2Code"
       column="lotCategorie2Code"
-      if="lotCategorie2Code != null &amp;&amp;
-    lotCategorie2Code != '' "/>
+      if="lotCategorie2Code != null &amp;&amp;lotCategorie2Code != '' "/>
     <bind search="self.memberCode = :lotCategorie3Code" to="lotCategorie3Code"
       column="lotCategorie3Code" if="lotCategorie3Code != null &amp;&amp; lotCategorie3Code != '' "/>
     <bind search="self.memberCode = :lotCategorie4Code" to="lotCategorie4Code"
@@ -589,7 +595,9 @@
     <bind to="auctionMissionNo" column="auctionMissionNo" if="false"/>
     <bind to="originalMissionNo" column="originalMissionNo" if="false"/>
   </input>
-
+-->
+ <!--
+  
   <input file="AuctionLine.csv" type="com.axelor.apps.openauction.db.AuctionLine"
     separator=";">
     <bind search="self.no = :auctionNo" to="auctionNo" column="auctionNo"
@@ -659,7 +667,7 @@
       column="lotVATProdPostingGroup" if="false"/>
   </input>
 
-  
+ 
   
   <input file="PictureWarehouseMainPicture.csv" type="com.axelor.apps.openauction.db.Lot"
     separator=";" search="self.no = :sourceID" update="true"
@@ -674,37 +682,33 @@
     <bind to="createdBy" column="createdBy" if="false"/>
     <bind to="modifiedBy" column="modifiedBy" if="false"/>
   </input>
-  <!--
+   -->
   <input file="MissionServiceLine.csv"
     type="com.axelor.apps.openauction.db.MissionServiceLine" separator=";" call="com.axelor.apps.openauctionbase.csv.ImportMissionServiceLine:importMissionServiceLine">
     <bind search="self.no = :missionNo" to="missionNo" column="missionNo"
-      if="missionNo !=
-    null &amp;&amp; missionNo != '' "/>
+      if="missionNo != null &amp;&amp; missionNo != '' "/>
     <bind search="self.no = :auctionNo" to="auctionNo" column="auctionNo" if="false"/>
     <bind search="self.no = :lotNo" to="lotNo" column="lotNo"
-      if="lotNo != null &amp;&amp; lotNo
-    != '' "/>
-    <bind search="self.code = :no" to="productNo" column="no"
-      if="no != null &amp;&amp; no != ''
-    "/>
+      if="lotNo != null &amp;&amp; lotNo != '' "/>
+    <bind search="self.code = :no" to="productNo" column="productNo"
+      if="productNo != null &amp;&amp; productNo != ''"/>
     <bind search="self.code = :unitofMeasureCode" to="unitofMeasureCode"
       column="unitofMeasureCode" if="false"/>
     <bind search="self.code = :genProdPostingGroup" to="genProdPostingGroup"
       column="genProdPostingGroup" if="false"/>
     <bind search="self.code = :currencyCode" to="currencyCode" column="currencyCode" if="false"/>
     <bind search="self.code = :activityHeader" to="activityHeader" column="activityHeader"
-      if="activityHeader
-    != null &amp;&amp; activityHeader != '' "/>
+      if="activityHeader != null &amp;&amp; activityHeader != '' "/>
     <bind search="self.name = :responsibilityCenter" to="responsibilityCenter"
       column="responsibilityCenter"
-      if="responsibilityCenter != null &amp;&amp; responsibilityCenter != ''
-    "/>
+      if="responsibilityCenter != null &amp;&amp; responsibilityCenter != ''"/>
     <bind search="self.partnerSeq = :organizationContact" to="organizationContact"
       column="organizationContact" if="false"/>
     <bind search="self.partnerSeq = :chargeableContactNo" to="chargeableContactNo"
       column="chargeableContactNo" if="false"/>
   </input>
-  
+ 
+ 
   
   <input file="LotValueEntry.csv" type="com.axelor.apps.openauction.db.LotValueEntry"
     separator=";" call="com.axelor.apps.openauctionbase.csv.ImportLotValueEntry:importLotValueEntry">
@@ -737,5 +741,5 @@
     <bind search="self.partnerSeq = :contactNo" to="contactNo" column="contactNo" if="false"/>
   </input>.
   
--->
+
 </csv-inputs>

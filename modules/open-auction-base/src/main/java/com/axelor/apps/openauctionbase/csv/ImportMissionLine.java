@@ -1,5 +1,6 @@
 package com.axelor.apps.openauctionbase.csv;
 
+import com.axelor.apps.openauction.db.Lot;
 import com.axelor.apps.openauction.db.MissionLine;
 import com.axelor.apps.openauction.db.repo.LotRepository;
 import com.axelor.apps.openauction.db.repo.MissionLineRepository;
@@ -21,10 +22,14 @@ public class ImportMissionLine {
 
     MissionLine missionLine = (MissionLine) bean;
 
-    if (missionLine.getNoLot() != null && missionLine.getNoLot().getDescription().equals("")) {
+    String lotNo = (String) values.get("no");
+
+    Lot lot = lotRepository.findByNo(lotNo);
+
+    if (lot != null) {
+      missionLine.setNoLot(lot);
+    } else {
       missionLine.setNoLot(null);
-      missionLineRepository.save(missionLine);
-      lotRepository.remove(missionLine.getNoLot());
     }
 
     return missionLine;

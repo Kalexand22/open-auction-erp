@@ -1,5 +1,6 @@
 package com.axelor.apps.openauctionbase.csv;
 
+import com.axelor.apps.openauction.db.AuctionHeader;
 import com.axelor.apps.openauction.db.Lot;
 import com.axelor.apps.openauction.db.repo.AuctionHeaderRepository;
 import com.axelor.apps.openauction.db.repo.LotRepository;
@@ -31,11 +32,13 @@ public class ImportLot {
       return null;
     }
 
-    if (lot.getCurrentAuctionNo() != null
-        && lot.getCurrentAuctionNo().getDescription().equals("")) {
+    String currentAuctionNo = (String) values.get("currentAuctionNo");
+    AuctionHeader auctionHeader = auctionHeaderRepository.findByNo(currentAuctionNo);
+    if (auctionHeader != null) {
+      lot.setCurrentAuctionNo(auctionHeader);
+
+    } else {
       lot.setCurrentAuctionNo(null);
-      lotRepository.save(lot);
-      auctionHeaderRepository.remove(lot.getCurrentAuctionNo());
     }
 
     return lot;

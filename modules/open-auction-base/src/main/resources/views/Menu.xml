@@ -56,8 +56,7 @@
     title="Liste des missions de vente" action="mission.vente.all"/>
   <menuitem name="menu-mission-inventaire-all" parent="menu-mission"
     title="Liste des missions d'inventaire" action="mission.inventaire.all"/>
-  <menuitem name="menu-mission-all" parent="menu-mission" title="Liste des missions"
-    action="mission.all"/>
+ 
 
   <action-view name="nature.all" title="Liste des natures de lot"
     model="com.axelor.apps.openauction.db.LotNature">
